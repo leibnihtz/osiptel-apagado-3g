@@ -27,6 +27,17 @@ outputs/_python_deps/
 .vscode/
 .idea/
 
+# Shapefiles fuente (el pipeline usa el GeoJSON simplificado en data/geo/)
+Limite_Distrital/
+
+# Archivos de trabajo de herramientas locales
+.claude/
+
+# Carpetas de outputs duplicados / subida manual
+outputs/observable/upload_bundle/
+outputs/tables/observable_*.csv
+outputs/tables/observable_*.geojson
+
 # OS
 .DS_Store
 Thumbs.db
