@@ -38,10 +38,11 @@ def download_year_csv(year: int) -> Path:
     dest = ROOT / "data" / "raw" / f"dataset_{year}.csv"
     dest.parent.mkdir(parents=True, exist_ok=True)
 
+    base_url = "https://checatuinternetmovil.osiptel.gob.pe"
     headers = {
         "Accept": "application/json, text/plain, */*",
-        "Referer": "https://checatuinternetmovil.osiptel.gob.pe/",
-        "Origin": "https://checatuinternetmovil.osiptel.gob.pe",
+        "Referer": f"{base_url}/",
+        "Origin": base_url,
         "User-Agent": (
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
             "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -49,8 +50,13 @@ def download_year_csv(year: int) -> Path:
         ),
     }
 
+    # Usamos Session para obtener cookies de sesión visitando la página principal primero
+    session = requests.Session()
+    session.verify = False
+    session.get(base_url, headers={"User-Agent": headers["User-Agent"]}, timeout=30)
+
     print(f"Descargando dataset {year} desde OSIPTEL...")
-    r = requests.get(OSIPTEL_URL, params={"anio": year}, headers=headers, timeout=120, verify=False)
+    r = session.get(OSIPTEL_URL, params={"anio": year}, headers=headers, timeout=120)
     r.raise_for_status()
 
     with zipfile.ZipFile(io.BytesIO(r.content)) as z:
