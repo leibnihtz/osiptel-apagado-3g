@@ -38,8 +38,19 @@ def download_year_csv(year: int) -> Path:
     dest = ROOT / "data" / "raw" / f"dataset_{year}.csv"
     dest.parent.mkdir(parents=True, exist_ok=True)
 
+    headers = {
+        "Accept": "application/json, text/plain, */*",
+        "Referer": "https://checatuinternetmovil.osiptel.gob.pe/",
+        "Origin": "https://checatuinternetmovil.osiptel.gob.pe",
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/125.0.0.0 Safari/537.36"
+        ),
+    }
+
     print(f"Descargando dataset {year} desde OSIPTEL...")
-    r = requests.get(OSIPTEL_URL, params={"anio": year}, timeout=120, verify=False)
+    r = requests.get(OSIPTEL_URL, params={"anio": year}, headers=headers, timeout=120, verify=False)
     r.raise_for_status()
 
     with zipfile.ZipFile(io.BytesIO(r.content)) as z:
