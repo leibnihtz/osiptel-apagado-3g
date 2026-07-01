@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Recurse \"C:\\\\Users\\\\Leibnihtz\\\\Documents\\\\Leibtechs\\\\Python\\\\PortalOsiptelApagado3G\")",
+      "Bash(Select-Object FullName, Length)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Leibnihtz\\\\Documents\\\\Leibtechs\\\\Python\\\\PortalOsiptelApagado3G\" | Where-Object { $_.Name -ne '.venv' } | Select-Object Name, Length, PSIsContainer)",
+      "PowerShell(New-Item *)",
+      "PowerShell(head *)"
+    ]
+  }
+}

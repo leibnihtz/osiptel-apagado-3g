@@ -1,0 +1,32 @@
+# Entorno virtual
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Archivos grandes no necesarios para el pipeline
+*.rar
+*.zip
+*.docx
+*.xlsx
+*.pdf
+
+# Outputs locales que no van al repo
+outputs/logs/
+outputs/reports/
+outputs/maps/
+outputs/_python_deps/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

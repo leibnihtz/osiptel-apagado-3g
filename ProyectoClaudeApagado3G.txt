@@ -1,0 +1,47 @@
+Tengo un proyecto Python local en [REEMPLAZA CON LA RUTA COMPLETA, ej: C:\Users\Abrahan\Documents\Leibtechs\Python\PortalOsiptelApagado3G] que procesa datos de calidad de internet móvil de OSIPTEL Perú.
+Contexto del proyecto:
+
+Hay CSVs históricos anuales en data/raw/: dataset_2023.csv, dataset_2024.csv, dataset_2025.csv (~13 MB cada uno)
+Hay un script Python existente que normaliza y unifica los CSVs (maneja diferencias de columnas entre años)
+El output final debe ser un único osiptel_series_final.csv listo para consumir en ObservableHQ
+
+Lo que quiero construir:
+Un flujo automatizado con las siguientes piezas:
+
+Dockerfile que contenga el pipeline completo:
+
+Descarga el mes nuevo desde checatuinternetmovil.osiptel.gob.pe (botón "Descarga de dataset") usando Playwright headless
+Hace merge con el histórico usando la lógica del script Python existente
+Genera osiptel_series_final.csv
+Hace git push del CSV final a un repositorio GitHub
+
+
+trigger.py que corro desde mi PC y que:
+
+Llama la API de DigitalOcean para crear un Droplet efímero (Ubuntu, $6/mes, región NYC o SFO)
+Espera a que el Droplet arranque
+Via SSH ejecuta: docker run --rm con la imagen del pipeline
+Cuando termina, llama la API de DigitalOcean para destruir el Droplet
+Todo el flujo no debería tomar más de 5-10 minutos
+
+
+cloud-init.yaml para que el Droplet efímero al arrancar instale Docker automáticamente y esté listo para correr la imagen
+
+Stack:
+
+Python + pandas (pipeline existente)
+Playwright (descarga desde OSIPTEL)
+Docker
+DigitalOcean API (python-digitalocean o requests directo)
+GitHub (push del CSV final via git con deploy key)
+
+Lo que necesito que hagas:
+
+Lee el script Python existente y todos los archivos del proyecto
+Identifica las dependencias exactas para el requirements.txt
+Construye el Dockerfile basándote en la lógica real del script
+Construye trigger.py con manejo de errores (si el pipeline falla, el Droplet igual se destruye)
+Construye cloud-init.yaml
+Dame instrucciones para: crear el repo GitHub, configurar el deploy key en el Droplet efímero, y obtener el token de la API de DigitalOcean
+
+No asumas la estructura del script Python — léelo primero y pregunta si algo no está claro antes de generar código.

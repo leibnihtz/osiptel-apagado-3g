@@ -1,0 +1,49 @@
+name: OSIPTEL Pipeline
+
+on:
+  schedule:
+    # Primer día de cada mes a las 6am UTC (1am hora Perú)
+    - cron: "0 6 1 * *"
+  workflow_dispatch:
+    # Permite ejecutarlo manualmente desde la pestaña Actions en GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Instalar paquete local
+        run: pip install -e .
+
+      - name: Ejecutar pipeline
+        run: python scripts/download.py
+
+      - name: Commit y push si hay cambios
+        run: |
+          git config user.name "osiptel-bot"
+          git config user.email "bot@leibtechs.pe"
+          YEAR=$(date +'%Y')
+          git add osiptel_series_final.csv \
+                  data/raw/dataset_${YEAR}.csv \
+                  data/geo/peru_districts_simplified.geojson \
+                  outputs/tables/dataset_2023_2025_shutdown_districts.csv \
+                  outputs/tables/shutdown_confirmed.csv \
+                  outputs/observable/data/
+          git diff --cached --quiet && echo "Sin cambios nuevos" && exit 0
+          git commit -m "pipeline: $(date +'%Y-%m') update"
+          git push
