@@ -15,7 +15,12 @@ import zipfile
 from datetime import datetime
 from pathlib import Path
 
+import urllib3
 import requests
+
+# El certificado SSL de OSIPTEL no está en el bundle estándar de Linux/Python.
+# Deshabilitamos la verificación solo para este dominio del gobierno peruano.
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT / "src"))
@@ -34,7 +39,7 @@ def download_year_csv(year: int) -> Path:
     dest.parent.mkdir(parents=True, exist_ok=True)
 
     print(f"Descargando dataset {year} desde OSIPTEL...")
-    r = requests.get(OSIPTEL_URL, params={"anio": year}, timeout=120)
+    r = requests.get(OSIPTEL_URL, params={"anio": year}, timeout=120, verify=False)
     r.raise_for_status()
 
     with zipfile.ZipFile(io.BytesIO(r.content)) as z:
