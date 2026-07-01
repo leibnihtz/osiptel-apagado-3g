@@ -58,24 +58,26 @@ def download_year_csv(year: int) -> Path:
     # 1. Buscar JWT en el HTML principal
     resp = session.get(base_url, headers={"User-Agent": user_agent}, timeout=30)
     html = resp.text
-    print(f"  [debug] status={resp.status_code} html_len={len(html)}")
-    print(f"  [debug] html preview: {html[:300]!r}")
+    print(f"  [debug] página principal: status={resp.status_code} len={len(html)}")
+    print(f"  [debug] response headers: {dict(resp.headers)}")
     token = _find_jwt(html)
 
     # 2. Si no está en el HTML, buscar en los archivos JS que carga la página
     if not token:
         script_srcs = re.findall(r'<script[^>]+src=["\']([^"\']+)["\']', html)
-        print(f"  [debug] scripts encontrados: {script_srcs}")
+        print(f"  [debug] scripts: {script_srcs}")
         for src in script_srcs:
             if not src.startswith("http"):
                 src = base_url + (src if src.startswith("/") else "/" + src)
             try:
-                js = session.get(src, headers={"User-Agent": user_agent}, timeout=30).text
-                token = _find_jwt(js)
+                js_resp = session.get(src, headers={"User-Agent": user_agent}, timeout=60)
+                print(f"  [debug] {src.split('/')[-1]}: status={js_resp.status_code} len={len(js_resp.text)}")
+                token = _find_jwt(js_resp.text)
                 if token:
                     print(f"  JWT encontrado en: {src.split('/')[-1]}")
                     break
-            except Exception:
+            except Exception as e:
+                print(f"  [debug] error en {src.split('/')[-1]}: {e}")
                 continue
 
     # 3. Si tampoco está en los JS, intentar endpoint de auth conocido
