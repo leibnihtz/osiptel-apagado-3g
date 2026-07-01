@@ -56,12 +56,16 @@ def download_year_csv(year: int) -> Path:
         return m.group(0) if m else None
 
     # 1. Buscar JWT en el HTML principal
-    html = session.get(base_url, headers={"User-Agent": user_agent}, timeout=30).text
+    resp = session.get(base_url, headers={"User-Agent": user_agent}, timeout=30)
+    html = resp.text
+    print(f"  [debug] status={resp.status_code} html_len={len(html)}")
+    print(f"  [debug] html preview: {html[:300]!r}")
     token = _find_jwt(html)
 
     # 2. Si no está en el HTML, buscar en los archivos JS que carga la página
     if not token:
         script_srcs = re.findall(r'<script[^>]+src=["\']([^"\']+)["\']', html)
+        print(f"  [debug] scripts encontrados: {script_srcs}")
         for src in script_srcs:
             if not src.startswith("http"):
                 src = base_url + (src if src.startswith("/") else "/" + src)
