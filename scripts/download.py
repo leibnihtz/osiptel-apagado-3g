@@ -49,17 +49,52 @@ def download_year_csv(year: int) -> Path:
 
     session = requests.Session()
     session.verify = False
+    jwt_re = re.compile(r'eyJhbGci[A-Za-z0-9._-]{20,}')
 
-    # El JWT está embebido en el HTML/JS de la página principal
-    # (se genera en el servidor al cargar la página y se inyecta en el bundle)
+    def _find_jwt(text: str) -> str | None:
+        m = jwt_re.search(text)
+        return m.group(0) if m else None
+
+    # 1. Buscar JWT en el HTML principal
     html = session.get(base_url, headers={"User-Agent": user_agent}, timeout=30).text
-    match = re.search(r'eyJhbGci[A-Za-z0-9._-]+', html)
-    if not match:
+    token = _find_jwt(html)
+
+    # 2. Si no está en el HTML, buscar en los archivos JS que carga la página
+    if not token:
+        script_srcs = re.findall(r'<script[^>]+src=["\']([^"\']+)["\']', html)
+        for src in script_srcs:
+            if not src.startswith("http"):
+                src = base_url + (src if src.startswith("/") else "/" + src)
+            try:
+                js = session.get(src, headers={"User-Agent": user_agent}, timeout=30).text
+                token = _find_jwt(js)
+                if token:
+                    print(f"  JWT encontrado en: {src.split('/')[-1]}")
+                    break
+            except Exception:
+                continue
+
+    # 3. Si tampoco está en los JS, intentar endpoint de auth conocido
+    if not token:
+        for auth_url in [
+            f"{base_url}/beta/api/auth/token",
+            f"{base_url}/beta/api/token",
+            f"{base_url}/api/auth",
+        ]:
+            try:
+                r = session.get(auth_url, headers={"User-Agent": user_agent}, verify=False, timeout=15)
+                if r.status_code == 200:
+                    token = _find_jwt(r.text)
+                    if token:
+                        break
+            except Exception:
+                continue
+
+    if not token:
         raise RuntimeError(
-            "No se encontró el JWT en la página de OSIPTEL. "
-            "El sitio puede haber cambiado su mecanismo de autenticación."
+            "No se encontró el JWT de OSIPTEL en HTML, JS ni endpoints de auth. "
+            "El mecanismo de autenticación del sitio puede haber cambiado."
         )
-    token = match.group(0)
     print(f"  Token JWT obtenido ({len(token)} chars)")
 
     headers = {
