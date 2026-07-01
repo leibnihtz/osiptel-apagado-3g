@@ -38,22 +38,37 @@ def download_year_csv(year: int) -> Path:
     dest = ROOT / "data" / "raw" / f"dataset_{year}.csv"
     dest.parent.mkdir(parents=True, exist_ok=True)
 
-    base_url = "https://checatuinternetmovil.osiptel.gob.pe"
-    headers = {
-        "Accept": "application/json, text/plain, */*",
-        "Referer": f"{base_url}/",
-        "Origin": base_url,
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/125.0.0.0 Safari/537.36"
-        ),
-    }
+    import re
 
-    # Usamos Session para obtener cookies de sesión visitando la página principal primero
+    base_url = "https://checatuinternetmovil.osiptel.gob.pe"
+    user_agent = (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/125.0.0.0 Safari/537.36"
+    )
+
     session = requests.Session()
     session.verify = False
-    session.get(base_url, headers={"User-Agent": headers["User-Agent"]}, timeout=30)
+
+    # El JWT está embebido en el HTML/JS de la página principal
+    # (se genera en el servidor al cargar la página y se inyecta en el bundle)
+    html = session.get(base_url, headers={"User-Agent": user_agent}, timeout=30).text
+    match = re.search(r'eyJhbGci[A-Za-z0-9._-]+', html)
+    if not match:
+        raise RuntimeError(
+            "No se encontró el JWT en la página de OSIPTEL. "
+            "El sitio puede haber cambiado su mecanismo de autenticación."
+        )
+    token = match.group(0)
+    print(f"  Token JWT obtenido ({len(token)} chars)")
+
+    headers = {
+        "Accept": "application/json, text/plain, */*",
+        "Authorization": f"Bearer {token}",
+        "Referer": f"{base_url}/",
+        "Origin": base_url,
+        "User-Agent": user_agent,
+    }
 
     print(f"Descargando dataset {year} desde OSIPTEL...")
     r = session.get(OSIPTEL_URL, params={"anio": year}, headers=headers, timeout=120)
