@@ -3,6 +3,9 @@ import pandas as pd
 
 KEYS = ["ADM_LEVEL_1_NAME", "ADM_LEVEL_2_NAME", "ADM_LEVEL_3_NAME", "NETWORK_CARRIER"]
 
+# Meses con tráfico 3G activo requeridos antes del breakpoint (acumulados, no consecutivos).
+MIN_ACTIVE_MONTHS_PRE = 10
+
 
 def detect_shutdown_confirmed(df: pd.DataFrame, carrier: str) -> pd.DataFrame:
     d = df[df["NETWORK_CARRIER"] == carrier.upper()].copy()
@@ -36,11 +39,10 @@ def detect_shutdown_confirmed(df: pd.DataFrame, carrier: str) -> pd.DataFrame:
         if breakpoint is None:
             continue
 
-        # NUEVA REGLA: debe haber al menos 3 meses ACTIVE antes del breakpoint
         pre = g[g["YEARMONTH"] < breakpoint]
         active_pre_months = int(pre["IS_3G_ACTIVE_MONTH"].sum())
-        if active_pre_months < 10:
-            continue        
+        if active_pre_months < MIN_ACTIVE_MONTHS_PRE:
+            continue
 
         # confirmación: desde breakpoint hasta last_ym:
         tail_months = [m for m in months_sorted if m >= breakpoint and m <= last_ym]
