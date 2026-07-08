@@ -4,3 +4,4 @@ requests>=2.31
 pycryptodome>=3.20
 geopandas>=0.14
 pyogrio>=0.7
+scipy>=1.11
