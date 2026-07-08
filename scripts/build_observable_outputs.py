@@ -26,6 +26,7 @@ import unicodedata
 from pathlib import Path
 from typing import Any
 
+import numpy as np
 import pandas as pd
 
 
@@ -57,6 +58,16 @@ def mean_or_na(frame: pd.DataFrame, column: str) -> float:
     if frame.empty or column not in frame.columns:
         return math.nan
     return float(frame[column].mean(skipna=True))
+
+
+def wmean_or_na(frame: pd.DataFrame, col: str, weight_col: str) -> float:
+    if frame.empty or col not in frame.columns or weight_col not in frame.columns:
+        return math.nan
+    valid = frame[[col, weight_col]].dropna()
+    valid = valid[valid[weight_col] > 0]
+    if valid.empty:
+        return math.nan
+    return float(np.average(valid[col], weights=valid[weight_col]))
 
 
 def ratio_change(after: float, before: float) -> float:
@@ -112,8 +123,12 @@ def build_summary(series: pd.DataFrame, shutdown: pd.DataFrame) -> pd.DataFrame:
         breakpoint = int(group["BREAKPOINT_YEARMONTH"].iloc[0])
         pre_all = group[group["YEARMONTH"] < breakpoint]
         post_all = group[group["YEARMONTH"] >= breakpoint]
-        pre6 = pre_all.tail(6)
-        post6 = post_all.head(6)
+        # A1.2: excluir meses sin mediciones 4G antes de tomar la ventana
+        MEAS = "THROUGHPUT_DOWNLOAD_4G_MEASUREMENTS"
+        pre_valid  = pre_all[pre_all[MEAS] > 0]  if MEAS in pre_all.columns  else pre_all
+        post_valid = post_all[post_all[MEAS] > 0] if MEAS in post_all.columns else post_all
+        pre6  = pre_valid.tail(6)
+        post6 = post_valid.head(6)
 
         pre_dl = mean_or_na(pre6, "AVERAGE_THROUGHPUT_DOWNLOAD_4G")
         post_dl = mean_or_na(post6, "AVERAGE_THROUGHPUT_DOWNLOAD_4G")
@@ -154,8 +169,8 @@ def build_summary(series: pd.DataFrame, shutdown: pd.DataFrame) -> pd.DataFrame:
                 "district": district,
                 "carrier": carrier,
                 "breakpoint_yearmonth": breakpoint,
-                "months_pre": int(len(pre_all)),
-                "months_post": int(len(post_all)),
+                "months_pre": int(len(pre_valid)),
+                "months_post": int(len(post_valid)),
                 "pre6_4g_download_mbps": pre_dl,
                 "post6_4g_download_mbps": post_dl,
                 "delta_4g_download_mbps": post_dl - pre_dl,
@@ -176,8 +191,14 @@ def build_summary(series: pd.DataFrame, shutdown: pd.DataFrame) -> pd.DataFrame:
                 "delta_4g_packet_loss_pp": post_loss - pre_loss,
                 "pct_4g_packet_loss_improvement": loss_pct,
                 "composite_upgrade_score": score,
-                "pre6_4g_download_measurements": mean_or_na(pre6, "THROUGHPUT_DOWNLOAD_4G_MEASUREMENTS"),
-                "post6_4g_download_measurements": mean_or_na(post6, "THROUGHPUT_DOWNLOAD_4G_MEASUREMENTS"),
+                "pre6_4g_download_measurements": mean_or_na(pre6, MEAS),
+                "post6_4g_download_measurements": mean_or_na(post6, MEAS),
+                "pre6_4g_download_mbps_weighted": wmean_or_na(pre6, "AVERAGE_THROUGHPUT_DOWNLOAD_4G", MEAS),
+                "post6_4g_download_mbps_weighted": wmean_or_na(post6, "AVERAGE_THROUGHPUT_DOWNLOAD_4G", MEAS),
+                "delta_4g_download_mbps_weighted": (
+                    wmean_or_na(post6, "AVERAGE_THROUGHPUT_DOWNLOAD_4G", MEAS)
+                    - wmean_or_na(pre6, "AVERAGE_THROUGHPUT_DOWNLOAD_4G", MEAS)
+                ),
                 "last_yearmonth_available": int(group["LAST_YEARMONTH_AVAILABLE"].iloc[0])
                 if "LAST_YEARMONTH_AVAILABLE" in group.columns and pd.notna(group["LAST_YEARMONTH_AVAILABLE"].iloc[0])
                 else int(group["YEARMONTH"].max()),
@@ -286,13 +307,60 @@ def inject_geo_metrics(summary: pd.DataFrame, geo_path: Path) -> tuple[dict[str,
     return all_geo, shutdown_geo, pd.DataFrame(enriched_rows)
 
 
+REGION_COLS = ["region3", "altitud_m", "poblacion_distrito"]
+
+
+def inject_region_classification(df: pd.DataFrame, rc_path: Path) -> pd.DataFrame:
+    """Join region3/altitud_m/poblacion_distrito by UBIGEO with name fallback."""
+    if not rc_path.exists():
+        print(f"  AVISO: region_classification no encontrado en {rc_path}, saltando join.")
+        return df
+
+    rc = pd.read_csv(rc_path, dtype=str)
+    rc["ubigeo"] = rc["ubigeo"].str.zfill(6)
+    rc["altitud_m"] = pd.to_numeric(rc["altitud_m"], errors="coerce")
+    rc["poblacion_distrito"] = pd.to_numeric(rc["poblacion_distrito"], errors="coerce")
+    rc["_key"] = (
+        rc["departamento"].map(normalize_name)
+        + "|"
+        + rc["provincia"].map(normalize_name)
+        + "|"
+        + rc["distrito"].map(normalize_name)
+    )
+
+    rc_by_ubigeo = rc.set_index("ubigeo")[REGION_COLS]
+    rc_by_key = rc.set_index("_key")[REGION_COLS]
+
+    out = df.copy()
+    out["ubigeo"] = out["ubigeo"].astype(str).str.zfill(6)
+    for col in REGION_COLS:
+        out[col] = out["ubigeo"].map(rc_by_ubigeo[col])
+
+    mask = out["region3"].isna()
+    if mask.any():
+        out["_key"] = (
+            out["department"].map(normalize_name)
+            + "|"
+            + out["province"].map(normalize_name)
+            + "|"
+            + out["district"].map(normalize_name)
+        )
+        for col in REGION_COLS:
+            out.loc[mask, col] = out.loc[mask, "_key"].map(rc_by_key[col])
+        out = out.drop(columns=["_key"])
+
+    nan_count = int(out["region3"].isna().sum())
+    print(f"  region3 NaN: {nan_count}/{len(out)} (0 esperado para los 86 tratados)")
+    return out
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build Observable-ready OSIPTEL outputs.")
     parser.add_argument(
         "--series",
         type=Path,
         default=None,
-        help="Filtered monthly series CSV. Defaults to outputs/tables/dataset_2023_2025_shutdown_districts.csv, then osiptel_series_final.csv.",
+        help="Filtered monthly series CSV. Defaults to outputs/tables/dataset_2023_2026_shutdown_districts.csv, then osiptel_series_final.csv.",
     )
     parser.add_argument(
         "--shutdown",
@@ -305,6 +373,12 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=ROOT / "data" / "geo" / "peru_districts_simplified.geojson",
         help="Simplified Peru district GeoJSON path.",
+    )
+    parser.add_argument(
+        "--region-classification",
+        type=Path,
+        default=ROOT / "data" / "inei_cpv2017" / "region_classification_by_ubigeo.csv",
+        help="INEI region classification CSV with ubigeo, region3, altitud_m, poblacion_distrito.",
     )
     parser.add_argument(
         "--output-dir",
@@ -320,13 +394,13 @@ def resolve_series_path(arg_path: Path | None) -> Path:
         return arg_path
 
     candidates = [
-        ROOT / "outputs" / "tables" / "dataset_2023_2025_shutdown_districts.csv",
+        ROOT / "outputs" / "tables" / "dataset_2023_2026_shutdown_districts.csv",
         ROOT / "osiptel_series_final.csv",
     ]
     for path in candidates:
         if path.exists():
             return path
-    raise FileNotFoundError("No series CSV found. Expected outputs/tables/dataset_2023_2025_shutdown_districts.csv or osiptel_series_final.csv")
+    raise FileNotFoundError("No series CSV found. Expected outputs/tables/dataset_2023_2026_shutdown_districts.csv or osiptel_series_final.csv")
 
 
 def main() -> None:
@@ -342,6 +416,7 @@ def main() -> None:
     summary = build_summary(series, shutdown)
     timeseries = build_timeseries(series, shutdown)
     all_geo, shutdown_geo, summary_with_ubigeo = inject_geo_metrics(summary, args.geo)
+    summary_with_ubigeo = inject_region_classification(summary_with_ubigeo, args.region_classification)
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
 

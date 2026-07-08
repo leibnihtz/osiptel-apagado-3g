@@ -4,8 +4,9 @@ Detecta los distritos donde Movistar desactivó el 3G y analiza si la transició
 
 **Datos:** [OSIPTEL — Checa tu Internet Móvil](https://checatuinternetmovil.osiptel.gob.pe)  
 **Actualización:** automática el día 1 de cada mes vía GitHub Actions  
+**Python:** 3.11 (requerido; pinned en CI)  
 **Visualización:** [ObservableHQ](https://observablehq.com/d/42e2b1280524610e)  
-**Autor:** Abrahan Ayamamani Choque · [@leibnihtz](https://github.com/leibnihtz)
+**Autor:** Leibnihtz Ayamamani-Choque · [@leibnihtz](https://github.com/leibnihtz)
 
 ---
 

@@ -27,7 +27,7 @@ def write_outputs(
     # Dataset derivado (opcional)
     if write_filtered:
         filtered = df_all.merge(core_df[KEYS], on=KEYS, how="inner")
-        filtered_path = out_dir / "dataset_2023_2025_shutdown_districts.csv"
+        filtered_path = out_dir / "dataset_2023_2026_shutdown_districts.csv"
         filtered.to_csv(filtered_path, index=False, encoding="utf-8")
         outputs["filtered"] = filtered_path
 

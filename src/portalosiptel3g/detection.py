@@ -44,14 +44,15 @@ def detect_shutdown_confirmed(df: pd.DataFrame, carrier: str) -> pd.DataFrame:
         if active_pre_months < MIN_ACTIVE_MONTHS_PRE:
             continue
 
-        # confirmación: desde breakpoint hasta last_ym:
+        # confirmación: desde breakpoint hasta last_ym todos los meses deben
+        # existir en la fuente (ROW_PRESENT_IN_SOURCE) y ser ZERO.
         tail_months = [m for m in months_sorted if m >= breakpoint and m <= last_ym]
 
-        # si hay huecos de meses, no confirmamos
-        if any(m not in months_present for m in tail_months):
-            continue
-
         g_tail = g[g["YEARMONTH"].isin(tail_months)]
+        if len(g_tail) < len(tail_months):
+            continue
+        if "ROW_PRESENT_IN_SOURCE" in g_tail.columns and bool((~g_tail["ROW_PRESENT_IN_SOURCE"]).any()):
+            continue
         if bool((~g_tail["IS_3G_ZERO_MONTH"]).any()):
             continue
 

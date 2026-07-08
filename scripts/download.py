@@ -186,14 +186,10 @@ def run_pipeline() -> None:
     keys = ["ADM_LEVEL_1_NAME", "ADM_LEVEL_2_NAME", "ADM_LEVEL_3_NAME", "NETWORK_CARRIER"]
     final = df.merge(core[keys], on=keys, how="inner")
 
-    out_final = ROOT / "osiptel_series_final.csv"
-    final.to_csv(out_final, index=False, encoding="utf-8")
-    print(f"  osiptel_series_final.csv: {len(final):,} filas -> {out_final}")
-
     tables_dir = ROOT / "outputs" / "tables"
     tables_dir.mkdir(parents=True, exist_ok=True)
-    final.to_csv(tables_dir / "dataset_2023_2025_shutdown_districts.csv", index=False, encoding="utf-8")
-    print("  dataset_2023_2025_shutdown_districts.csv actualizado")
+    final.to_csv(tables_dir / "dataset_2023_2026_shutdown_districts.csv", index=False, encoding="utf-8")
+    print("  dataset_2023_2026_shutdown_districts.csv actualizado")
     core.to_csv(tables_dir / "shutdown_confirmed.csv", index=False, encoding="utf-8")
     print("  shutdown_confirmed.csv actualizado")
 
@@ -203,7 +199,7 @@ def run_pipeline() -> None:
             sys.executable,
             str(ROOT / "scripts" / "build_observable_outputs.py"),
             "--series",
-            str(tables_dir / "dataset_2023_2025_shutdown_districts.csv"),
+            str(tables_dir / "dataset_2023_2026_shutdown_districts.csv"),
             "--shutdown",
             str(tables_dir / "shutdown_confirmed.csv"),
         ],

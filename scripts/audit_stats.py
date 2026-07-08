@@ -48,7 +48,7 @@ print(f"  Unique Movistar districts in raw CSVs : {raw_districts}")
 shutdown = pd.read_csv(ROOT / "outputs" / "tables" / "shutdown_confirmed.csv")
 print(f"  Confirmed shutdown districts (all)    : {len(shutdown)}")
 
-series = pd.read_csv(ROOT / "outputs" / "tables" / "dataset_2023_2025_shutdown_districts.csv")
+series = pd.read_csv(ROOT / "outputs" / "tables" / "dataset_2023_2026_shutdown_districts.csv")
 summary = pd.read_csv(ROOT / "outputs" / "observable" / "data" / "observable_4g_upgrade_summary.csv")
 filtered = summary[summary["months_post"] >= 3]
 print(f"  Confirmed with >= 3 months post       : {len(filtered)}")

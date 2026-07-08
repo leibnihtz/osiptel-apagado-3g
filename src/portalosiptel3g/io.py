@@ -16,7 +16,9 @@ def sniff_delimiter(path: Path) -> str:
 def read_csv_safely(path: Path) -> pd.DataFrame:
     sep = sniff_delimiter(path)
     # dtype=str para evitar problemas por columnas mixtas; luego tipificamos.
-    return pd.read_csv(path, sep=sep, encoding="utf-8", dtype=str, keep_default_na=False)
+    df = pd.read_csv(path, sep=sep, encoding="utf-8", dtype=str, keep_default_na=False)
+    df["ROW_PRESENT_IN_SOURCE"] = True
+    return df
 
 
 def read_and_concat(data_dir: Path, pattern: str = "dataset_*.csv") -> pd.DataFrame:
