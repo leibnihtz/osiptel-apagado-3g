@@ -1,0 +1,102 @@
+{
+  "dataset": {
+    "n_confirmed": 86,
+    "n_analysis": 67,
+    "n_departments": 13,
+    "bp_range": "202405-202602"
+  },
+  "delta_crude": {
+    "median": 1.0032,
+    "mean": 1.0172,
+    "std": 1.002,
+    "ci95_lo": 0.7709,
+    "ci95_hi": 1.1833,
+    "wilcoxon_stat": 2133.0,
+    "wilcoxon_p": 2.66e-10,
+    "n_positive": 62,
+    "n_negative": 5,
+    "n": 67
+  },
+  "delta_weighted": {
+    "median": 0.9799,
+    "mean": 1.0515,
+    "n": 67
+  },
+  "delta_latency": {
+    "median": -6.0262,
+    "ci95_lo": -10.8857,
+    "ci95_hi": -4.0767,
+    "n": 67
+  },
+  "did": {
+    "median": 0.6488,
+    "mean": 0.6661,
+    "std": 1.0572,
+    "ci95_lo": 0.4218,
+    "ci95_hi": 1.0104,
+    "wilcoxon_stat": 1899.0,
+    "wilcoxon_p": 1.03e-06,
+    "n_positive": 52,
+    "n_negative": 15,
+    "n_matched": 67,
+    "n_unmatched": 0
+  },
+  "by_region": {
+    "costa": {
+      "n": 38,
+      "median": 0.7739,
+      "mean": 0.758
+    },
+    "sierra": {
+      "n": 29,
+      "median": 1.4061,
+      "mean": 1.3568
+    }
+  },
+  "correlations": {
+    "delta_dl_vs_latency": {
+      "rho": 0.0096,
+      "p": 0.938429
+    },
+    "delta_dl_vs_baseline": {
+      "rho": -0.4741,
+      "p": 5.05e-05
+    },
+    "delta_dl_vs_log_poblacion": {
+      "rho": -0.2004,
+      "p": 0.10399
+    },
+    "delta_dl_vs_altitud": {
+      "rho": 0.3759,
+      "p": 0.001722
+    }
+  },
+  "robustness": {
+    "principal": {
+      "median": 1.0032,
+      "n": 67
+    },
+    "weighted": {
+      "median": 0.9799,
+      "mean": 1.0515,
+      "n": 67
+    },
+    "strict_post6": {
+      "median": 1.0051,
+      "n": 62
+    },
+    "did": {
+      "median": 0.6488,
+      "mean": 0.6661,
+      "n": 67
+    },
+    "excl_low_meas": {
+      "median": 0.8706,
+      "n": 50
+    }
+  },
+  "bootstrap": {
+    "seed": 42,
+    "n_iterations": 10000
+  }
+}

@@ -86,7 +86,7 @@ print(summary[["department","province","district","ubigeo","region3","altitud_m"
 print("\nCargando universo Movistar...")
 dfs = []
 for f in sorted(RAW_DIR.glob("dataset_*.csv")):
-    df = pd.read_csv(f, sep=";", dtype=str)
+    df = pd.read_csv(f, sep=";", dtype=str, encoding="utf-8-sig")
     df["SOURCE_FILE"] = f.name
     dfs.append(df)
 raw = pd.concat(dfs, ignore_index=True)

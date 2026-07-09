@@ -11,6 +11,7 @@ Outputs en outputs/tables/:
 from __future__ import annotations
 
 import sys
+import unicodedata
 from pathlib import Path
 
 import numpy as np
@@ -27,7 +28,7 @@ from portalosiptel3g.features import add_yearmonth, add_3g_flags
 RAW_DIR       = ROOT / "data" / "raw"
 SHUTDOWN_PATH = ROOT / "outputs" / "tables" / "shutdown_confirmed.csv"
 SUMMARY_PATH  = ROOT / "outputs" / "observable" / "data" / "observable_4g_upgrade_summary_with_ubigeo.csv"
-UNIVERSE_PATH = ROOT / "outputs" / "tables" / "movistar_universe_with_region.csv"
+UNIVERSE_PATH = ROOT / "outputs" / "tables" / "movistar_universe_with_region_a_mano.csv"
 SERIES_PATH   = ROOT / "outputs" / "tables" / "dataset_2023_2026_shutdown_districts.csv"
 OUT_DIR       = ROOT / "outputs" / "tables"
 
@@ -69,7 +70,7 @@ def window_months(bp: int) -> tuple[list[int], list[int]]:
 def load_full_movistar() -> pd.DataFrame:
     dfs = []
     for f in sorted(RAW_DIR.glob("dataset_*.csv")):
-        df = pd.read_csv(f, sep=";", dtype=str, encoding="utf-8")
+        df = pd.read_csv(f, sep=";", dtype=str, encoding="utf-8-sig")
         df["SOURCE_FILE"] = f.name
         dfs.append(df)
     raw = pd.concat(dfs, ignore_index=True)
@@ -91,6 +92,28 @@ def district_key(dept: str, prov: str, dist: str) -> str:
     )
 
 
+def _fix_mojibake(s: str) -> str:
+    """UTF-8 leído como Latin-1 (Excel abrió sin BOM) → texto correcto."""
+    try:
+        return s.encode("latin-1").decode("utf-8")
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        return s
+
+
+def _norm_part(s: str) -> str:
+    s = _fix_mojibake(str(s)).strip().upper()
+    s = unicodedata.normalize("NFD", s)
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+    s = s.replace("-", " ").replace("_", " ")
+    return " ".join(s.split())
+
+
+def norm_key(raw_key: str) -> str:
+    """Convierte 'DEPT|PROV|DIST' a su versión normalizada (sin tildes, guiones, mojibake)."""
+    parts = raw_key.split("|", 2)
+    return "|".join(_norm_part(p) for p in parts)
+
+
 def mean_valid_4g(g: pd.DataFrame) -> float:
     rows = g[g[MEAS_COL] > 0] if MEAS_COL in g.columns else g
     if rows.empty or DL_COL not in rows.columns:
@@ -100,7 +123,7 @@ def mean_valid_4g(g: pd.DataFrame) -> float:
 
 def find_eligible(
     ctrl_by_key: dict,
-    uni_lookup: pd.DataFrame,
+    uni_norm_lookup: pd.DataFrame,
     pre_m_avail: list,
     post_m_avail: list,
     region3_i: str,
@@ -129,9 +152,10 @@ def find_eligible(
         post6_j = mean_valid_4g(g_post)
         if np.isnan(pre6_j) or np.isnan(post6_j):
             continue
-        if key not in uni_lookup.index:
+        nk = norm_key(key)
+        if nk not in uni_norm_lookup.index:
             continue
-        u = uni_lookup.loc[key]
+        u = uni_norm_lookup.loc[nk]
         region3_j = u["region3"] if pd.notna(u.get("region3")) else None
         log_pop_j = float(u["log10_pop"]) if pd.notna(u.get("log10_pop")) else float("nan")
         alt_j     = float(u["altitud_m"]) if pd.notna(u.get("altitud_m")) else float("nan")
@@ -189,16 +213,20 @@ def main() -> None:
     print(f"  Pool de control: {ctrl_full['_key'].nunique():,} distritos únicos")
 
     # Covariables del pool de control (region3, altitud, poblacion)
-    universe = pd.read_csv(UNIVERSE_PATH)
+    universe = pd.read_csv(UNIVERSE_PATH, encoding="cp1252")
     universe["_key"] = universe.apply(
         lambda r: district_key(r["department"], r["province"], r["district"]), axis=1
     )
-    universe["altitud_m"]        = pd.to_numeric(universe["altitud_m"], errors="coerce")
+    universe["altitud_m"]          = pd.to_numeric(universe["altitud_m"], errors="coerce")
     universe["poblacion_distrito"] = pd.to_numeric(universe["poblacion_distrito"], errors="coerce")
-    universe["log10_pop"]        = np.log10(universe["poblacion_distrito"].clip(lower=1))
-    # drop duplicates por si acaso
-    universe = universe.drop_duplicates(subset="_key")
-    uni_lookup = universe.set_index("_key")
+    universe["log10_pop"]          = np.log10(universe["poblacion_distrito"].clip(lower=1))
+    # Normalizar para tolerar mojibake (ñ→Ã±), tildes y guiones en el CSV manual
+    universe["_norm_key"] = universe["_key"].map(norm_key)
+    universe = universe.drop_duplicates(subset="_norm_key")
+    uni_norm_lookup = universe.set_index("_norm_key")
+    n_uni = len(uni_norm_lookup)
+    n_with_r3 = uni_norm_lookup["region3"].notna().sum()
+    print(f"  Universe (norm-dedup): {n_uni} distritos, {n_with_r3} con region3")
 
     # Tratados con sus covariables y métricas
     summary = pd.read_csv(SUMMARY_PATH)
@@ -236,7 +264,7 @@ def main() -> None:
 
         # Intento 1: calipers estándar
         eligible = find_eligible(
-            ctrl_by_key, uni_lookup, pre_m_avail, post_m_avail,
+            ctrl_by_key, uni_norm_lookup, pre_m_avail, post_m_avail,
             region3_i, pre6_i, log_pop_i, alt_i,
             CAL_4G, CAL_LOGPOP, CAL_ALT,
         )
@@ -245,7 +273,7 @@ def main() -> None:
         # Fallback: calipers relajados para unmatched
         if len(eligible) < 3:
             eligible_r = find_eligible(
-                ctrl_by_key, uni_lookup, pre_m_avail, post_m_avail,
+                ctrl_by_key, uni_norm_lookup, pre_m_avail, post_m_avail,
                 region3_i, pre6_i, log_pop_i, alt_i,
                 CAL_4G_R, CAL_LOGPOP_R, CAL_ALT_R,
             )

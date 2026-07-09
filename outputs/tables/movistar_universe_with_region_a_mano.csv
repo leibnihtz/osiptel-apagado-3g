@@ -1,0 +1,1921 @@
+department,province,district,region3,altitud_m,poblacion_distrito
+Amazonas,Bagua,Aramango,Selva,360,9765
+Amazonas,Bagua,Bagua,Selva,408,27102
+Amazonas,Bagua,Copallin,Selva,693,4595
+Amazonas,Bagua,El Parco,Selva,626,1216
+Amazonas,Bagua,Imaza,Selva,317,25162
+Amazonas,Bagua,La Peca,Selva,892,6260
+Amazonas,Bongara,Chisquilla,Sierra,2057,306
+Amazonas,Bongara,Churuja,Selva,1399,287
+Amazonas,Bongara,Corosha,Sierra,1901,772
+Amazonas,Bongara,Cuispes,Sierra,1912,669
+Amazonas,Bongara,Florida,Sierra,2250,5999
+Amazonas,Bongara,Jazan,Selva,1342,7580
+Amazonas,Bongara,Jumbilla,Sierra,2081,1337
+Amazonas,Bongara,Recta,Sierra,2279,208
+Amazonas,Bongara,San Carlos,Sierra,1942,489
+Amazonas,Bongara,Shipasbamba,Sierra,1668,1539
+Amazonas,Bongara,Valera,Sierra,1928,874
+Amazonas,Bongara,Yambrasbamba,Sierra,1896,5577
+Amazonas,Chachapoyas,Asuncion,Sierra,2823,262
+Amazonas,Chachapoyas,Chachapoyas,Sierra,2483,32589
+Amazonas,Chachapoyas,Cheto,Sierra,2143,642
+Amazonas,Chachapoyas,Chiliquin,Sierra,2677,585
+Amazonas,Chachapoyas,Chuquibamba,Sierra,2803,1781
+Amazonas,Chachapoyas,Granada,Sierra,3041,480
+Amazonas,Chachapoyas,Huancas,Sierra,2591,1258
+Amazonas,Chachapoyas,La Jalca,Sierra,2869,3978
+Amazonas,Chachapoyas,Leimebamba,Sierra,2226,3620
+Amazonas,Chachapoyas,Levanto,Sierra,2681,794
+Amazonas,Chachapoyas,Magdalena,Sierra,1892,852
+Amazonas,Chachapoyas,Mariscal Castilla,Sierra,2210,1367
+Amazonas,Chachapoyas,Molinopampa,Sierra,2405,2176
+Amazonas,Chachapoyas,Montevideo,Sierra,2421,496
+Amazonas,Chachapoyas,Quinjalca,Sierra,3151,769
+Amazonas,Chachapoyas,San Francisco De Daguas,Sierra,2028,295
+Amazonas,Chachapoyas,San Isidro De Maino,Sierra,2338,580
+Amazonas,Chachapoyas,Sonche,Sierra,2499,247
+Amazonas,Condorcanqui,El Cenepa,Selva,245,9891
+Amazonas,Condorcanqui,Nieva,Selva,189,18626
+Amazonas,Condorcanqui,Río Santiago,Selva,191,13953
+Amazonas,Luya,Camporredondo,Sierra,1818,6473
+Amazonas,Luya,Colcamar,Sierra,2355,1853
+Amazonas,Luya,Inguilpata,Sierra,2380,498
+Amazonas,Luya,Lamud,Sierra,2328,2227
+Amazonas,Luya,Longuita,Sierra,2696,839
+Amazonas,Luya,Lonya Chico,Sierra,2329,842
+Amazonas,Luya,Luya,Sierra,2359,3959
+Amazonas,Luya,María,Sierra,2757,744
+Amazonas,Luya,Ocallí,Sierra,1867,3556
+Amazonas,Luya,Ocúmal,Sierra,1898,3446
+Amazonas,Luya,Pisuquía,Sierra,2118,4768
+Amazonas,Luya,Providencia,Sierra,1784,1316
+Amazonas,Luya,San Cristóbal,Sierra,2636,546
+Amazonas,Luya,San Francisco Del Yeso,Sierra,2404,695
+Amazonas,Luya,San Jerónimo,Sierra,2498,633
+Amazonas,Luya,San Juan De Lopecancha,Sierra,2779,419
+Amazonas,Luya,Santa Catalina,Sierra,2574,1888
+Amazonas,Luya,Santo Tomás,Sierra,2836,3012
+Amazonas,Luya,Tingo,Sierra,1961,1265
+Amazonas,Rodriguez De Mendoza,Chirimoto,Selva,1186,2498
+Amazonas,Rodriguez De Mendoza,Cochamal,Sierra,1612,595
+Amazonas,Rodriguez De Mendoza,Huambo,Sierra,1731,2620
+Amazonas,Rodriguez De Mendoza,Limabamba,Sierra,1677,2280
+Amazonas,Rodriguez De Mendoza,Longar,Sierra,1623,1631
+Amazonas,Rodriguez De Mendoza,Mariscal Benavides,Sierra,1592,1506
+Amazonas,Rodriguez De Mendoza,Milpuc,Sierra,1664,453
+Amazonas,Rodriguez De Mendoza,Omia,Selva,1494,8793
+Amazonas,Rodriguez De Mendoza,San Nicolas,Sierra,1616,6016
+Amazonas,Rodriguez De Mendoza,Santa Rosa,Sierra,1770,512
+Amazonas,Rodriguez De Mendoza,Totora,Sierra,1684,282
+Amazonas,Rodriguez De Mendoza,Vista Alegre,Selva,1162,2812
+Amazonas,Utcubamba,Bagua Grande,Selva,444,50841
+Amazonas,Utcubamba,Cajaruro,Selva,469,23089
+Amazonas,Utcubamba,Cumba,Selva,477,7855
+Amazonas,Utcubamba,El Milagro,Selva,392,5825
+Amazonas,Utcubamba,Jamalca,Selva,1184,6620
+Amazonas,Utcubamba,Lonya Grande,Selva,1269,10080
+Amazonas,Utcubamba,Yamón,Selva,1137,2927
+Ancash,Aija,Aija,Sierra,3421,2017
+Ancash,Aija,Coris,Sierra,2903,1639
+Ancash,Aija,Huacllan,Sierra,3020,364
+Ancash,Aija,La Merced,Sierra,3311,1582
+Ancash,Aija,Succha,Sierra,3167,714
+Ancash,Antonio Raymondi,Aczo,Sierra,2680,1918
+Ancash,Antonio Raymondi,Chaccho,Sierra,3371,1368
+Ancash,Antonio Raymondi,Chingas,Sierra,2866,1851
+Ancash,Antonio Raymondi,Llamellin,Sierra,3400,3288
+Ancash,Antonio Raymondi,Mirgas,Sierra,3147,4067
+Ancash,Antonio Raymondi,San Juan De Rontoy,Sierra,3782,1158
+Ancash,Asuncion,Acochaca,Sierra,3520,2815
+Ancash,Asuncion,Chacas,Sierra,3387,4563
+Ancash,Bolognesi,Abelardo Pardo Lezameta,Costa,2108,244
+Ancash,Bolognesi,Antonio Raymondi,Costa,2139,994
+Ancash,Bolognesi,Aquia,Sierra,3356,2062
+Ancash,Bolognesi,Cajacay,Sierra,2616,1677
+Ancash,Bolognesi,Canis,Sierra,2465,312
+Ancash,Bolognesi,Chiquian,Sierra,3410,4023
+Ancash,Bolognesi,Colquioc,Costa,772,2313
+Ancash,Bolognesi,Huallanca,Sierra,3563,6468
+Ancash,Bolognesi,Huasta,Sierra,3382,1432
+Ancash,Bolognesi,Huayllacayan,Sierra,3287,1253
+Ancash,Bolognesi,Mangas,Sierra,3492,492
+Ancash,Bolognesi,Pacllon,Sierra,3296,917
+Ancash,Bolognesi,San Miguel De Corpanqui,Sierra,3405,495
+Ancash,Bolognesi,Ticllos,Sierra,3665,658
+Ancash,Carhuaz,Acopampa,Sierra,2692,2472
+Ancash,Carhuaz,Anta,Sierra,2800,2365
+Ancash,Carhuaz,Ataquero,Sierra,2749,1469
+Ancash,Carhuaz,Carhuaz,Sierra,2663,15122
+Ancash,Carhuaz,Marcara,Sierra,2767,9478
+Ancash,Carhuaz,Pariahuanca,Sierra,2830,1381
+Ancash,Carhuaz,San Miguel De Aco,Sierra,2956,2350
+Ancash,Carhuaz,Shilla,Sierra,3036,2789
+Ancash,Carhuaz,Tinco,Sierra,2606,3335
+Ancash,Carhuaz,Yungar,Sierra,2836,2992
+Ancash,Carlos Fermin Fitzcarrald,San Luis,Sierra,3145,10493
+Ancash,Carlos Fermin Fitzcarrald,Yauya,Sierra,3257,4093
+Ancash,Casma,Buena Vista Alta,Costa,210,4831
+Ancash,Casma,Casma,Costa,59,35765
+Ancash,Casma,Comandante Noel,Costa,23,2088
+Ancash,Casma,Yautan,Costa,831,8305
+Ancash,Corongo,Aco,Sierra,3118,379
+Ancash,Corongo,Corongo,Sierra,3172,1677
+Ancash,Corongo,Cusca,Sierra,3296,2678
+Ancash,Corongo,La Pampa,Costa,1802,1026
+Ancash,Corongo,Yanac,Sierra,2877,634
+Ancash,Corongo,Yupan,Sierra,2781,693
+Ancash,Huaraz,Cochabamba,Costa,2135,1639
+Ancash,Huaraz,Colcabamba,Sierra,3154,294
+Ancash,Huaraz,Huanchay,Sierra,2592,1600
+Ancash,Huaraz,Huaraz,Sierra,3073,60896
+Ancash,Huaraz,Independencia,Sierra,3046,76088
+Ancash,Huaraz,Jangas,Sierra,2824,4781
+Ancash,Huaraz,La Libertad,Sierra,3343,1066
+Ancash,Huaraz,Olleros,Sierra,3578,2351
+Ancash,Huaraz,Pampas Grande,Sierra,3698,956
+Ancash,Huaraz,Pariacoto,Costa,1264,4606
+Ancash,Huaraz,Pira,Sierra,3602,3321
+Ancash,Huaraz,Tarica,Sierra,2832,6338
+Ancash,Huari,Anra,Sierra,3197,1362
+Ancash,Huari,Cajay,Sierra,3175,2573
+Ancash,Huari,Chavin De Huantar,Sierra,3115,7971
+Ancash,Huari,Huacachi,Sierra,3498,1782
+Ancash,Huari,Huacchis,Sierra,3425,1427
+Ancash,Huari,Huachis,Sierra,3275,3307
+Ancash,Huari,Huantar,Sierra,3363,2571
+Ancash,Huari,Huari,Sierra,3114,9178
+Ancash,Huari,Masin,Sierra,2547,1361
+Ancash,Huari,Paucas,Sierra,3433,1561
+Ancash,Huari,Ponto,Sierra,3142,2642
+Ancash,Huari,Rahuapampa,Sierra,2521,705
+Ancash,Huari,Rapayan,Sierra,3233,1406
+Ancash,Huari,San Marcos,Sierra,2988,17033
+Ancash,Huari,San Pedro De Chana,Sierra,3439,2534
+Ancash,Huari,Uco,Sierra,3347,1301
+Ancash,Huarmey,Culebras,Costa,41,3097
+Ancash,Huarmey,Huarmey,Costa,30,25117
+Ancash,Huarmey,Huayan,Sierra,2702,861
+Ancash,Huarmey,Malvas,Sierra,3132,745
+Ancash,Huaylas,Caraz,Costa,2273,24128
+Ancash,Huaylas,Huallanca,Costa,1390,960
+Ancash,Huaylas,Huata,Sierra,2712,1344
+Ancash,Huaylas,Huaylas,Sierra,2735,1614
+Ancash,Huaylas,Mato,Costa,2209,1849
+Ancash,Huaylas,Pamparomas,Sierra,2772,7804
+Ancash,Huaylas,Pueblo Libre,Sierra,2366,6371
+Ancash,Huaylas,Santa Cruz,Sierra,3112,4229
+Ancash,Huaylas,Santo Toribio,Sierra,2926,1055
+Ancash,Huaylas,Yuracmarca,Costa,1484,1980
+Ancash,Mariscal Luzuriaga,Casca,Sierra,3176,3668
+Ancash,Mariscal Luzuriaga,Llama,Sierra,2951,1020
+Ancash,Mariscal Luzuriaga,Llumpa,Sierra,3450,5629
+Ancash,Mariscal Luzuriaga,Lucma,Sierra,3423,2732
+Ancash,Mariscal Luzuriaga,Musga,Sierra,3001,977
+Ancash,Mariscal Luzuriaga,Piscobamba,Sierra,3326,3024
+Ancash,Ocros,Acas,Sierra,3712,656
+Ancash,Ocros,Cajamarquilla,Sierra,3545,300
+Ancash,Ocros,Carhuapampa,Costa,2250,472
+Ancash,Ocros,Cochas,Costa,367,1421
+Ancash,Ocros,Congas,Sierra,3112,1219
+Ancash,Ocros,Llipa,Sierra,2766,279
+Ancash,Ocros,Ocros,Sierra,3238,1203
+Ancash,Ocros,San Pedro,Costa,2243,622
+Ancash,Ocros,Santiago De Chilcas,Sierra,3692,429
+Ancash,Pallasca,Bolognesi,Sierra,2931,986
+Ancash,Pallasca,Cabana,Sierra,3156,2445
+Ancash,Pallasca,Conchucos,Sierra,3206,7391
+Ancash,Pallasca,Huacaschuque,Sierra,3140,523
+Ancash,Pallasca,Huandoval,Sierra,3062,1001
+Ancash,Pallasca,Lacabamba,Sierra,3427,505
+Ancash,Pallasca,Pallasca,Sierra,3086,2364
+Ancash,Pallasca,Pampas,Sierra,3216,3980
+Ancash,Pallasca,Santa Rosa,Sierra,2413,1026
+Ancash,Pallasca,Tauca,Sierra,3368,2673
+Ancash,Pomabamba,Huayllán,Sierra,2993,2954
+Ancash,Pomabamba,Parobamba,Sierra,3182,5806
+Ancash,Pomabamba,Pomabamba,Sierra,2964,13834
+Ancash,Pomabamba,Quinuabamba,Sierra,3129,2200
+Ancash,Recuay,Catac,Sierra,3579,3907
+Ancash,Recuay,Cotaparaco,Sierra,3032,409
+Ancash,Recuay,Huayllapampa,Sierra,2908,620
+Ancash,Recuay,Llacllin,Sierra,3020,912
+Ancash,Recuay,Marca,Sierra,2614,1608
+Ancash,Recuay,Pampas Chico,Sierra,3324,923
+Ancash,Recuay,Pararin,Sierra,3402,1517
+Ancash,Recuay,Recuay,Sierra,3428,4406
+Ancash,Recuay,Tapacocha,Sierra,3596,421
+Ancash,Recuay,Ticapampa,Sierra,3485,2462
+Ancash,Santa,Caceres Del Peru,Costa,1210,4420
+Ancash,Santa,Chimbote,Costa,52,206213
+Ancash,Santa,Coishco,Costa,31,15979
+Ancash,Santa,Macate,Sierra,2731,3125
+Ancash,Santa,Moro,Costa,504,8034
+Ancash,Santa,Nepeña,Costa,284,14324
+Ancash,Santa,Nuevo Chimbote,Costa,40,159321
+Ancash,Santa,Samanco,Costa,17,4770
+Ancash,Santa,Santa,Costa,35,19621
+Ancash,Sihuas,Acobamba,Sierra,3252,1612
+Ancash,Sihuas,Alfonso Ugarte,Sierra,3197,533
+Ancash,Sihuas,Cashapampa,Sierra,3542,2739
+Ancash,Sihuas,Chingalpo,Sierra,3157,905
+Ancash,Sihuas,Huayllabamba,Sierra,3396,3518
+Ancash,Sihuas,Quiches,Sierra,3035,2306
+Ancash,Sihuas,Ragash,Sierra,3437,2278
+Ancash,Sihuas,San Juan,Sierra,3034,6187
+Ancash,Sihuas,Sicsibamba,Sierra,2921,1482
+Ancash,Sihuas,Sihuas,Sierra,2767,5411
+Ancash,Yungay,Cascapara,Sierra,3264,1674
+Ancash,Yungay,Mancos,Sierra,2542,6336
+Ancash,Yungay,Matacoto,Sierra,2486,1343
+Ancash,Yungay,Quillo,Costa,1267,11629
+Ancash,Yungay,Ranrahirca,Sierra,2496,2657
+Ancash,Yungay,Shupluy,Sierra,2516,1840
+Ancash,Yungay,Yanama,Sierra,3389,5292
+Ancash,Yungay,Yungay,Sierra,2516,20070
+Apurimac,Abancay,Abancay,Sierra,2500,69028
+Apurimac,Abancay,Chacoche,Sierra,2071,1339
+Apurimac,Abancay,Circa,Sierra,3206,1866
+Apurimac,Abancay,Curahuasi,Sierra,2694,16223
+Apurimac,Abancay,Huanipaca,Sierra,3155,2886
+Apurimac,Abancay,Lambrama,Sierra,3126,3002
+Apurimac,Abancay,Pichirhua,Sierra,2275,2774
+Apurimac,Abancay,San Pedro De Cachora,Sierra,2916,2541
+Apurimac,Abancay,Tamburco,Sierra,2620,10861
+Apurimac,Andahuaylas,Andahuaylas,Sierra,2836,42268
+Apurimac,Andahuaylas,Andarapa,Sierra,3182,5459
+Apurimac,Andahuaylas,Chiara,Sierra,3289,1186
+Apurimac,Andahuaylas,Huancarama,Sierra,2976,5210
+Apurimac,Andahuaylas,Huancaray,Sierra,2909,3753
+Apurimac,Andahuaylas,Huayana,Sierra,3196,750
+Apurimac,Andahuaylas,Jose Maria Arguedas,Sierra,3590,4081
+Apurimac,Andahuaylas,Kaquiabamba,Sierra,3087,1816
+Apurimac,Andahuaylas,Kishuara,Sierra,3717,6023
+Apurimac,Andahuaylas,Pacobamba,Sierra,2712,3452
+Apurimac,Andahuaylas,Pacucha,Sierra,3162,7989
+Apurimac,Andahuaylas,Pampachiri,Sierra,3388,2199
+Apurimac,Andahuaylas,Pomacocha,Sierra,3673,863
+Apurimac,Andahuaylas,San Antonio De Cachi,Sierra,3373,2910
+Apurimac,Andahuaylas,San Jeronimo,Sierra,2973,20738
+Apurimac,Andahuaylas,San Miguel De Chaccrampa,Sierra,3681,1613
+Apurimac,Andahuaylas,Santa Maria De Chicmo,Sierra,3565,8152
+Apurimac,Andahuaylas,Talavera,Sierra,2842,18509
+Apurimac,Andahuaylas,Tumay Huaraca,Sierra,3409,1864
+Apurimac,Andahuaylas,Turpo,Sierra,3327,3642
+Apurimac,Antabamba,Antabamba,Sierra,3664,2776
+Apurimac,Antabamba,El Oro,Sierra,3304,552
+Apurimac,Antabamba,Huaquirca,Sierra,3500,1841
+Apurimac,Antabamba,Juan Espinoza Medrano,Sierra,3316,1711
+Apurimac,Antabamba,Oropesa,Sierra,3327,2268
+Apurimac,Antabamba,Pachaconas,Sierra,3465,1054
+Apurimac,Antabamba,Sabaino,Sierra,3441,1108
+Apurimac,Aymaraes,Capaya,Sierra,3311,580
+Apurimac,Aymaraes,Caraybamba,Sierra,3324,929
+Apurimac,Aymaraes,Chalhuanca,Sierra,2929,4928
+Apurimac,Aymaraes,Chapimarca,Sierra,3603,1893
+Apurimac,Aymaraes,Colcabamba,Sierra,3174,693
+Apurimac,Aymaraes,Cotaruse,Sierra,3268,2570
+Apurimac,Aymaraes,Ihuayllo,Sierra,3172,462
+Apurimac,Aymaraes,Justo Apu Sahuaraura,Sierra,3133,735
+Apurimac,Aymaraes,Lucre,Sierra,3184,1529
+Apurimac,Aymaraes,Pocohuanca,Sierra,3374,1022
+Apurimac,Aymaraes,San Juan De Chacña,Sierra,2874,769
+Apurimac,Aymaraes,Sañayca,Sierra,3373,1107
+Apurimac,Aymaraes,Soraya,Sierra,2884,711
+Apurimac,Aymaraes,Tapairihua,Sierra,2453,1848
+Apurimac,Aymaraes,Tintay,Sierra,2824,2272
+Apurimac,Aymaraes,Toraya,Sierra,3167,1278
+Apurimac,Aymaraes,Yanaca,Sierra,3339,981
+Apurimac,Chincheros,Anco-Huallo,Sierra,3238,10388
+Apurimac,Chincheros,Chincheros,Sierra,2799,5293
+Apurimac,Chincheros,Cocharcas,Sierra,3051,1728
+Apurimac,Chincheros,El Porvenir,Sierra,3219,1728
+Apurimac,Chincheros,Huaccana,Sierra,3093,6634
+Apurimac,Chincheros,Los Chankas,Sierra,2058,988
+Apurimac,Chincheros,Ocobamba,Sierra,3320,6759
+Apurimac,Chincheros,Ongoy,Sierra,3053,2344
+Apurimac,Chincheros,Ranracancha,Sierra,3426,4046
+Apurimac,Chincheros,Rocchacc,Sierra,3042,2689
+Apurimac,Chincheros,Uranmarca,Sierra,3114,2650
+Apurimac,Cotabambas,Challhuahuacho,Sierra,3724,14525
+Apurimac,Cotabambas,Cotabambas,Sierra,3557,3886
+Apurimac,Cotabambas,Coyllurqui,Sierra,3184,6586
+Apurimac,Cotabambas,Haquira,Sierra,3698,9430
+Apurimac,Cotabambas,Mara,Sierra,3792,5848
+Apurimac,Cotabambas,Tambobamba,Sierra,3267,10381
+Apurimac,Grau,Chuquibambilla,Sierra,3360,5023
+Apurimac,Grau,Curasco,Sierra,3566,1229
+Apurimac,Grau,Curpahuasi,Sierra,3490,1936
+Apurimac,Grau,Gamarra,Sierra,3489,2782
+Apurimac,Grau,Huayllati,Sierra,3469,1368
+Apurimac,Grau,Mamara,Sierra,3618,858
+Apurimac,Grau,Micaela Bastidas,Sierra,3528,935
+Apurimac,Grau,Pataypampa,Sierra,3900,798
+Apurimac,Grau,Progreso,Sierra,3817,2945
+Apurimac,Grau,San Antonio,Sierra,3483,272
+Apurimac,Grau,Santa Rosa,Sierra,3539,560
+Apurimac,Grau,Turpay,Sierra,3448,628
+Apurimac,Grau,Vilcabamba,Sierra,2801,1233
+Apurimac,Grau,Virundo,Sierra,3876,675
+Arequipa,Arequipa,Alto Selva Alegre,Sierra,2510,85870
+Arequipa,Arequipa,Arequipa,Sierra,2429,55437
+Arequipa,Arequipa,Cayma,Sierra,2531,91935
+Arequipa,Arequipa,Cerro Colorado,Sierra,2486,197954
+Arequipa,Arequipa,Characato,Sierra,2506,12949
+Arequipa,Arequipa,Chiguata,Sierra,2660,2939
+Arequipa,Arequipa,Jacobo Hunter,Sierra,2309,50164
+Arequipa,Arequipa,Jose Luis Bustamante Y Rivero,Sierra,2389,81829
+Arequipa,Arequipa,La Joya,Costa,1575,32019
+Arequipa,Arequipa,Mariano Melgar,Sierra,2459,59918
+Arequipa,Arequipa,Miraflores,Sierra,2450,60589
+Arequipa,Arequipa,Mollebaya,Sierra,2403,4756
+Arequipa,Arequipa,Paucarpata,Sierra,2453,131346
+Arequipa,Arequipa,Pocsi,Sierra,3045,445
+Arequipa,Arequipa,Polobaya,Sierra,3041,837
+Arequipa,Arequipa,Quequeña,Sierra,2450,4784
+Arequipa,Arequipa,Sabandia,Sierra,2441,4368
+Arequipa,Arequipa,Sachaca,Sierra,2300,24225
+Arequipa,Arequipa,San Juan De Siguas,Costa,1281,611
+Arequipa,Arequipa,San Juan De Tarucani,Sierra,4336,1377
+Arequipa,Arequipa,Santa Isabel De Siguas,Costa,1390,682
+Arequipa,Arequipa,Santa Rita De Siguas,Costa,1283,6318
+Arequipa,Arequipa,Socabaya,Sierra,2352,75351
+Arequipa,Arequipa,Tiabaya,Costa,2218,16191
+Arequipa,Arequipa,Uchumayo,Costa,2144,14054
+Arequipa,Arequipa,Vitor,Costa,1189,3610
+Arequipa,Arequipa,Yanahuara,Sierra,2402,25417
+Arequipa,Arequipa,Yarabamba,Sierra,2617,1314
+Arequipa,Arequipa,Yura,Sierra,2722,33346
+Arequipa,Camana,Camana,Costa,20,13367
+Arequipa,Camana,Jose Maria Quimper,Costa,40,4641
+Arequipa,Camana,Mariano Nicolas Valcarcel,Costa,490,6997
+Arequipa,Camana,Mariscal Caceres,Costa,30,6195
+Arequipa,Camana,Nicolas De Pierola,Costa,71,7106
+Arequipa,Camana,Ocoña,Costa,16,4171
+Arequipa,Camana,Quilca,Costa,15,943
+Arequipa,Camana,Samuel Pastor,Costa,21,15950
+Arequipa,Caraveli,Acari,Costa,171,4923
+Arequipa,Caraveli,Atico,Costa,56,5215
+Arequipa,Caraveli,Atiquipa,Costa,249,473
+Arequipa,Caraveli,Bella Union,Costa,218,3171
+Arequipa,Caraveli,Cahuacho,Sierra,3599,610
+Arequipa,Caraveli,Caraveli,Costa,1811,4259
+Arequipa,Caraveli,Chala,Costa,21,9240
+Arequipa,Caraveli,Chaparra,Costa,1124,3685
+Arequipa,Caraveli,Huanuhuanu,Costa,1395,3047
+Arequipa,Caraveli,Jaqui,Costa,271,1532
+Arequipa,Caraveli,Lomas,Costa,26,1477
+Arequipa,Caraveli,Quicacha,Costa,1865,1837
+Arequipa,Caraveli,Yauca,Costa,31,1877
+Arequipa,Castilla,Andagua,Sierra,3594,1038
+Arequipa,Castilla,Aplao,Costa,624,8435
+Arequipa,Castilla,Ayo,Costa,2003,242
+Arequipa,Castilla,Chachas,Sierra,3117,1646
+Arequipa,Castilla,Chilcaymarca,Sierra,3867,947
+Arequipa,Castilla,Choco,Sierra,2418,702
+Arequipa,Castilla,Huancarqui,Costa,620,1472
+Arequipa,Castilla,Machaguay,Sierra,3131,488
+Arequipa,Castilla,Orcopampa,Sierra,3818,8177
+Arequipa,Castilla,Pampacolca,Sierra,2922,2032
+Arequipa,Castilla,Tipan,Costa,1939,432
+Arequipa,Castilla,Uñon,Sierra,2726,207
+Arequipa,Castilla,Uraca,Costa,452,6266
+Arequipa,Castilla,Viraco,Sierra,3210,1545
+Arequipa,Caylloma,Achoma,Sierra,3524,841
+Arequipa,Caylloma,Cabanaconde,Sierra,3295,2096
+Arequipa,Caylloma,Callalli,Sierra,3887,1458
+Arequipa,Caylloma,Caylloma,Sierra,4361,3697
+Arequipa,Caylloma,Chivay,Sierra,3683,5770
+Arequipa,Caylloma,Coporaque,Sierra,3600,1089
+Arequipa,Caylloma,Huambo,Sierra,3623,670
+Arequipa,Caylloma,Huanca,Sierra,3073,1010
+Arequipa,Caylloma,Ichupampa,Sierra,3422,555
+Arequipa,Caylloma,Lari,Sierra,3373,904
+Arequipa,Caylloma,Lluta,Sierra,3031,718
+Arequipa,Caylloma,Maca,Sierra,3287,701
+Arequipa,Caylloma,Madrigal,Sierra,3300,648
+Arequipa,Caylloma,Majes,Costa,1392,60108
+Arequipa,Caylloma,San Antonio De Chuca,Sierra,4470,886
+Arequipa,Caylloma,Sibayo,Sierra,3836,669
+Arequipa,Caylloma,Tapay,Costa,2122,772
+Arequipa,Caylloma,Tisco,Sierra,4195,1441
+Arequipa,Caylloma,Tuti,Sierra,3831,621
+Arequipa,Caylloma,Yanque,Sierra,3468,2117
+Arequipa,Condesuyos,Andaray,Sierra,2768,677
+Arequipa,Condesuyos,Cayarani,Sierra,4758,3212
+Arequipa,Condesuyos,Chichas,Costa,2174,675
+Arequipa,Condesuyos,Chuquibamba,Sierra,2916,3290
+Arequipa,Condesuyos,Iray,Sierra,2590,595
+Arequipa,Condesuyos,Rio Grande,Costa,733,3263
+Arequipa,Condesuyos,Salamanca,Sierra,3226,478
+Arequipa,Condesuyos,Yanaquihua,Sierra,2624,3928
+Arequipa,Islay,Cocachacra,Costa,114,8347
+Arequipa,Islay,Dean Valdivia,Costa,16,6854
+Arequipa,Islay,Islay,Costa,110,5132
+Arequipa,Islay,Mejia,Costa,9,1172
+Arequipa,Islay,Mollendo,Costa,73,24073
+Arequipa,Islay,Punta De Bombon,Costa,138,6456
+Arequipa,La Union,Alca,Sierra,3436,1849
+Arequipa,La Union,Cotahuasi,Sierra,2696,2925
+Arequipa,La Union,Huaynacotas,Sierra,3314,1913
+Arequipa,La Union,Pampamarca,Sierra,3387,1122
+Arequipa,La Union,Puyca,Sierra,3675,2342
+Arequipa,La Union,Quechualla,Costa,1964,265
+Arequipa,La Union,Sayla,Sierra,3544,319
+Arequipa,La Union,Tomepampa,Sierra,2644,658
+Arequipa,La Union,Toro,Sierra,2987,556
+Ayacucho,Cangallo,Cangallo,Sierra,2574,5479
+Ayacucho,Cangallo,Chuschi,Sierra,3854,8321
+Ayacucho,Cangallo,Los Morochucos,Sierra,3346,7463
+Ayacucho,Cangallo,Maria Parado De Bellido,Sierra,3245,2067
+Ayacucho,Cangallo,Paras,Sierra,3354,4104
+Ayacucho,Cangallo,Totos,Sierra,3315,3009
+Ayacucho,Huamanga,Acocro,Sierra,3336,7403
+Ayacucho,Huamanga,Acos Vinchos,Sierra,2874,4383
+Ayacucho,Huamanga,Andres Avelino Caceres Dorregaray,Sierra,2775,28472
+Ayacucho,Huamanga,Ayacucho,Sierra,2797,99427
+Ayacucho,Huamanga,Carmen Alto,Sierra,2921,28252
+Ayacucho,Huamanga,Chiara,Sierra,3532,5698
+Ayacucho,Huamanga,Jesus Nazareno,Sierra,2817,18492
+Ayacucho,Huamanga,Ocros,Sierra,2816,5373
+Ayacucho,Huamanga,Pacaycasa,Sierra,2440,3114
+Ayacucho,Huamanga,Quinua,Sierra,3301,5083
+Ayacucho,Huamanga,San Jose De Ticllas,Sierra,3155,1403
+Ayacucho,Huamanga,San Juan Bautista,Sierra,2786,49034
+Ayacucho,Huamanga,Santiago De Pischa,Sierra,2590,1427
+Ayacucho,Huamanga,Socos,Sierra,3368,5952
+Ayacucho,Huamanga,Tambillo,Sierra,2975,5047
+Ayacucho,Huamanga,Vinchos,Sierra,3312,13634
+Ayacucho,Huanca Sancos,Carapo,Sierra,3592,1826
+Ayacucho,Huanca Sancos,Sacsamarca,Sierra,3463,1313
+Ayacucho,Huanca Sancos,Sancos,Sierra,3433,3202
+Ayacucho,Huanca Sancos,Santiago De Lucanamarca,Sierra,3512,2068
+Ayacucho,Huanta,Ayahuanco,Sierra,2699,1196
+Ayacucho,Huanta,Canayre,Selva,528,3520
+Ayacucho,Huanta,Chaca,Sierra,3400,2162
+Ayacucho,Huanta,Huamanguilla,Sierra,3300,4162
+Ayacucho,Huanta,Huanta,Sierra,2684,39517
+Ayacucho,Huanta,Iguain,Sierra,3063,2667
+Ayacucho,Huanta,Llochegua,Selva,540,10058
+Ayacucho,Huanta,Luricocha,Sierra,2598,5490
+Ayacucho,Huanta,Pucacolpa,Sierra,3492,2523
+Ayacucho,Huanta,Santillana,Sierra,3265,3852
+Ayacucho,Huanta,Sivia,Selva,561,10797
+Ayacucho,Huanta,Uchuraccay,Sierra,4026,3522
+Ayacucho,La Mar,Anchihuay,Selva,769,4039
+Ayacucho,La Mar,Anco,Selva,690,7969
+Ayacucho,La Mar,Ayna,Selva,627,9298
+Ayacucho,La Mar,Chilcas,Sierra,3217,1643
+Ayacucho,La Mar,Chungui,Sierra,3506,4218
+Ayacucho,La Mar,Luis Carranza,Sierra,3294,1278
+Ayacucho,La Mar,Samugari,Selva,754,9410
+Ayacucho,La Mar,San Miguel,Sierra,2696,10326
+Ayacucho,La Mar,Santa Rosa,Selva,729,11279
+Ayacucho,La Mar,Tambo,Sierra,3237,10173
+Ayacucho,Lucanas,Aucara,Sierra,3236,2903
+Ayacucho,Lucanas,Cabana,Sierra,3298,2189
+Ayacucho,Lucanas,Carmen Salcedo,Sierra,3478,1681
+Ayacucho,Lucanas,Chaviña,Sierra,3338,2163
+Ayacucho,Lucanas,Chipao,Sierra,3440,2554
+Ayacucho,Lucanas,HUAC-HUAS,Sierra,3189,1560
+Ayacucho,Lucanas,Laramate,Sierra,3078,1577
+Ayacucho,Lucanas,Leoncio Prado,Sierra,2696,1094
+Ayacucho,Lucanas,Llauta,Sierra,2666,893
+Ayacucho,Lucanas,Lucanas,Sierra,3385,2726
+Ayacucho,Lucanas,Ocaña,Sierra,2650,2291
+Ayacucho,Lucanas,Otoca,Costa,1883,1866
+Ayacucho,Lucanas,Puquio,Sierra,3234,13919
+Ayacucho,Lucanas,Saisa,Sierra,3070,791
+Ayacucho,Lucanas,San Cristobal,Sierra,3587,1718
+Ayacucho,Lucanas,San Juan,Sierra,3290,967
+Ayacucho,Lucanas,San Pedro,Sierra,3115,2653
+Ayacucho,Lucanas,San Pedro De Palco,Sierra,3578,927
+Ayacucho,Lucanas,Sancos,Sierra,2465,4778
+Ayacucho,Lucanas,Santa Ana De Huaycahuacho,Sierra,2984,796
+Ayacucho,Lucanas,Santa Lucia,Costa,722,1282
+Ayacucho,Parinacochas,Chumpi,Sierra,3226,2186
+Ayacucho,Parinacochas,Coracora,Sierra,3166,13124
+Ayacucho,Parinacochas,Coronel Castañeda,Sierra,4467,1722
+Ayacucho,Parinacochas,Pacapausa,Sierra,2821,630
+Ayacucho,Parinacochas,Pullo,Costa,1312,6271
+Ayacucho,Parinacochas,Puyusca,Sierra,3307,2062
+Ayacucho,Parinacochas,San Francisco De Ravacayco,Sierra,2833,516
+Ayacucho,Parinacochas,Upahuacho,Sierra,3554,1148
+Ayacucho,Paucar Del Sara Sara,Colta,Sierra,3267,468
+Ayacucho,Paucar Del Sara Sara,Corculla,Sierra,3503,445
+Ayacucho,Paucar Del Sara Sara,Lampa,Sierra,2695,1953
+Ayacucho,Paucar Del Sara Sara,Marcabamba,Sierra,2615,613
+Ayacucho,Paucar Del Sara Sara,Oyolo,Sierra,3410,1453
+Ayacucho,Paucar Del Sara Sara,Pararca,Sierra,3047,419
+Ayacucho,Paucar Del Sara Sara,Pausa,Sierra,2536,3231
+Ayacucho,Paucar Del Sara Sara,San Javier De Alpabamba,Sierra,2628,292
+Ayacucho,Paucar Del Sara Sara,San Jose De Ushua,Sierra,3034,221
+Ayacucho,Paucar Del Sara Sara,Sara Sara,Sierra,3305,514
+Ayacucho,Sucre,Belen,Sierra,3223,329
+Ayacucho,Sucre,Chalcos,Sierra,3676,478
+Ayacucho,Sucre,Chilcayoc,Sierra,3404,496
+Ayacucho,Sucre,Morcolla,Sierra,3504,1240
+Ayacucho,Sucre,Paico,Sierra,3110,553
+Ayacucho,Sucre,Querobamba,Sierra,3516,2570
+Ayacucho,Sucre,San Pedro De Larcay,Sierra,3395,808
+Ayacucho,Sucre,San Salvador De Quije,Sierra,3222,978
+Ayacucho,Sucre,Santiago De Paucaray,Sierra,3818,594
+Ayacucho,Sucre,Soras,Sierra,3432,1025
+Ayacucho,Victor Fajardo,Alcamenca,Sierra,3177,1526
+Ayacucho,Victor Fajardo,Apongo,Sierra,3078,630
+Ayacucho,Victor Fajardo,Asquipata,Sierra,2939,460
+Ayacucho,Victor Fajardo,Canaria,Sierra,3155,3977
+Ayacucho,Victor Fajardo,Cayara,Sierra,3207,1138
+Ayacucho,Victor Fajardo,Colca,Sierra,3003,1011
+Ayacucho,Victor Fajardo,Hualla,Sierra,3423,2092
+Ayacucho,Victor Fajardo,Huamanquiquia,Sierra,3390,1089
+Ayacucho,Victor Fajardo,Huancapi,Sierra,3105,1887
+Ayacucho,Victor Fajardo,Huancaraylla,Sierra,3246,1294
+Ayacucho,Victor Fajardo,Sarhua,Sierra,3184,2616
+Ayacucho,Victor Fajardo,Vilcanchos,Sierra,3011,2389
+Ayacucho,Vilcas Huaman,Accomarca,Sierra,3386,886
+Ayacucho,Vilcas Huaman,Carhuanca,Sierra,2980,819
+Ayacucho,Vilcas Huaman,Concepcion,Sierra,3061,1577
+Ayacucho,Vilcas Huaman,Huambalpa,Sierra,3264,1340
+Ayacucho,Vilcas Huaman,Independencia,Sierra,3606,1105
+Ayacucho,Vilcas Huaman,Saurama,Sierra,3574,1038
+Ayacucho,Vilcas Huaman,Vilcas Huaman,Sierra,3494,6370
+Ayacucho,Vilcas Huaman,Vischongo,Sierra,2899,3726
+Cajamarca,Cajabamba,Cachachi,Sierra,2786,23524
+Cajamarca,Cajabamba,Cajabamba,Sierra,2686,31222
+Cajamarca,Cajabamba,Condebamba,Sierra,2718,13406
+Cajamarca,Cajabamba,Sitacocha,Sierra,3209,7535
+Cajamarca,Cajamarca,Asuncion,Costa,2254,7939
+Cajamarca,Cajamarca,Cajamarca,Sierra,2731,218741
+Cajamarca,Cajamarca,Chetilla,Sierra,2977,3660
+Cajamarca,Cajamarca,Cospan,Sierra,2471,6760
+Cajamarca,Cajamarca,Encañada,Sierra,3087,19175
+Cajamarca,Cajamarca,Jesus,Sierra,2568,15020
+Cajamarca,Cajamarca,Llacanora,Sierra,2621,5639
+Cajamarca,Cajamarca,Los Baños Del Inca,Sierra,2685,46149
+Cajamarca,Cajamarca,Magdalena,Costa,1298,8271
+Cajamarca,Cajamarca,Matara,Sierra,2834,3469
+Cajamarca,Cajamarca,Namora,Sierra,2765,9267
+Cajamarca,Cajamarca,San Juan,Sierra,2336,4343
+Cajamarca,Celendin,Celendin,Sierra,2629,26925
+Cajamarca,Celendin,Chumuch,Sierra,2613,2600
+Cajamarca,Celendin,Cortegana,Sierra,2507,6746
+Cajamarca,Celendin,Huasmin,Sierra,2711,10657
+Cajamarca,Celendin,Jorge Chavez,Sierra,2646,441
+Cajamarca,Celendin,Jose Galvez,Sierra,2618,2558
+Cajamarca,Celendin,La Libertad De Pallan,Sierra,2952,6434
+Cajamarca,Celendin,Miguel Iglesias,Sierra,3434,3870
+Cajamarca,Celendin,Oxamarca,Sierra,3421,5394
+Cajamarca,Celendin,Sorochuco,Sierra,2663,7352
+Cajamarca,Celendin,Sucre,Sierra,2632,5055
+Cajamarca,Celendin,Utco,Sierra,1981,1052
+Cajamarca,Chota,Anguia,Sierra,2438,3211
+Cajamarca,Chota,Chadin,Sierra,2428,3449
+Cajamarca,Chota,Chalamarca,Sierra,2667,9134
+Cajamarca,Chota,Chiguirip,Sierra,2728,3641
+Cajamarca,Chota,Chimban,Sierra,1668,2199
+Cajamarca,Chota,Choropampa,Sierra,2215,2336
+Cajamarca,Chota,Chota,Sierra,2430,47279
+Cajamarca,Chota,Cochabamba,Sierra,1688,5546
+Cajamarca,Chota,Conchan,Sierra,2321,5643
+Cajamarca,Chota,Huambos,Sierra,2292,7972
+Cajamarca,Chota,Lajas,Sierra,2151,11093
+Cajamarca,Chota,Llama,Costa,272,7075
+Cajamarca,Chota,Miracosta,Costa,276,3203
+Cajamarca,Chota,Paccha,Sierra,2130,4445
+Cajamarca,Chota,Querocoto,Sierra,2445,8023
+Cajamarca,Chota,San Juan De Licupis,Sierra,3031,958
+Cajamarca,Chota,Tacabamba,Sierra,2077,15704
+Cajamarca,Chota,Tocmoche,Costa,1313,859
+Cajamarca,Contumaza,Chilete,Costa,883,2635
+Cajamarca,Contumaza,Contumaza,Sierra,2695,7461
+Cajamarca,Contumaza,Cupisnique,Costa,1904,1338
+Cajamarca,Contumaza,San Benito,Costa,1386,3399
+Cajamarca,Contumaza,Santa Cruz De Toled,Sierra,2426,994
+Cajamarca,Contumaza,Tantarica,Costa,767,2461
+Cajamarca,Contumaza,Yonan,Costa,452,6726
+Cajamarca,Cutervo,Callayuc,Sierra,1558,9361
+Cajamarca,Cutervo,Choros,Selva,474,2878
+Cajamarca,Cutervo,Cujillo,Sierra,1750,2330
+Cajamarca,Cutervo,Cutervo,Sierra,2665,50905
+Cajamarca,Cutervo,Pimpingos,Sierra,1756,5100
+Cajamarca,Cutervo,Querocotillo,Sierra,2003,12987
+Cajamarca,Cutervo,San Andres De Cutervo,Sierra,2090,4172
+Cajamarca,Cutervo,San Juan De Cutervo,Sierra,1645,1858
+Cajamarca,Cutervo,San Luis De Lucma,Sierra,1916,3000
+Cajamarca,Cutervo,Santa Cruz,Sierra,1708,2622
+Cajamarca,Cutervo,Santo Domingo De La Capilla,Sierra,1761,4701
+Cajamarca,Cutervo,Santo Tomas,Sierra,2167,6988
+Cajamarca,Cutervo,Socota,Sierra,1847,9054
+Cajamarca,Cutervo,Toribio Casanova,Selva,1464,1115
+Cajamarca,Hualgayoc,Bambamarca,Sierra,2556,59913
+Cajamarca,Hualgayoc,Chugur,Sierra,2951,2920
+Cajamarca,Hualgayoc,Hualgayoc,Sierra,3530,15111
+Cajamarca,Jaen,Bellavista,Selva,438,15447
+Cajamarca,Jaen,Chontali,Sierra,1636,9810
+Cajamarca,Jaen,Colasay,Sierra,1800,10238
+Cajamarca,Jaen,Huabal,Selva,1380,7642
+Cajamarca,Jaen,Jaen,Selva,728,94153
+Cajamarca,Jaen,Las Pirias,Sierra,1620,4275
+Cajamarca,Jaen,Pomahuaca,Selva,1097,8344
+Cajamarca,Jaen,Pucara,Selva,909,6834
+Cajamarca,Jaen,Sallique,Sierra,1701,7033
+Cajamarca,Jaen,San Felipe,Sierra,1861,4693
+Cajamarca,Jaen,San Jose Del Alto,Selva,1156,6960
+Cajamarca,Jaen,Santa Rosa,Selva,1238,10003
+Cajamarca,San Ignacio,Chirinos,Sierra,1850,14592
+Cajamarca,San Ignacio,Huarango,Selva,461,18012
+Cajamarca,San Ignacio,La Coipa,Sierra,1616,19562
+Cajamarca,San Ignacio,Namballe,Selva,713,9098
+Cajamarca,San Ignacio,San Ignacio,Selva,1295,34659
+Cajamarca,San Ignacio,San Jose De Lourdes,Selva,1134,17046
+Cajamarca,San Ignacio,Tabaconas,Selva,1232,17651
+Cajamarca,San Marcos,Chancay,Sierra,2699,2965
+Cajamarca,San Marcos,Eduardo Villanueva,Sierra,2026,2664
+Cajamarca,San Marcos,Gregorio Pita,Sierra,2835,5136
+Cajamarca,San Marcos,Ichocan,Sierra,2616,1901
+Cajamarca,San Marcos,Jose Manuel Quiroz,Sierra,3343,3544
+Cajamarca,San Marcos,Jose Sabogal,Sierra,3249,12023
+Cajamarca,San Marcos,Pedro Galvez,Sierra,2280,19870
+Cajamarca,San Miguel,Bolivar,Costa,940,1319
+Cajamarca,San Miguel,Calquis,Sierra,2885,4094
+Cajamarca,San Miguel,Catilluc,Sierra,2870,2747
+Cajamarca,San Miguel,El Prado,Costa,1131,1627
+Cajamarca,San Miguel,La Florida,Costa,993,2165
+Cajamarca,San Miguel,Llapa,Sierra,2952,4481
+Cajamarca,San Miguel,Niepos,Sierra,2457,3293
+Cajamarca,San Miguel,San Gregorio,Costa,287,2229
+Cajamarca,San Miguel,San Miguel,Sierra,2612,13432
+Cajamarca,San Miguel,San Silvestre De Cochan,Sierra,3528,3652
+Cajamarca,San Miguel,Tongod,Sierra,2628,2688
+Cajamarca,San Miguel,Union Agua Blanca,Sierra,2918,3026
+Cajamarca,San Pablo,San Bernardino,Costa,1920,4294
+Cajamarca,San Pablo,San Luis,Costa,1394,958
+Cajamarca,San Pablo,San Pablo,Sierra,2391,12463
+Cajamarca,San Pablo,Tumbaden,Sierra,2978,3387
+Cajamarca,Santa Cruz,Andabamba,Sierra,2550,1337
+Cajamarca,Santa Cruz,Catache,Sierra,3484,8958
+Cajamarca,Santa Cruz,Chancaybaños,Costa,1641,3355
+Cajamarca,Santa Cruz,La Esperanza,Costa,2183,2321
+Cajamarca,Santa Cruz,Ninabamba,Sierra,2467,2097
+Cajamarca,Santa Cruz,Pulan,Costa,2084,3896
+Cajamarca,Santa Cruz,Santa Cruz,Costa,2036,9226
+Cajamarca,Santa Cruz,Saucepampa,Sierra,2549,1446
+Cajamarca,Santa Cruz,Sexi,Sierra,2478,425
+Cajamarca,Santa Cruz,Uticyacu,Costa,2211,1259
+Cajamarca,Santa Cruz,Yauyucan,Sierra,2502,2844
+Callao,Callao,Bellavista,Costa,13,74851
+Callao,Callao,Callao,Costa,27,451260
+Callao,Callao,Carmen De La Legua Reynoso,Costa,82,42240
+Callao,Callao,La Perla,Costa,37,61417
+Callao,Callao,La Punta,Costa,29,3829
+Callao,Callao,Mi Peru,Costa,118,45297
+Callao,Callao,Ventanilla,Costa,43,315600
+Cusco,Acomayo,Acomayo,Sierra,3235,4532
+Cusco,Acomayo,Acopia,Sierra,3724,2650
+Cusco,Acomayo,Acos,Sierra,3106,2242
+Cusco,Acomayo,Mosoc Llacta,Sierra,3820,1096
+Cusco,Acomayo,Pomacanchi,Sierra,3708,7206
+Cusco,Acomayo,Rondocan,Sierra,3431,1938
+Cusco,Acomayo,Sangarara,Sierra,3788,3276
+Cusco,Anta,Ancahuasi,Sierra,3479,6784
+Cusco,Anta,Anta,Sierra,3363,21674
+Cusco,Anta,Cachimayo,Sierra,3454,2382
+Cusco,Anta,Chinchaypujio,Sierra,3106,4026
+Cusco,Anta,Huarocondo,Sierra,3353,4533
+Cusco,Anta,Limatambo,Sierra,2633,7255
+Cusco,Anta,Mollepata,Sierra,2864,3111
+Cusco,Anta,Pucyura,Sierra,3384,2990
+Cusco,Anta,Zurite,Sierra,3424,3451
+Cusco,Calca,Calca,Sierra,2955,20628
+Cusco,Calca,Coya,Sierra,2970,3443
+Cusco,Calca,Lamay,Sierra,2960,5313
+Cusco,Calca,Lares,Sierra,3408,5753
+Cusco,Calca,Pisac,Sierra,2986,9884
+Cusco,Calca,San Salvador,Sierra,3012,5232
+Cusco,Calca,Taray,Sierra,2991,4312
+Cusco,Calca,Yanatile,Selva,1148,8590
+Cusco,Canas,Kunturkanki,Sierra,3961,4747
+Cusco,Canas,Langui,Sierra,3967,1984
+Cusco,Canas,Layo,Sierra,3997,5171
+Cusco,Canas,Pampamarca,Sierra,3820,1838
+Cusco,Canas,Tupac Amaru,Sierra,3809,2523
+Cusco,Canas,Yanaoca,Sierra,3925,8659
+Cusco,Canchis,Checacupe,Sierra,3459,4720
+Cusco,Canchis,Combapata,Sierra,3500,4587
+Cusco,Canchis,Marangani,Sierra,3720,9600
+Cusco,Canchis,Pitumarca,Sierra,3587,7170
+Cusco,Canchis,San Pablo,Sierra,3501,4224
+Cusco,Canchis,San Pedro,Sierra,3515,2617
+Cusco,Canchis,Sicuani,Sierra,3593,57827
+Cusco,Canchis,Tinta,Sierra,3496,5029
+Cusco,Chumbivilcas,Capacmarca,Sierra,3563,3866
+Cusco,Chumbivilcas,Chamaca,Sierra,3779,6244
+Cusco,Chumbivilcas,Colquemarca,Sierra,3606,6897
+Cusco,Chumbivilcas,Livitaca,Sierra,3774,10378
+Cusco,Chumbivilcas,Llusco,Sierra,3522,4368
+Cusco,Chumbivilcas,Quiñota,Sierra,3607,3786
+Cusco,Chumbivilcas,Santo Tomas,Sierra,3676,21728
+Cusco,Chumbivilcas,Velille,Sierra,3766,9143
+Cusco,Cusco,Ccorca,Sierra,3766,2246
+Cusco,Cusco,Cusco,Sierra,3439,114630
+Cusco,Cusco,Poroy,Sierra,3508,2436
+Cusco,Cusco,San Jeronimo,Sierra,3289,57075
+Cusco,Cusco,San Sebastian,Sierra,3578,112536
+Cusco,Cusco,Santiago,Sierra,3464,94756
+Cusco,Cusco,Saylla,Sierra,3179,5368
+Cusco,Cusco,Wanchaq,Sierra,3424,58541
+Cusco,Espinar,Alto Pichigua,Sierra,3999,1934
+Cusco,Espinar,Condoroma,Sierra,4679,870
+Cusco,Espinar,Coporaque,Sierra,3984,9627
+Cusco,Espinar,Espinar,Sierra,3976,34861
+Cusco,Espinar,Ocoruro,Sierra,4104,1019
+Cusco,Espinar,Pallpata,Sierra,4027,4823
+Cusco,Espinar,Pichigua,Sierra,3902,2805
+Cusco,Espinar,Suyckutambo,Sierra,4124,1643
+Cusco,La Convencion,Echarate,Selva,716,23214
+Cusco,La Convencion,Huayopata,Sierra,1596,4773
+Cusco,La Convencion,Inkawasi,Sierra,1770,4285
+Cusco,La Convencion,Kimbiri,Selva,590,15962
+Cusco,La Convencion,Maranura,Selva,1140,4134
+Cusco,La Convencion,Megantoni,Selva,357,6969
+Cusco,La Convencion,Ocobamba,Selva,1089,4327
+Cusco,La Convencion,Pichari,Selva,596,22691
+Cusco,La Convencion,Quellouno,Selva,784,13311
+Cusco,La Convencion,Santa Ana,Selva,1086,27999
+Cusco,La Convencion,Santa Teresa,Sierra,1572,5972
+Cusco,La Convencion,Vilcabamba,Sierra,2814,9557
+Cusco,La Convencion,Villa Kintiarina,Selva,704,1974
+Cusco,La Convencion,Villa Virgen,Selva,742,1980
+Cusco,Paruro,Accha,Sierra,3601,3028
+Cusco,Paruro,Ccapi,Sierra,3227,3079
+Cusco,Paruro,Colcha,Sierra,3605,963
+Cusco,Paruro,Huanoquite,Sierra,3391,4867
+Cusco,Paruro,Omacha,Sierra,3792,5443
+Cusco,Paruro,Paccaritambo,Sierra,3602,2032
+Cusco,Paruro,Paruro,Sierra,3086,3205
+Cusco,Paruro,Pillpinto,Sierra,2869,1026
+Cusco,Paruro,Yaurisque,Sierra,3324,1924
+Cusco,Paucartambo,Caicay,Sierra,3128,2716
+Cusco,Paucartambo,Challabamba,Sierra,2845,8433
+Cusco,Paucartambo,Colquepata,Sierra,3803,8170
+Cusco,Paucartambo,Huancarani,Sierra,3870,6911
+Cusco,Paucartambo,Kosñipata,Selva,544,4403
+Cusco,Paucartambo,Paucartambo,Sierra,2917,11871
+Cusco,Quispicanchi,Andahuaylillas,Sierra,3139,5797
+Cusco,Quispicanchi,Camanti,Selva,647,2219
+Cusco,Quispicanchi,Ccarhuayo,Sierra,3481,2863
+Cusco,Quispicanchi,Ccatca,Sierra,3639,13295
+Cusco,Quispicanchi,Cusipata,Sierra,3332,4221
+Cusco,Quispicanchi,Huaro,Sierra,3168,4505
+Cusco,Quispicanchi,Lucre,Sierra,3117,4606
+Cusco,Quispicanchi,Marcapata,Sierra,3111,4307
+Cusco,Quispicanchi,Ocongate,Sierra,3549,15223
+Cusco,Quispicanchi,Oropesa,Sierra,3139,9444
+Cusco,Quispicanchi,Quiquijana,Sierra,3211,10336
+Cusco,Quispicanchi,Urcos,Sierra,3179,10614
+Cusco,Urubamba,Chinchero,Sierra,3759,10477
+Cusco,Urubamba,Huayllabamba,Sierra,2890,5499
+Cusco,Urubamba,Machupicchu,Sierra,2092,5347
+Cusco,Urubamba,Maras,Sierra,3381,5946
+Cusco,Urubamba,Ollantaytambo,Sierra,2871,10165
+Cusco,Urubamba,Urubamba,Sierra,2885,20082
+Cusco,Urubamba,Yucay,Sierra,2878,3223
+Huancavelica,Acobamba,Acobamba,Sierra,3449,8980
+Huancavelica,Acobamba,Andabamba,Sierra,3606,3223
+Huancavelica,Acobamba,Anta,Sierra,3541,4540
+Huancavelica,Acobamba,Caja,Sierra,3383,1842
+Huancavelica,Acobamba,Marcas,Sierra,3411,1529
+Huancavelica,Acobamba,Paucara,Sierra,3833,10415
+Huancavelica,Acobamba,Pomacocha,Sierra,3383,2829
+Huancavelica,Acobamba,Rosario,Sierra,3790,4850
+Huancavelica,Angaraes,Anchonga,Sierra,3752,7115
+Huancavelica,Angaraes,Callanmarca,Sierra,3553,625
+Huancavelica,Angaraes,Ccochaccasa,Sierra,4190,2956
+Huancavelica,Angaraes,Chincho,Sierra,2442,943
+Huancavelica,Angaraes,Congalla,Sierra,3537,3544
+Huancavelica,Angaraes,HUANCA-HUANCA,Sierra,3590,1337
+Huancavelica,Angaraes,Huayllay Grande,Sierra,3622,1111
+Huancavelica,Angaraes,Julcamarca,Sierra,3431,1736
+Huancavelica,Angaraes,Lircay,Sierra,3344,22991
+Huancavelica,Angaraes,San Antonio De Antaparco,Sierra,2767,2323
+Huancavelica,Angaraes,Santo Tomas De Pata,Sierra,3150,1436
+Huancavelica,Angaraes,Secclla,Sierra,3363,3090
+Huancavelica,Castrovirreyna,Arma,Sierra,3361,977
+Huancavelica,Castrovirreyna,Aurahua,Sierra,3483,1468
+Huancavelica,Castrovirreyna,Capillas,Sierra,3224,903
+Huancavelica,Castrovirreyna,Castrovirreyna,Sierra,3989,2929
+Huancavelica,Castrovirreyna,Chupamarca,Sierra,3433,888
+Huancavelica,Castrovirreyna,Cocas,Sierra,3253,703
+Huancavelica,Castrovirreyna,Huachos,Sierra,2784,919
+Huancavelica,Castrovirreyna,Huamatambo,Sierra,3058,388
+Huancavelica,Castrovirreyna,Mollepampa,Sierra,2500,1142
+Huancavelica,Castrovirreyna,San Juan,Costa,1936,673
+Huancavelica,Castrovirreyna,Santa Ana,Sierra,4575,863
+Huancavelica,Castrovirreyna,Tantara,Sierra,2898,648
+Huancavelica,Castrovirreyna,Ticrapo,Costa,2140,1481
+Huancavelica,Churcampa,Anco,Sierra,2463,5368
+Huancavelica,Churcampa,Chinchihuasi,Sierra,2803,1979
+Huancavelica,Churcampa,Churcampa,Sierra,3295,5088
+Huancavelica,Churcampa,Cosme,Sierra,3486,2832
+Huancavelica,Churcampa,El Carmen,Sierra,3346,2429
+Huancavelica,Churcampa,La Merced,Sierra,2683,1078
+Huancavelica,Churcampa,Locroja,Sierra,3417,3372
+Huancavelica,Churcampa,Pachamarca,Sierra,3110,1856
+Huancavelica,Churcampa,Paucarbamba,Sierra,3382,4346
+Huancavelica,Churcampa,San Miguel De Mayocc,Sierra,2228,745
+Huancavelica,Churcampa,San Pedro De Coris,Sierra,3580,3445
+Huancavelica,Huancavelica,Acobambilla,Sierra,3839,2020
+Huancavelica,Huancavelica,Acoria,Sierra,3207,17800
+Huancavelica,Huancavelica,Ascension,Sierra,3711,15566
+Huancavelica,Huancavelica,Conayca,Sierra,3709,851
+Huancavelica,Huancavelica,Cuenca,Sierra,3186,1137
+Huancavelica,Huancavelica,Huachocolpa,Sierra,4020,1875
+Huancavelica,Huancavelica,Huancavelica,Sierra,3746,39776
+Huancavelica,Huancavelica,Huando,Sierra,3610,6037
+Huancavelica,Huancavelica,Huayllahuara,Sierra,3901,637
+Huancavelica,Huancavelica,Izcuchaca,Sierra,2930,846
+Huancavelica,Huancavelica,Laria,Sierra,3893,746
+Huancavelica,Huancavelica,Manta,Sierra,3735,953
+Huancavelica,Huancavelica,Mariscal Caceres,Sierra,2852,509
+Huancavelica,Huancavelica,Moya,Sierra,3148,982
+Huancavelica,Huancavelica,Nuevo Occoro,Sierra,3939,1686
+Huancavelica,Huancavelica,Palca,Sierra,3714,2005
+Huancavelica,Huancavelica,Pilchaca,Sierra,3604,500
+Huancavelica,Huancavelica,Vilca,Sierra,3280,1891
+Huancavelica,Huancavelica,Yauli,Sierra,3424,19237
+Huancavelica,Huaytara,Ayavi,Sierra,3815,745
+Huancavelica,Huaytara,Cordova,Sierra,3242,1005
+Huancavelica,Huaytara,Huayacundo Arma,Sierra,3116,448
+Huancavelica,Huaytara,Huaytara,Sierra,2732,2146
+Huancavelica,Huaytara,Laramarca,Sierra,3407,845
+Huancavelica,Huaytara,Ocoyo,Sierra,3408,812
+Huancavelica,Huaytara,Pilpichaca,Sierra,4090,2758
+Huancavelica,Huaytara,Querco,Sierra,2903,1032
+Huancavelica,Huaytara,QUITO-ARMA,Sierra,2944,686
+Huancavelica,Huaytara,San Antonio De Cusicancha,Sierra,3471,1358
+Huancavelica,Huaytara,San Francisco De Sangayaico,Sierra,3420,920
+Huancavelica,Huaytara,San Isidro,Sierra,3656,1054
+Huancavelica,Huaytara,Santiago De Chocorvos,Sierra,2638,1671
+Huancavelica,Huaytara,Santiago De Quirahuara,Sierra,2801,376
+Huancavelica,Huaytara,Santo Domingo De Capillas,Sierra,3806,724
+Huancavelica,Huaytara,Tambo,Sierra,3201,667
+Huancavelica,Tayacaja,Acostambo,Sierra,3628,3266
+Huancavelica,Tayacaja,Acraquia,Sierra,3281,3522
+Huancavelica,Tayacaja,Ahuaycha,Sierra,3279,3873
+Huancavelica,Tayacaja,Andaymarca,Sierra,2896,2373
+Huancavelica,Tayacaja,Colcabamba,Sierra,2953,11068
+Huancavelica,Tayacaja,Daniel Hernandez,Sierra,3288,9089
+Huancavelica,Tayacaja,Huachocolpa,Sierra,2913,3218
+Huancavelica,Tayacaja,Huaribamba,Sierra,3019,3003
+Huancavelica,Tayacaja,Ñahuimpuquio,Sierra,3651,1480
+Huancavelica,Tayacaja,Pampas,Sierra,3282,10061
+Huancavelica,Tayacaja,Pazos,Sierra,3820,5159
+Huancavelica,Tayacaja,Pichos,Sierra,3297,1914
+Huancavelica,Tayacaja,Quichuas,Sierra,2706,3945
+Huancavelica,Tayacaja,Quishuar,Sierra,3137,731
+Huancavelica,Tayacaja,Salcabamba,Sierra,3079,3828
+Huancavelica,Tayacaja,Salcahuasi,Sierra,3196,2616
+Huancavelica,Tayacaja,San Marcos De Rocchac,Sierra,3206,1813
+Huancavelica,Tayacaja,Santiago De Tucuma,Sierra,3538,1533
+Huancavelica,Tayacaja,Surcubamba,Sierra,2626,4601
+Huancavelica,Tayacaja,Tintay Puncu,Sierra,2684,3010
+Huanuco,Ambo,Ambo,Sierra,2106,20886
+Huanuco,Ambo,Cayna,Sierra,3698,2502
+Huanuco,Ambo,Colpas,Sierra,2740,1731
+Huanuco,Ambo,Conchamarca,Sierra,2047,4441
+Huanuco,Ambo,Huacar,Sierra,2157,7449
+Huanuco,Ambo,San Francisco,Sierra,4027,1561
+Huanuco,Ambo,San Rafael,Sierra,2720,8928
+Huanuco,Ambo,Tomay Kichwa,Sierra,2049,3382
+Huanuco,Dos De Mayo,Chuquis,Sierra,3375,3364
+Huanuco,Dos De Mayo,La Union,Sierra,3275,6634
+Huanuco,Dos De Mayo,Marias,Sierra,3508,5571
+Huanuco,Dos De Mayo,Pachas,Sierra,3474,5393
+Huanuco,Dos De Mayo,Quivilla,Sierra,2972,1228
+Huanuco,Dos De Mayo,Ripan,Sierra,3233,5320
+Huanuco,Dos De Mayo,Shunqui,Sierra,3542,1696
+Huanuco,Dos De Mayo,Sillapata,Sierra,3459,1814
+Huanuco,Dos De Mayo,Yanas,Sierra,3477,2238
+Huanuco,Huacaybamba,Canchabamba,Sierra,3208,2718
+Huanuco,Huacaybamba,Cochabamba,Sierra,3292,1576
+Huanuco,Huacaybamba,Huacaybamba,Sierra,2421,5868
+Huanuco,Huacaybamba,Pinra,Sierra,3058,6389
+Huanuco,Huamalies,Arancay,Sierra,3066,1356
+Huanuco,Huamalies,Chavin De Pariarca,Sierra,3382,3793
+Huanuco,Huamalies,Jacas Grande,Sierra,3625,5603
+Huanuco,Huamalies,Jircan,Sierra,3211,1412
+Huanuco,Huamalies,Llata,Sierra,3489,13403
+Huanuco,Huamalies,Miraflores,Sierra,3688,3127
+Huanuco,Huamalies,Monzon,Selva,773,12368
+Huanuco,Huamalies,Punchao,Sierra,3560,2009
+Huanuco,Huamalies,Puños,Sierra,3749,4062
+Huanuco,Huamalies,Tantamayo,Sierra,3517,1777
+Huanuco,Huanuco,Amarilis,Sierra,1950,81461
+Huanuco,Huanuco,Chinchao,Sierra,2122,13135
+Huanuco,Huanuco,Churubamba,Sierra,2735,15670
+Huanuco,Huanuco,Huanuco,Sierra,1921,89502
+Huanuco,Huanuco,Margos,Sierra,3555,4364
+Huanuco,Huanuco,Pillco Marca,Sierra,1996,43818
+Huanuco,Huanuco,Quisqui Kichki,Sierra,2934,3453
+Huanuco,Huanuco,San Francisco De Cayran,Sierra,2160,4788
+Huanuco,Huanuco,San Pablo De Pillao,Sierra,2954,8350
+Huanuco,Huanuco,Santa Maria Del Valle,Sierra,1939,19226
+Huanuco,Huanuco,Yarumayo,Sierra,3055,1545
+Huanuco,Lauricocha,Baños,Sierra,3442,1956
+Huanuco,Lauricocha,Jesus,Sierra,3498,4193
+Huanuco,Lauricocha,Jivia,Sierra,3394,1011
+Huanuco,Lauricocha,Queropalca,Sierra,3834,1009
+Huanuco,Lauricocha,Rondos,Sierra,3617,3595
+Huanuco,Lauricocha,San Francisco De Asis,Sierra,3457,1296
+Huanuco,Lauricocha,San Miguel De Cauri,Sierra,3625,5853
+Huanuco,Leoncio Prado,Castillo Grande,Selva,675,13568
+Huanuco,Leoncio Prado,Daniel Alomia Robles,Selva,994,6142
+Huanuco,Leoncio Prado,Hermilio Valdizan,Selva,1341,3475
+Huanuco,Leoncio Prado,Jose Crespo Y Castillo,Selva,587,22149
+Huanuco,Leoncio Prado,Luyando,Selva,642,8951
+Huanuco,Leoncio Prado,Mariano Damaso Beraun,Selva,666,10048
+Huanuco,Leoncio Prado,Pucayacu,Selva,573,3724
+Huanuco,Leoncio Prado,Pueblo Nuevo,Selva,626,4143
+Huanuco,Leoncio Prado,RupaRupa,Selva,667,53066
+Huanuco,Leoncio Prado,Santo Domingo De Anda,Selva,610,2527
+Huanuco,Marañon,Cholon,Selva,532,5372
+Huanuco,Marañon,Huacrachuco,Sierra,2914,14150
+Huanuco,Marañon,La Morada,Selva,559,2790
+Huanuco,Marañon,Santa Rosa De Alto Yanajanca,Selva,530,2199
+Huanuco,Pachitea,Chaglla,Sierra,3040,10103
+Huanuco,Pachitea,Molino,Sierra,2396,10552
+Huanuco,Pachitea,Panao,Sierra,2536,17449
+Huanuco,Pachitea,Umari,Sierra,2524,11055
+Huanuco,Puerto Inca,Codo Del Pozuzo,Selva,398,7101
+Huanuco,Puerto Inca,Honoria,Selva,177,4814
+Huanuco,Puerto Inca,Puerto Inca,Selva,215,9407
+Huanuco,Puerto Inca,Tournavista,Selva,214,5447
+Huanuco,Puerto Inca,Yuyapichis,Selva,227,5769
+Huanuco,Yarowilca,Aparicio Pomares,Sierra,3452,4735
+Huanuco,Yarowilca,Cahuac,Sierra,3413,1156
+Huanuco,Yarowilca,Chavinillo,Sierra,3475,4789
+Huanuco,Yarowilca,Choras,Sierra,3554,2024
+Huanuco,Yarowilca,Jacas Chico,Sierra,3816,1110
+Huanuco,Yarowilca,Obas,Sierra,3543,3845
+Huanuco,Yarowilca,Pampamarca,Sierra,3436,1128
+Ica,Chincha,Alto Laran,Costa,156,7783
+Ica,Chincha,Chavin,Sierra,2571,2071
+Ica,Chincha,Chincha Alta,Costa,140,66349
+Ica,Chincha,Chincha Baja,Costa,44,13009
+Ica,Chincha,El Carmen,Costa,160,12369
+Ica,Chincha,Grocio Prado,Costa,134,25294
+Ica,Chincha,Pueblo Nuevo,Costa,146,62604
+Ica,Chincha,San Juan De Yanac,Sierra,2554,1129
+Ica,Chincha,San Pedro De Huacarpana,Sierra,3717,992
+Ica,Chincha,Sunampe,Costa,94,29079
+Ica,Chincha,Tambo De Mora,Costa,37,5434
+Ica,Ica,Ica,Costa,432,150280
+Ica,Ica,La Tinguiña,Costa,463,39574
+Ica,Ica,Los Aquijes,Costa,454,21963
+Ica,Ica,Ocucaje,Costa,332,4392
+Ica,Ica,Pachacutec,Costa,424,7411
+Ica,Ica,Parcona,Costa,472,54047
+Ica,Ica,Pueblo Nuevo,Costa,417,6395
+Ica,Ica,Salas,Costa,452,25767
+Ica,Ica,San Jose De Los Molinos,Costa,542,6987
+Ica,Ica,San Juan Bautista,Costa,451,13846
+Ica,Ica,Santiago,Costa,395,27645
+Ica,Ica,Subtanjalla,Costa,445,27387
+Ica,Ica,Tate,Costa,416,4709
+Ica,Ica,Yauca Del Rosario,Costa,966,1116
+Ica,Nasca,Changuillo,Costa,290,1950
+Ica,Nasca,El Ingenio,Costa,471,3134
+Ica,Nasca,Marcona,Costa,36,15981
+Ica,Nasca,Nasca,Costa,618,27632
+Ica,Nasca,Vista Alegre,Costa,618,20460
+Ica,Palpa,Llipata,Costa,305,1555
+Ica,Palpa,Palpa,Costa,371,7748
+Ica,Palpa,Rio Grande,Costa,369,2658
+Ica,Palpa,Santa Cruz,Costa,534,927
+Ica,Palpa,Tibillo,Costa,2192,344
+Ica,Pisco,Huancano,Costa,1039,1379
+Ica,Pisco,Humay,Costa,312,5408
+Ica,Pisco,Independencia,Costa,235,12987
+Ica,Pisco,Paracas,Costa,108,7147
+Ica,Pisco,Pisco,Costa,39,67467
+Ica,Pisco,San Andres,Costa,16,13767
+Ica,Pisco,San Clemente,Costa,116,24814
+Ica,Pisco,Tupac Amaru Inca,Costa,113,17775
+Junin,Chanchamayo,Chanchamayo,Selva,804,27790
+Junin,Chanchamayo,Perene,Selva,538,52874
+Junin,Chanchamayo,Pichanaqui,Selva,531,39054
+Junin,Chanchamayo,San Luis De Shuaro,Selva,739,4157
+Junin,Chanchamayo,San Ramon,Selva,865,25800
+Junin,Chanchamayo,Vitoc,Selva,962,1814
+Junin,Chupaca,Ahuac,Sierra,3341,6267
+Junin,Chupaca,Chongos Bajo,Sierra,3288,4537
+Junin,Chupaca,Chupaca,Sierra,3286,20341
+Junin,Chupaca,Huachac,Sierra,3378,2948
+Junin,Chupaca,Huamancaca Chico,Sierra,3203,8766
+Junin,Chupaca,San Juan De Iscos,Sierra,3280,2228
+Junin,Chupaca,San Juan De Jarpa,Sierra,3692,2658
+Junin,Chupaca,Tres De Diciembre,Sierra,3193,2665
+Junin,Chupaca,Yanacancha,Sierra,3854,2578
+Junin,Concepcion,Aco,Sierra,3474,1642
+Junin,Concepcion,Andamarca,Sierra,2508,3502
+Junin,Concepcion,Chambara,Sierra,3521,2550
+Junin,Concepcion,Cochas,Sierra,3636,1923
+Junin,Concepcion,Comas,Sierra,3303,5377
+Junin,Concepcion,Concepcion,Sierra,3303,15428
+Junin,Concepcion,Heroinas Toledo,Sierra,3755,972
+Junin,Concepcion,Manzanares,Sierra,3381,1478
+Junin,Concepcion,Matahuasi,Sierra,3302,5537
+Junin,Concepcion,Mito,Sierra,3296,1382
+Junin,Concepcion,Nueve De Julio,Sierra,3339,2287
+Junin,Concepcion,Orcotuna,Sierra,3271,4738
+Junin,Concepcion,San Jose De Quero,Sierra,3638,5398
+Junin,Concepcion,Santa Rosa De Ocopa,Sierra,3396,1983
+Junin,Huancayo,Carhuacallanga,Sierra,3774,506
+Junin,Huancayo,Chacapampa,Sierra,3412,959
+Junin,Huancayo,Chicche,Sierra,3874,741
+Junin,Huancayo,Chilca,Sierra,3273,91851
+Junin,Huancayo,Chongos Alto,Sierra,3572,1484
+Junin,Huancayo,Chupuro,Sierra,3197,1946
+Junin,Huancayo,Colca,Sierra,3499,1017
+Junin,Huancayo,Cullhuas,Sierra,3549,1335
+Junin,Huancayo,El Tambo,Sierra,3305,166359
+Junin,Huancayo,Huacrapuquio,Sierra,3238,1366
+Junin,Huancayo,Hualhuas,Sierra,3267,5251
+Junin,Huancayo,Huancan,Sierra,3252,24830
+Junin,Huancayo,Huancayo,Sierra,3294,119993
+Junin,Huancayo,Huasicancha,Sierra,3754,829
+Junin,Huancayo,Huayucachi,Sierra,3251,9800
+Junin,Huancayo,Ingenio,Sierra,3486,2376
+Junin,Huancayo,Pariahuanca,Sierra,2598,5130
+Junin,Huancayo,Pilcomayo,Sierra,3244,20055
+Junin,Huancayo,Pucara,Sierra,3374,4748
+Junin,Huancayo,Quichuay,Sierra,3430,1852
+Junin,Huancayo,Quilcas,Sierra,3323,3904
+Junin,Huancayo,San Agustin,Sierra,3297,15281
+Junin,Huancayo,San Jeronimo De Tunan,Sierra,3300,11601
+Junin,Huancayo,Santo Domingo De Acobamba,Sierra,2691,6222
+Junin,Huancayo,Saño,Sierra,3296,5512
+Junin,Huancayo,Sapallanga,Sierra,3330,21096
+Junin,Huancayo,Sicaya,Sierra,3305,16932
+Junin,Huancayo,Viques,Sierra,3200,2639
+Junin,Jauja,Acolla,Sierra,3493,6077
+Junin,Jauja,Apata,Sierra,3359,4284
+Junin,Jauja,Ataura,Sierra,3364,1264
+Junin,Jauja,Canchayllo,Sierra,3632,1601
+Junin,Jauja,Curicaca,Sierra,3532,1410
+Junin,Jauja,El Mantaro,Sierra,3336,2598
+Junin,Jauja,Huamali,Sierra,3366,1646
+Junin,Jauja,Huaripampa,Sierra,3378,1000
+Junin,Jauja,Huertas,Sierra,3404,2041
+Junin,Jauja,Janjaillo,Sierra,3881,558
+Junin,Jauja,Jauja,Sierra,3425,17908
+Junin,Jauja,Julcan,Sierra,3473,745
+Junin,Jauja,Leonor Ordoñez,Sierra,3319,1553
+Junin,Jauja,Llocllapampa,Sierra,3526,1143
+Junin,Jauja,Marco,Sierra,3480,1451
+Junin,Jauja,Masma,Sierra,3505,1732
+Junin,Jauja,Masma Chicche,Sierra,3671,732
+Junin,Jauja,Molinos,Sierra,3459,1573
+Junin,Jauja,Monobamba,Selva,1495,1662
+Junin,Jauja,Muqui,Sierra,3358,1017
+Junin,Jauja,Muquiyauyo,Sierra,3373,2335
+Junin,Jauja,Paca,Sierra,3402,892
+Junin,Jauja,Paccha,Sierra,3679,1450
+Junin,Jauja,Pancan,Sierra,3398,1226
+Junin,Jauja,Parco,Sierra,3414,1153
+Junin,Jauja,Pomacancha,Sierra,3860,1427
+Junin,Jauja,Ricran,Sierra,3645,1296
+Junin,Jauja,San Lorenzo,Sierra,3337,2538
+Junin,Jauja,San Pedro De Chunan,Sierra,3416,702
+Junin,Jauja,Sausa,Sierra,3387,3060
+Junin,Jauja,Sincos,Sierra,3280,4056
+Junin,Jauja,Tunan Marca,Sierra,3492,1038
+Junin,Jauja,Yauli,Sierra,3439,1097
+Junin,Jauja,Yauyos,Sierra,3420,8992
+Junin,Junin,Carhuamayo,Sierra,4154,6638
+Junin,Junin,Junin,Sierra,4127,10976
+Junin,Junin,Ondores,Sierra,4108,1236
+Junin,Junin,Ulcumayo,Sierra,3636,4283
+Junin,Satipo,Coviriali,Selva,676,5778
+Junin,Satipo,Llaylla,Selva,1122,6544
+Junin,Satipo,Mazamari  Pangoa,Selva,816,89959
+Junin,Satipo,Pampa Hermosa,Selva,1231,3690
+Junin,Satipo,Rio Negro,Selva,665,30651
+Junin,Satipo,Rio Tambo,Selva,330,26036
+Junin,Satipo,Satipo,Selva,676,37075
+Junin,Satipo,Vizcatan Del Ene,Selva,499,4252
+Junin,Tarma,Acobamba,Sierra,2961,9500
+Junin,Tarma,Huaricolca,Sierra,3783,1899
+Junin,Tarma,Huasahuasi,Sierra,2768,9901
+Junin,Tarma,La Union,Sierra,3556,3514
+Junin,Tarma,Palca,Sierra,2759,5543
+Junin,Tarma,Palcamayo,Sierra,3351,3438
+Junin,Tarma,San Pedro De Cajas,Sierra,4026,3547
+Junin,Tarma,Tapo,Sierra,3146,4473
+Junin,Tarma,Tarma,Sierra,3094,47775
+Junin,Yauli,Chacapalpa,Sierra,3775,687
+Junin,Yauli,HuayHuay,Sierra,3995,1947
+Junin,Yauli,La Oroya,Sierra,3757,14021
+Junin,Yauli,Marcapomacocha,Sierra,4171,835
+Junin,Yauli,Morococha,Sierra,4268,5155
+Junin,Yauli,Paccha,Sierra,3786,1633
+Junin,Yauli,Santa Barbara De Carhuacayan,Sierra,4145,1104
+Junin,Yauli,Santa Rosa De Sacco,Sierra,3831,8977
+Junin,Yauli,Suitucancha,Sierra,4286,690
+Junin,Yauli,Yauli,Sierra,4137,5341
+La Libertad,Ascope,Ascope,Costa,242,6462
+La Libertad,Ascope,Casa Grande,Costa,162,28492
+La Libertad,Ascope,Chicama,Costa,150,15267
+La Libertad,Ascope,Chocope,Costa,118,9321
+La Libertad,Ascope,Magdalena De Cao,Costa,42,2463
+La Libertad,Ascope,Paijan,Costa,97,25913
+La Libertad,Ascope,Razuri,Costa,14,8664
+La Libertad,Ascope,Santiago De Cao,Costa,77,19204
+La Libertad,Bolivar,Bambamarca,Sierra,3488,2908
+La Libertad,Bolivar,Bolivar,Sierra,3156,4455
+La Libertad,Bolivar,Condormarca,Sierra,3280,1914
+La Libertad,Bolivar,Longotea,Selva,1456,2098
+La Libertad,Bolivar,Ucuncha,Sierra,2634,836
+La Libertad,Chepen,Chepen,Costa,160,45733
+La Libertad,Chepen,Pacanga,Costa,140,21056
+La Libertad,Chepen,Pueblo Nuevo,Costa,84,11629
+La Libertad,Gran Chimu,Cascas,Costa,1278,13374
+La Libertad,Gran Chimu,Lucma,Costa,2192,4725
+La Libertad,Gran Chimu,Marmot,Costa,1512,2407
+La Libertad,Gran Chimu,Sayapullo,Sierra,2384,6386
+La Libertad,Julcan,Calamarca,Sierra,3377,4866
+La Libertad,Julcan,Carabamba,Sierra,3345,6221
+La Libertad,Julcan,Huaso,Sierra,3608,5432
+La Libertad,Julcan,Julcan,Sierra,3420,11505
+La Libertad,Otuzco,Agallpampa,Sierra,3464,9252
+La Libertad,Otuzco,Charat,Costa,2273,2420
+La Libertad,Otuzco,Huaranchal,Costa,2208,3940
+La Libertad,Otuzco,La Cuesta,Sierra,3564,614
+La Libertad,Otuzco,Mache,Sierra,3320,2693
+La Libertad,Otuzco,Otuzco,Sierra,2700,24169
+La Libertad,Otuzco,Salpo,Sierra,3461,5831
+La Libertad,Otuzco,Sinsicap,Sierra,3081,7032
+La Libertad,Otuzco,Usquil,Sierra,3049,21388
+La Libertad,Pacasmayo,Guadalupe,Costa,124,40217
+La Libertad,Pacasmayo,Jequetepeque,Costa,13,4136
+La Libertad,Pacasmayo,Pacasmayo,Costa,21,28959
+La Libertad,Pacasmayo,San Jose,Costa,94,11948
+La Libertad,Pacasmayo,San Pedro De Lloc,Costa,49,17637
+La Libertad,Pataz,Buldibuyo,Sierra,3189,3812
+La Libertad,Pataz,Chillia,Sierra,3166,11678
+La Libertad,Pataz,Huancaspata,Sierra,3313,5877
+La Libertad,Pataz,Huaylillas,Sierra,2381,1158
+La Libertad,Pataz,Huayo,Sierra,3110,3478
+La Libertad,Pataz,Ongon,Sierra,1578,1250
+La Libertad,Pataz,Parcoy,Sierra,3236,18730
+La Libertad,Pataz,Pataz,Sierra,2611,8937
+La Libertad,Pataz,Pias,Sierra,2641,1656
+La Libertad,Pataz,Santiago De Challas,Sierra,3316,2210
+La Libertad,Pataz,Taurija,Sierra,3123,2779
+La Libertad,Pataz,Tayabamba,Sierra,3222,12490
+La Libertad,Pataz,Urpay,Sierra,2707,2048
+La Libertad,Sanchez Carrion,Chugay,Sierra,3394,16769
+La Libertad,Sanchez Carrion,Cochorco,Sierra,2620,8398
+La Libertad,Sanchez Carrion,Curgos,Sierra,3244,7822
+La Libertad,Sanchez Carrion,Huamachuco,Sierra,3183,66902
+La Libertad,Sanchez Carrion,Marcabal,Sierra,3078,10431
+La Libertad,Sanchez Carrion,Sanagoran,Sierra,3244,12922
+La Libertad,Sanchez Carrion,Sarin,Sierra,2840,8916
+La Libertad,Sanchez Carrion,Sartimbamba,Sierra,2986,12245
+La Libertad,Santiago De Chuco,Angasmarca,Sierra,2889,4810
+La Libertad,Santiago De Chuco,Cachicadan,Sierra,2897,5319
+La Libertad,Santiago De Chuco,Mollebamba,Sierra,3142,1734
+La Libertad,Santiago De Chuco,Mollepata,Sierra,3390,2339
+La Libertad,Santiago De Chuco,Quiruvilca,Sierra,3992,12291
+La Libertad,Santiago De Chuco,Santa Cruz De Chuca,Sierra,2937,2852
+La Libertad,Santiago De Chuco,Santiago De Chuco,Sierra,3126,18311
+La Libertad,Santiago De Chuco,Sitabamba,Sierra,3080,3240
+La Libertad,Trujillo,El Porvenir,Costa,92,190461
+La Libertad,Trujillo,Florencia De Mora,Costa,92,37262
+La Libertad,Trujillo,Huanchaco,Costa,142,68409
+La Libertad,Trujillo,La Esperanza,Costa,137,189206
+La Libertad,Trujillo,Laredo,Costa,107,37206
+La Libertad,Trujillo,Moche,Costa,25,37436
+La Libertad,Trujillo,Poroto,Costa,659,3586
+La Libertad,Trujillo,Salaverry,Costa,10,18944
+La Libertad,Trujillo,Simbal,Costa,604,4061
+La Libertad,Trujillo,Trujillo,Costa,74,314939
+La Libertad,Trujillo,Victor Larco Herrera,Costa,24,68506
+La Libertad,Viru,Chao,Costa,103,32842
+La Libertad,Viru,Guadalupito,Costa,32,7075
+La Libertad,Viru,Viru,Costa,88,52407
+Lambayeque,Chiclayo,Cayalti,Costa,86,14809
+Lambayeque,Chiclayo,Chiclayo,Costa,28,270496
+Lambayeque,Chiclayo,Chongoyape,Costa,219,18364
+Lambayeque,Chiclayo,Eten,Costa,15,11993
+Lambayeque,Chiclayo,Eten Puerto,Costa,14,2342
+Lambayeque,Chiclayo,Jose Leonardo Ortiz,Costa,41,156498
+Lambayeque,Chiclayo,La Victoria,Costa,36,90912
+Lambayeque,Chiclayo,Lagunas,Costa,34,9986
+Lambayeque,Chiclayo,Monsefu,Costa,40,32225
+Lambayeque,Chiclayo,Nueva Arica,Costa,178,2458
+Lambayeque,Chiclayo,Oyotun,Costa,208,8201
+Lambayeque,Chiclayo,Patapo,Costa,113,22624
+Lambayeque,Chiclayo,Picsi,Costa,43,12704
+Lambayeque,Chiclayo,Pimentel,Costa,22,44602
+Lambayeque,Chiclayo,Pomalca,Costa,61,25267
+Lambayeque,Chiclayo,Pucala,Costa,108,8701
+Lambayeque,Chiclayo,Reque,Costa,34,15744
+Lambayeque,Chiclayo,Santa Rosa,Costa,23,12350
+Lambayeque,Chiclayo,Saña,Costa,70,11617
+Lambayeque,Chiclayo,Tuman,Costa,71,27782
+Lambayeque,Ferreñafe,Cañaris,Costa,2036,11366
+Lambayeque,Ferreñafe,Ferreñafe,Costa,38,34229
+Lambayeque,Ferreñafe,Incahuasi,Sierra,3030,13858
+Lambayeque,Ferreñafe,Manuel Antonio Mesones Muro,Costa,66,3808
+Lambayeque,Ferreñafe,Pitipo,Costa,119,19651
+Lambayeque,Ferreñafe,Pueblo Nuevo,Costa,45,14503
+Lambayeque,Lambayeque,Chochope,Costa,198,1407
+Lambayeque,Lambayeque,Illimo,Costa,60,8856
+Lambayeque,Lambayeque,Jayanca,Costa,66,17204
+Lambayeque,Lambayeque,Lambayeque,Costa,24,71425
+Lambayeque,Lambayeque,Mochumi,Costa,40,18401
+Lambayeque,Lambayeque,Morrope,Costa,5,48209
+Lambayeque,Lambayeque,Motupe,Costa,140,29836
+Lambayeque,Lambayeque,Olmos,Costa,192,46484
+Lambayeque,Lambayeque,Pacora,Costa,69,8060
+Lambayeque,Lambayeque,Salas,Costa,174,12595
+Lambayeque,Lambayeque,San Jose,Costa,33,15846
+Lambayeque,Lambayeque,Tucume,Costa,61,21847
+Lima,Barranca,Barranca,Costa,74,68324
+Lima,Barranca,Paramonga,Costa,37,21453
+Lima,Barranca,Pativilca,Costa,95,17431
+Lima,Barranca,Supe,Costa,69,24318
+Lima,Barranca,Supe Puerto,Costa,41,12855
+Lima,Cajatambo,Cajatambo,Sierra,3396,2082
+Lima,Cajatambo,Copa,Sierra,3520,858
+Lima,Cajatambo,Gorgor,Sierra,3049,1672
+Lima,Cajatambo,Huancapon,Sierra,3187,984
+Lima,Cajatambo,Manas,Costa,890,963
+Lima,Canta,Arahuay,Sierra,2533,596
+Lima,Canta,Canta,Sierra,2867,2385
+Lima,Canta,Huamantanga,Sierra,3414,686
+Lima,Canta,Huaros,Sierra,3614,760
+Lima,Canta,Lachaqui,Sierra,3686,856
+Lima,Canta,San Buenaventura,Sierra,2857,555
+Lima,Canta,Santa Rosa De Quives,Costa,659,5710
+Lima,Cañete,Asia,Costa,38,9784
+Lima,Cañete,Calango,Costa,323,2269
+Lima,Cañete,Cerro Azul,Costa,17,8328
+Lima,Cañete,Chilca,Costa,31,21573
+Lima,Cañete,Coayllo,Costa,285,1043
+Lima,Cañete,Imperial,Costa,112,38925
+Lima,Cañete,Lunahuana,Costa,498,4393
+Lima,Cañete,Mala,Costa,58,32717
+Lima,Cañete,Nuevo Imperial,Costa,169,26233
+Lima,Cañete,Pacaran,Costa,721,1686
+Lima,Cañete,Quilmana,Costa,185,16091
+Lima,Cañete,San Antonio,Costa,67,4343
+Lima,Cañete,San Luis,Costa,36,13436
+Lima,Cañete,San Vicente De Cañete,Costa,77,54775
+Lima,Cañete,Santa Cruz De Flores,Costa,110,3103
+Lima,Cañete,Zuñiga,Costa,827,1314
+Lima,Huaral,Atavillos Alto,Sierra,3293,687
+Lima,Huaral,Atavillos Bajo,Costa,1885,902
+Lima,Huaral,Aucallama,Costa,154,19464
+Lima,Huaral,Chancay,Costa,58,56920
+Lima,Huaral,Huaral,Costa,194,99915
+Lima,Huaral,Ihuari,Sierra,2850,2037
+Lima,Huaral,Lampian,Sierra,2467,336
+Lima,Huaral,Pacaraos,Sierra,3526,1028
+Lima,Huaral,San Miguel De Acos,Costa,1591,648
+Lima,Huaral,Santa Cruz De Andamarca,Sierra,4485,830
+Lima,Huaral,Sumbilca,Sierra,3396,720
+Lima,Huaral,Veintisiete De Noviembre,Sierra,2640,411
+Lima,Huarochiri,Antioquia,Costa,1573,1225
+Lima,Huarochiri,Callahuanca,Costa,1807,798
+Lima,Huarochiri,Chicla,Sierra,4221,3826
+Lima,Huarochiri,Cuenca,Sierra,3073,449
+Lima,Huarochiri,Huachupampa,Sierra,2938,609
+Lima,Huarochiri,Huanza,Sierra,3431,875
+Lima,Huarochiri,Huarochiri,Sierra,3170,1302
+Lima,Huarochiri,Lahuaytambo,Sierra,3362,616
+Lima,Huarochiri,Langa,Sierra,2889,889
+Lima,Huarochiri,Matucana,Sierra,2395,4058
+Lima,Huarochiri,Ricardo Palma,Costa,975,6542
+Lima,Huarochiri,San Andres De Tupicocha,Sierra,3321,1320
+Lima,Huarochiri,San Antonio,Costa,1582,912
+Lima,Huarochiri,San Bartolome,Costa,1644,1139
+Lima,Huarochiri,San Damian,Sierra,3252,1202
+Lima,Huarochiri,San Juan De Tantaranche,Sierra,3436,374
+Lima,Huarochiri,San Lorenzo De Quinti,Sierra,2682,1223
+Lima,Huarochiri,San Mateo,Sierra,3164,4245
+Lima,Huarochiri,San Mateo De Otao,Sierra,2528,1335
+Lima,Huarochiri,San Pedro De Casta,Sierra,3196,928
+Lima,Huarochiri,San Pedro De Huancayre,Sierra,3140,210
+Lima,Huarochiri,Sangallaya,Sierra,2779,630
+Lima,Huarochiri,Santa Cruz De Cocachacra,Costa,1243,2486
+Lima,Huarochiri,Santa Eulalia,Costa,1048,12636
+Lima,Huarochiri,Santiago De Anchucaya,Sierra,3400,320
+Lima,Huarochiri,Santo Domingo De Los Olleros,Costa,1726,3125
+Lima,Huarochiri,Surco,Costa,2049,1407
+Lima,Huaura,Ambar,Costa,2215,2208
+Lima,Huaura,Caleta De Carquin,Costa,28,8132
+Lima,Huaura,Checras,Sierra,3633,929
+Lima,Huaura,Huacho,Costa,46,63142
+Lima,Huaura,Hualmay,Costa,47,28765
+Lima,Huaura,Huaura,Costa,96,34764
+Lima,Huaura,Leoncio Prado,Costa,2190,1867
+Lima,Huaura,Paccho,Sierra,3275,1516
+Lima,Huaura,Santa Leonor,Sierra,3642,775
+Lima,Huaura,Santa Maria,Costa,83,36267
+Lima,Huaura,Sayan,Costa,689,23408
+Lima,Huaura,Vegueta,Costa,62,25912
+Lima,Lima,Ancon,Costa,14,62928
+Lima,Lima,Ate,Costa,378,599196
+Lima,Lima,Barranco,Costa,97,34378
+Lima,Lima,Breña,Costa,153,85309
+Lima,Lima,Carabayllo,Costa,238,333045
+Lima,Lima,Chaclacayo,Costa,685,42912
+Lima,Lima,Chorrillos,Costa,68,314241
+Lima,Lima,Cieneguilla,Costa,287,34684
+Lima,Lima,Comas,Costa,107,520450
+Lima,Lima,El Agustino,Costa,200,198862
+Lima,Lima,Independencia,Costa,111,211360
+Lima,Lima,Jesus Maria,Costa,142,75359
+Lima,Lima,La Molina,Costa,262,140679
+Lima,Lima,La Victoria,Costa,142,173630
+Lima,Lima,Lima,Costa,162,268352
+Lima,Lima,Lince,Costa,150,54711
+Lima,Lima,Los Olivos,Costa,67,325884
+Lima,Lima,Lurigancho,Costa,879,240814
+Lima,Lima,Lurin,Costa,12,89195
+Lima,Lima,Magdalena Del Mar,Costa,90,60290
+Lima,Lima,Miraflores,Costa,125,99337
+Lima,Lima,Pachacamac,Costa,68,110071
+Lima,Lima,Pucusana,Costa,26,14891
+Lima,Lima,Pueblo Libre,Costa,114,83323
+Lima,Lima,Puente Piedra,Costa,50,329675
+Lima,Lima,Punta Hermosa,Costa,52,15874
+Lima,Lima,Punta Negra,Costa,42,7074
+Lima,Lima,Rimac,Costa,153,174785
+Lima,Lima,San Bartolo,Costa,25,7482
+Lima,Lima,San Borja,Costa,170,113247
+Lima,Lima,San Isidro,Costa,195,60735
+Lima,Lima,San Juan De Lurigancho,Costa,222,1038495
+Lima,Lima,San Juan De Miraflores,Costa,133,355219
+Lima,Lima,San Luis,Costa,214,52082
+Lima,Lima,San Martin De Porres,Costa,138,654083
+Lima,Lima,San Miguel,Costa,84,155384
+Lima,Lima,Santa Anita,Costa,285,196214
+Lima,Lima,Santa Maria Del Mar,Costa,52,999
+Lima,Lima,Santa Rosa,Costa,72,27863
+Lima,Lima,Santiago De Surco,Costa,107,329152
+Lima,Lima,Surquillo,Costa,125,91023
+Lima,Lima,Villa El Salvador,Costa,204,393254
+Lima,Lima,Villa Maria Del Triunfo,Costa,210,398433
+Lima,Oyon,Andajes,Sierra,3505,546
+Lima,Oyon,Caujul,Sierra,3185,576
+Lima,Oyon,Cochamarca,Sierra,3492,1086
+Lima,Oyon,Navan,Sierra,3131,855
+Lima,Oyon,Oyon,Sierra,3648,12150
+Lima,Oyon,Pachangara,Costa,2283,2526
+Lima,Yauyos,Alis,Sierra,4639,1534
+Lima,Yauyos,Allauca,Sierra,3151,1145
+Lima,Yauyos,Ayaviri,Sierra,3263,565
+Lima,Yauyos,Cacra,Sierra,2788,507
+Lima,Yauyos,Carania,Sierra,3846,162
+Lima,Yauyos,Catahuasi,Costa,1275,1062
+Lima,Yauyos,Chocos,Sierra,2733,801
+Lima,Yauyos,Cochas,Sierra,2851,216
+Lima,Yauyos,Colonia,Sierra,2539,1109
+Lima,Yauyos,Huancaya,Sierra,3591,596
+Lima,Yauyos,Huangascar,Sierra,2529,637
+Lima,Yauyos,Huantan,Sierra,3315,941
+Lima,Yauyos,Laraos,Sierra,3492,546
+Lima,Yauyos,Lincha,Sierra,3516,447
+Lima,Yauyos,Miraflores,Sierra,3677,229
+Lima,Yauyos,Omas,Costa,1572,593
+Lima,Yauyos,Putinza,Costa,1985,498
+Lima,Yauyos,Quinocay,Costa,1538,428
+Lima,Yauyos,San Pedro De Pilas,Sierra,2678,275
+Lima,Yauyos,Tanta,Sierra,4293,507
+Lima,Yauyos,Tauripampa,Sierra,3526,499
+Lima,Yauyos,Tomas,Sierra,3580,520
+Lima,Yauyos,Tupe,Sierra,2841,533
+Lima,Yauyos,Viñac,Sierra,3315,1624
+Lima,Yauyos,Vitis,Sierra,3625,311
+Lima,Yauyos,Yauyos,Sierra,2895,1481
+Loreto,Alto Amazonas,Balsapuerto,Selva,220,13707
+Loreto,Alto Amazonas,Jeberos,Selva,146,3900
+Loreto,Alto Amazonas,Lagunas,Selva,118,12033
+Loreto,Alto Amazonas,Santa Cruz,Selva,131,3967
+Loreto,Alto Amazonas,Teniente Cesar Lopez Rojas,Selva,149,5564
+Loreto,Alto Amazonas,Yurimaguas,Selva,150,83554
+Loreto,Datem Del Marañon,Andoas,Selva,228,11714
+Loreto,Datem Del Marañon,Barranca,Selva,134,12742
+Loreto,Datem Del Marañon,Cahuapanas,Selva,162,6336
+Loreto,Datem Del Marañon,Manseriche,Selva,155,8421
+Loreto,Datem Del Marañon,Morona,Selva,136,4191
+Loreto,Datem Del Marañon,Pastaza,Selva,137,5078
+Loreto,Loreto,Nauta,Selva,127,29963
+Loreto,Loreto,Parinari,Selva,98,6085
+Loreto,Loreto,Tigre,Selva,131,6448
+Loreto,Loreto,Trompeteros,Selva,131,8396
+Loreto,Loreto,Urarinas,Selva,119,11545
+Loreto,Mariscal Ramon Castilla,Pebas,Selva,117,11079
+Loreto,Mariscal Ramon Castilla,Ramon Castilla,Selva,86,19178
+Loreto,Mariscal Ramon Castilla,San Pablo,Selva,84,10449
+Loreto,Mariscal Ramon Castilla,Yavari,Selva,75,8366
+Loreto,Maynas,Alto Nanay,Selva,115,2855
+Loreto,Maynas,Belen,Selva,116,64488
+Loreto,Maynas,Fernando Lores,Selva,129,13875
+Loreto,Maynas,Indiana,Selva,98,10134
+Loreto,Maynas,Iquitos,Selva,107,146853
+Loreto,Maynas,Las Amazonas,Selva,96,8032
+Loreto,Maynas,Mazan,Selva,106,12181
+Loreto,Maynas,Napo,Selva,142,15003
+Loreto,Maynas,Punchana,Selva,124,75210
+Loreto,Maynas,San Juan Bautista,Selva,120,127005
+Loreto,Maynas,Torres Causana,Selva,168,4230
+Loreto,Putumayo,Putumayo,Selva,130,3666
+Loreto,Putumayo,Teniente Manuel Clavero,Selva,185,2317
+Loreto,Requena,Capelo,Selva,112,2566
+Loreto,Requena,Emilio San Martin,Selva,108,6089
+Loreto,Requena,Jenaro Herrera,Selva,116,4608
+Loreto,Requena,Maquia,Selva,113,7304
+Loreto,Requena,Puinahua,Selva,112,4372
+Loreto,Requena,Requena,Selva,116,25313
+Loreto,Requena,Saquena,Selva,106,3365
+Loreto,Ucayali,Contamana,Selva,138,23883
+Loreto,Ucayali,Inahuaya,Selva,140,1738
+Loreto,Ucayali,Padre Marquez,Selva,139,3697
+Loreto,Ucayali,Pampa Hermosa,Selva,110,5388
+Loreto,Ucayali,Sarayacu,Selva,122,13464
+Loreto,Ucayali,Vargas Guerra,Selva,129,6467
+Madre De Dios,Manu,Fitzcarrald,Selva,394,1402
+Madre De Dios,Manu,Huepetuhe,Selva,444,8574
+Madre De Dios,Manu,Madre De Dios,Selva,246,6217
+Madre De Dios,Manu,Manu,Selva,535,2356
+Madre De Dios,Tahuamanu,Iberia,Selva,268,5791
+Madre De Dios,Tahuamanu,Iñapari,Selva,238,2391
+Madre De Dios,Tahuamanu,Tahuamanu,Selva,257,2865
+Madre De Dios,Tambopata,Inambari,Selva,351,11570
+Madre De Dios,Tambopata,Laberinto,Selva,192,5335
+Madre De Dios,Tambopata,Las Piedras,Selva,177,12644
+Madre De Dios,Tambopata,Tambopata,Selva,204,81925
+Moquegua,General Sanchez Cerro,Chojata,Sierra,3634,708
+Moquegua,General Sanchez Cerro,Coalaque,Sierra,2300,948
+Moquegua,General Sanchez Cerro,Ichuña,Sierra,3794,2901
+Moquegua,General Sanchez Cerro,La Capilla,Costa,1816,626
+Moquegua,General Sanchez Cerro,Lloque,Sierra,3325,570
+Moquegua,General Sanchez Cerro,Matalaque,Sierra,2577,455
+Moquegua,General Sanchez Cerro,Omate,Costa,2169,3158
+Moquegua,General Sanchez Cerro,Puquina,Sierra,3092,2376
+Moquegua,General Sanchez Cerro,Quinistaquillas,Costa,1789,518
+Moquegua,General Sanchez Cerro,Ubinas,Sierra,3395,1741
+Moquegua,General Sanchez Cerro,Yunga,Sierra,3619,864
+Moquegua,Ilo,El Algarrobal,Costa,136,3717
+Moquegua,Ilo,Ilo,Costa,33,66479
+Moquegua,Ilo,Pacocha,Costa,77,4453
+Moquegua,Mariscal Nieto,Carumas,Sierra,3054,2366
+Moquegua,Mariscal Nieto,Cuchumbaya,Sierra,3156,761
+Moquegua,Mariscal Nieto,Moquegua,Costa,1428,65808
+Moquegua,Mariscal Nieto,Samegua,Costa,1615,8480
+Moquegua,Mariscal Nieto,San Cristobal,Sierra,3472,1736
+Moquegua,Mariscal Nieto,Torata,Sierra,4015,6198
+Pasco,Daniel Alcides Carrion,Chacayan,Sierra,3499,2006
+Pasco,Daniel Alcides Carrion,Goyllarisquizga,Sierra,4202,1535
+Pasco,Daniel Alcides Carrion,Paucar,Sierra,3628,1776
+Pasco,Daniel Alcides Carrion,San Pedro De Pillao,Sierra,3648,1348
+Pasco,Daniel Alcides Carrion,Santa Ana De Tusi,Sierra,3786,21217
+Pasco,Daniel Alcides Carrion,Tapuc,Sierra,3713,2426
+Pasco,Daniel Alcides Carrion,Vilcabamba,Sierra,3459,1939
+Pasco,Daniel Alcides Carrion,Yanahuanca,Sierra,3203,11333
+Pasco,Oxapampa,Chontabamba,Sierra,1824,5334
+Pasco,Oxapampa,Constitucion,Selva,246,13634
+Pasco,Oxapampa,Huancabamba,Sierra,1769,6661
+Pasco,Oxapampa,Oxapampa,Sierra,1832,15677
+Pasco,Oxapampa,Palcazu,Selva,302,7130
+Pasco,Oxapampa,Pozuzo,Selva,750,4511
+Pasco,Oxapampa,Puerto Bermudez,Selva,281,17249
+Pasco,Oxapampa,Villa Rica,Sierra,1551,17274
+Pasco,Pasco,Chaupimarca,Sierra,4373,25627
+Pasco,Pasco,Huachon,Sierra,3076,4333
+Pasco,Pasco,Huariaca,Sierra,2986,6925
+Pasco,Pasco,Huayllay,Sierra,4341,9577
+Pasco,Pasco,Ninacaca,Sierra,4172,3877
+Pasco,Pasco,Pallanchacra,Sierra,3126,1738
+Pasco,Pasco,Paucartambo,Sierra,2954,11216
+Pasco,Pasco,San Francisco De Asis De Yarusyacan,Sierra,4174,4459
+Pasco,Pasco,Simon Bolivar,Sierra,4354,12663
+Pasco,Pasco,Ticlacayan,Sierra,3542,3261
+Pasco,Pasco,Tinyahuarco,Sierra,4279,6755
+Pasco,Pasco,Vicco,Sierra,4128,3392
+Pasco,Pasco,Yanacancha,Sierra,4394,29192
+Piura,Ayabaca,Ayabaca,Sierra,2735,30852
+Piura,Ayabaca,Frias,Costa,1703,19896
+Piura,Ayabaca,Jilili,Costa,1663,2405
+Piura,Ayabaca,Lagunas,Costa,2219,5734
+Piura,Ayabaca,Montero,Costa,1058,6179
+Piura,Ayabaca,Pacaipampa,Costa,1980,21257
+Piura,Ayabaca,Paimas,Costa,598,9621
+Piura,Ayabaca,Sapillica,Costa,1464,10510
+Piura,Ayabaca,Sicchez,Costa,1307,1654
+Piura,Ayabaca,Suyo,Costa,417,11179
+Piura,Huancabamba,Canchaque,Costa,1152,7317
+Piura,Huancabamba,El Carmen De La Frontera,Sierra,2372,11186
+Piura,Huancabamba,Huancabamba,Sierra,1955,27599
+Piura,Huancabamba,Huarmaca,Sierra,2188,35548
+Piura,Huancabamba,San Miguel De El Faique,Costa,1258,8678
+Piura,Huancabamba,Sondor,Sierra,2003,7140
+Piura,Huancabamba,Sondorillo,Sierra,2470,10162
+Piura,Morropon,Buenos Aires,Costa,154,9410
+Piura,Morropon,Chalaco,Costa,2261,7789
+Piura,Morropon,Chulucanas,Costa,135,82521
+Piura,Morropon,La Matanza,Costa,126,13997
+Piura,Morropon,Morropon,Costa,151,15239
+Piura,Morropon,Salitral,Costa,178,8527
+Piura,Morropon,San Juan De Bigote,Costa,201,6433
+Piura,Morropon,Santa Catalina De Mossa,Costa,214,3650
+Piura,Morropon,Santo Domingo,Costa,1490,5960
+Piura,Morropon,Yamango,Costa,1192,8501
+Piura,Paita,Amotape,Costa,23,2413
+Piura,Paita,Arenal,Costa,37,1136
+Piura,Paita,Colan,Costa,25,14869
+Piura,Paita,La Huaca,Costa,37,12950
+Piura,Paita,Paita,Costa,71,87979
+Piura,Paita,Tamarindo,Costa,33,4923
+Piura,Paita,Vichayal,Costa,27,5622
+Piura,Piura,Castilla,Costa,35,160201
+Piura,Piura,Catacaos,Costa,35,75870
+Piura,Piura,Cura Mori,Costa,35,18671
+Piura,Piura,El Tallan,Costa,21,5387
+Piura,Piura,La Arena,Costa,32,38734
+Piura,Piura,La Union,Costa,27,41742
+Piura,Piura,Las Lomas,Costa,257,26947
+Piura,Piura,Piura,Costa,57,158495
+Piura,Piura,Tambo Grande,Costa,76,107495
+Piura,Piura,Veintiseis De Octubre,Costa,53,165779
+Piura,Sechura,Bellavista De La Union,Costa,39,4798
+Piura,Sechura,Bernal,Costa,22,6855
+Piura,Sechura,Cristo Nos Valga,Costa,25,4300
+Piura,Sechura,Rinconada Llicuar,Costa,26,3004
+Piura,Sechura,Sechura,Costa,12,44590
+Piura,Sechura,Vice,Costa,23,15630
+Piura,Sullana,Bellavista,Costa,77,37530
+Piura,Sullana,Ignacio Escudero,Costa,39,20423
+Piura,Sullana,Lancones,Costa,134,12119
+Piura,Sullana,Marcavelica,Costa,52,29569
+Piura,Sullana,Miguel Checa,Costa,67,9036
+Piura,Sullana,Querecotillo,Costa,66,26395
+Piura,Sullana,Salitral,Costa,65,7047
+Piura,Sullana,Sullana,Costa,76,169335
+Piura,Talara,El Alto,Costa,276,8316
+Piura,Talara,La Brea,Costa,8,12486
+Piura,Talara,Lobitos,Costa,31,1312
+Piura,Talara,Los Organos,Costa,7,10699
+Piura,Talara,Mancora,Costa,8,13028
+Piura,Talara,Pariñas,Costa,23,98309
+Puno,Azangaro,Achaya,Sierra,3878,2826
+Puno,Azangaro,Arapa,Sierra,3846,7020
+Puno,Azangaro,Asillo,Sierra,3926,14484
+Puno,Azangaro,Azangaro,Sierra,3878,30070
+Puno,Azangaro,Caminaca,Sierra,3841,2931
+Puno,Azangaro,Chupa,Sierra,3847,6475
+Puno,Azangaro,Jose Domingo Choquehuanca,Sierra,3887,4462
+Puno,Azangaro,Muñani,Sierra,3925,6445
+Puno,Azangaro,Potoni,Sierra,4113,3939
+Puno,Azangaro,Saman,Sierra,3832,9645
+Puno,Azangaro,San Anton,Sierra,3971,7298
+Puno,Azangaro,San Jose,Sierra,4094,4818
+Puno,Azangaro,San Juan De Salinas,Sierra,3841,2841
+Puno,Azangaro,Santiago De Pupuja,Sierra,3927,4407
+Puno,Azangaro,Tirapata,Sierra,3903,2731
+Puno,Carabaya,Ajoyani,Sierra,4272,2138
+Puno,Carabaya,Ayapata,Sierra,3481,9299
+Puno,Carabaya,Coasa,Sierra,3768,6433
+Puno,Carabaya,Corani,Sierra,4220,4240
+Puno,Carabaya,Crucero,Sierra,4146,9108
+Puno,Carabaya,Ituata,Sierra,3952,7526
+Puno,Carabaya,Macusani,Sierra,4311,12664
+Puno,Carabaya,Ollachea,Sierra,2746,6090
+Puno,Carabaya,San Gaban,Selva,641,6832
+Puno,Carabaya,Usicayos,Sierra,3781,8992
+Puno,Chucuito,Desaguadero,Sierra,3849,13787
+Puno,Chucuito,Huacullani,Sierra,3945,9237
+Puno,Chucuito,Juli,Sierra,3878,19773
+Puno,Chucuito,Kelluyo,Sierra,3858,7346
+Puno,Chucuito,Pisacoma,Sierra,3932,8223
+Puno,Chucuito,Pomata,Sierra,3878,13707
+Puno,Chucuito,Zepita,Sierra,3836,16929
+Puno,El Collao,Capazo,Sierra,4402,1130
+Puno,El Collao,Conduriri,Sierra,3969,2529
+Puno,El Collao,Ilave,Sierra,3907,46018
+Puno,El Collao,Pilcuyo,Sierra,3841,10672
+Puno,El Collao,Santa Rosa,Sierra,3981,3529
+Puno,Huancane,Cojata,Sierra,4354,3764
+Puno,Huancane,Huancane,Sierra,3866,18742
+Puno,Huancane,Huatasani,Sierra,3849,3083
+Puno,Huancane,Inchupalla,Sierra,3930,2642
+Puno,Huancane,Pusi,Sierra,3851,4937
+Puno,Huancane,Taraco,Sierra,3848,13193
+Puno,Huancane,Vilque Chico,Sierra,3851,7211
+Puno,Lampa,Cabanilla,Sierra,3890,5352
+Puno,Lampa,Calapuja,Sierra,3851,1585
+Puno,Lampa,Lampa,Sierra,3881,11206
+Puno,Lampa,Nicasio,Sierra,3868,2360
+Puno,Lampa,Ocuviri,Sierra,4227,2237
+Puno,Lampa,Palca,Sierra,4082,1817
+Puno,Lampa,Paratia,Sierra,4295,2732
+Puno,Lampa,Pucara,Sierra,3894,5306
+Puno,Lampa,Santa Lucia,Sierra,4052,7028
+Puno,Lampa,Vilavila,Sierra,4316,1233
+Puno,Melgar,Antauta,Sierra,4152,5359
+Puno,Melgar,Ayaviri,Sierra,3937,24452
+Puno,Melgar,Cupi,Sierra,3984,1986
+Puno,Melgar,Llalli,Sierra,3998,2532
+Puno,Melgar,Macari,Sierra,3979,6947
+Puno,Melgar,Nuñoa,Sierra,4038,8450
+Puno,Melgar,Orurillo,Sierra,3915,7651
+Puno,Melgar,Santa Rosa,Sierra,4010,6197
+Puno,Melgar,Umachiri,Sierra,3943,3564
+Puno,Moho,Conima,Sierra,3862,3151
+Puno,Moho,Moho,Sierra,3902,11518
+Puno,Moho,Tilali,Sierra,3843,2471
+Puno,Puno,Acora,Sierra,3848,22961
+Puno,Puno,Amantani,Sierra,3871,3452
+Puno,Puno,Atuncolla,Sierra,3875,4555
+Puno,Puno,Capachica,Sierra,3872,7540
+Puno,Puno,Chucuito,Sierra,3892,7019
+Puno,Puno,Coata,Sierra,3834,6588
+Puno,Puno,Huata,Sierra,3863,3155
+Puno,Puno,Mañazo,Sierra,3948,5144
+Puno,Puno,Paucarcolla,Sierra,3864,4224
+Puno,Puno,Pichacani,Sierra,3962,5679
+Puno,Puno,Plateria,Sierra,3843,7121
+Puno,Puno,Puno,Sierra,3848,135288
+Puno,Puno,San Antonio,Sierra,4330,2413
+Puno,Puno,Tiquillaca,Sierra,3912,1594
+Puno,Puno,Vilque,Sierra,3878,2761
+Puno,San Antonio De Putina,Ananea,Sierra,5053,12615
+Puno,San Antonio De Putina,Pedro Vilca Apaza,Sierra,3879,1909
+Puno,San Antonio De Putina,Putina,Sierra,3878,14753
+Puno,San Antonio De Putina,Quilcapuncu,Sierra,3928,5187
+Puno,San Antonio De Putina,Sina,Sierra,3181,1649
+Puno,San Roman,Cabana,Sierra,3912,4843
+Puno,San Roman,Cabanillas,Sierra,3894,4567
+Puno,San Roman,Caracoto,Sierra,3844,6818
+Puno,San Roman,Juliaca,Sierra,3877,228726
+Puno,San Roman,San Miguel,Sierra,3875,62463
+Puno,Sandia,Alto Inambari,Selva,1352,6604
+Puno,Sandia,Cuyocuyo,Sierra,3425,5024
+Puno,Sandia,Limbani,Sierra,3333,2970
+Puno,Sandia,Patambuco,Sierra,4023,3863
+Puno,Sandia,Phara,Sierra,3485,5091
+Puno,Sandia,Quiaca,Sierra,3762,2131
+Puno,Sandia,San Juan Del Oro,Selva,1308,3733
+Puno,Sandia,San Pedro De Putina Punco,Selva,948,9124
+Puno,Sandia,Sandia,Sierra,2206,10266
+Puno,Sandia,Yanahuaya,Selva,1419,1936
+Puno,Yunguyo,Anapia,Sierra,3864,1782
+Puno,Yunguyo,Copani,Sierra,3864,4655
+Puno,Yunguyo,Cuturapi,Sierra,3861,1270
+Puno,Yunguyo,Ollaraya,Sierra,3852,2711
+Puno,Yunguyo,Unicachi,Sierra,3827,1057
+Puno,Yunguyo,Yunguyo,Sierra,3850,24515
+San Martin,Bellavista,Alto Biavo,Selva,284,7639
+San Martin,Bellavista,Bajo Biavo,Selva,256,13116
+San Martin,Bellavista,Bellavista,Selva,330,16894
+San Martin,Bellavista,Huallaga,Selva,359,2711
+San Martin,Bellavista,San Pablo,Selva,289,8640
+San Martin,Bellavista,San Rafael,Selva,246,6033
+San Martin,El Dorado,Agua Blanca,Selva,318,2330
+San Martin,El Dorado,San Jose De Sisa,Selva,342,14639
+San Martin,El Dorado,San Martin,Selva,437,10447
+San Martin,El Dorado,Santa Rosa,Selva,335,6332
+San Martin,El Dorado,Shatoja,Selva,413,3004
+San Martin,Huallaga,Alto Saposoa,Selva,408,4471
+San Martin,Huallaga,El Eslabon,Selva,293,2106
+San Martin,Huallaga,Piscoyacu,Selva,310,4268
+San Martin,Huallaga,Sacanche,Selva,269,2450
+San Martin,Huallaga,Saposoa,Selva,316,13422
+San Martin,Huallaga,Tingo De Saposoa,Selva,258,789
+San Martin,Lamas,Alonso De Alvarado,Selva,1090,13462
+San Martin,Lamas,Barranquita,Selva,173,6429
+San Martin,Lamas,Caynarachi,Selva,172,9546
+San Martin,Lamas,Cuñumbuqui,Selva,248,3301
+San Martin,Lamas,Lamas,Selva,764,14497
+San Martin,Lamas,Pinto Recodo,Selva,276,8086
+San Martin,Lamas,Rumisapa,Selva,328,3456
+San Martin,Lamas,San Roque De Cumbaza,Selva,611,1635
+San Martin,Lamas,Shanao,Selva,260,1975
+San Martin,Lamas,Tabalosos,Selva,597,13879
+San Martin,Lamas,Zapatero,Selva,298,5255
+San Martin,Mariscal Caceres,Campanilla,Selva,318,12705
+San Martin,Mariscal Caceres,Huicungo,Selva,308,8385
+San Martin,Mariscal Caceres,Juanjui,Selva,299,32444
+San Martin,Mariscal Caceres,Pachiza,Selva,328,5747
+San Martin,Mariscal Caceres,Pajarillo,Selva,286,5345
+San Martin,Moyobamba,Calzada,Selva,856,4609
+San Martin,Moyobamba,Habana,Selva,850,1675
+San Martin,Moyobamba,Jepelacio,Selva,1066,15377
+San Martin,Moyobamba,Moyobamba,Selva,895,76325
+San Martin,Moyobamba,Soritor,Selva,904,21514
+San Martin,Moyobamba,Yantalo,Selva,862,2865
+San Martin,Picota,Buenos Aires,Selva,209,2924
+San Martin,Picota,Caspisapa,Selva,238,2126
+San Martin,Picota,Picota,Selva,228,10203
+San Martin,Picota,Pilluana,Selva,218,865
+San Martin,Picota,Pucacaca,Selva,228,2971
+San Martin,Picota,San Cristobal,Selva,238,1192
+San Martin,Picota,San Hilarion,Selva,230,3945
+San Martin,Picota,Shamboyacu,Selva,289,8554
+San Martin,Picota,Tingo De Ponasa,Selva,256,3876
+San Martin,Picota,Tres Unidos,Selva,237,3889
+San Martin,Rioja,Awajun,Selva,834,7479
+San Martin,Rioja,Elias Soplin Vargas,Selva,853,17661
+San Martin,Rioja,Nueva Cajamarca,Selva,869,43476
+San Martin,Rioja,Pardo Miguel,Selva,963,16797
+San Martin,Rioja,Posic,Selva,838,1919
+San Martin,Rioja,Rioja,Selva,850,25521
+San Martin,Rioja,San Fernando,Selva,828,3413
+San Martin,Rioja,Yorongos,Selva,883,2446
+San Martin,Rioja,Yuracyacu,Selva,812,3832
+San Martin,San Martin,Alberto Leveau,Selva,215,841
+San Martin,San Martin,Cacatachi,Selva,309,3604
+San Martin,San Martin,Chazuta,Selva,189,9497
+San Martin,San Martin,Chipurana,Selva,162,2249
+San Martin,San Martin,El Porvenir,Selva,152,2399
+San Martin,San Martin,Huimbayoc,Selva,181,4975
+San Martin,San Martin,Juan Guerra,Selva,207,3907
+San Martin,San Martin,La Banda De Shilcayo,Selva,418,43481
+San Martin,San Martin,Morales,Selva,290,33067
+San Martin,San Martin,San Antonio,Selva,499,1674
+San Martin,San Martin,Sauce,Selva,622,7263
+San Martin,San Martin,Shapaja,Selva,214,1943
+San Martin,San Martin,Tarapoto,Selva,342,76122
+San Martin,Tocache,Nuevo Progreso,Selva,512,11456
+San Martin,Tocache,Polvora,Selva,510,10308
+San Martin,Tocache,Shunte,Selva,1015,1315
+San Martin,Tocache,Tocache,Selva,519,26166
+San Martin,Tocache,Uchiza,Selva,566,20149
+Tacna,Candarave,Cairani,Sierra,3389,988
+Tacna,Candarave,Camilaca,Sierra,3853,1148
+Tacna,Candarave,Candarave,Sierra,3427,2354
+Tacna,Candarave,Curibaya,Sierra,2770,377
+Tacna,Candarave,Huanuara,Sierra,3226,515
+Tacna,Candarave,Quilahuani,Sierra,3205,720
+Tacna,Jorge Basadre,Ilabaya,Sierra,3074,5695
+Tacna,Jorge Basadre,Ite,Costa,160,2822
+Tacna,Jorge Basadre,Locumba,Costa,588,2256
+Tacna,Tacna,Alto De La Alianza,Costa,603,34061
+Tacna,Tacna,Calana,Costa,862,2979
+Tacna,Tacna,Ciudad Nueva,Costa,695,31866
+Tacna,Tacna,Coronel Gregorio Albarracin Lanchipa,Costa,562,110417
+Tacna,Tacna,Inclan,Costa,519,2613
+Tacna,Tacna,La Yarada Los Palos,Costa,84,5559
+Tacna,Tacna,Pachia,Costa,1087,2062
+Tacna,Tacna,Palca,Sierra,2939,1980
+Tacna,Tacna,Pocollay,Costa,690,18627
+Tacna,Tacna,Sama,Costa,425,3227
+Tacna,Tacna,Tacna,Costa,583,92972
+Tacna,Tarata,Estique,Sierra,3432,240
+Tacna,Tarata,EstiquePampa,Sierra,3064,162
+Tacna,Tarata,Heroes Albarracin,Costa,1872,306
+Tacna,Tarata,Sitajara,Sierra,3163,350
+Tacna,Tarata,Susapaya,Sierra,3462,518
+Tacna,Tarata,Tarata,Sierra,3077,3642
+Tacna,Tarata,Tarucachi,Sierra,3054,295
+Tacna,Tarata,Ticaco,Sierra,3272,581
+Tumbes,Contralmirante Villar,Canoas De Punta Sal,Costa,66,6336
+Tumbes,Contralmirante Villar,Casitas,Costa,136,2350
+Tumbes,Contralmirante Villar,Zorritos,Costa,11,12371
+Tumbes,Tumbes,Corrales,Costa,27,23337
+Tumbes,Tumbes,La Cruz,Costa,10,9507
+Tumbes,Tumbes,Pampas De Hospital,Costa,28,6728
+Tumbes,Tumbes,San Jacinto,Costa,23,8512
+Tumbes,Tumbes,San Juan De La Virgen,Costa,26,4572
+Tumbes,Tumbes,Tumbes,Costa,9,102306
+Tumbes,Zarumilla,Aguas Verdes,Costa,13,17366
+Tumbes,Zarumilla,Matapalo,Costa,95,3428
+Tumbes,Zarumilla,Papayal,Costa,33,6274
+Tumbes,Zarumilla,Zarumilla,Costa,15,21776
+Ucayali,Atalaya,Raimondi,Selva,256,32430
+Ucayali,Atalaya,Sepahua,Selva,277,6655
+Ucayali,Atalaya,Tahuania,Selva,197,8264
+Ucayali,Atalaya,Yurua,Selva,240,1975
+Ucayali,Coronel Portillo,Calleria,Selva,162,149999
+Ucayali,Coronel Portillo,Campoverde,Selva,203,16059
+Ucayali,Coronel Portillo,Iparia,Selva,170,10328
+Ucayali,Coronel Portillo,Manantay,Selva,165,87525
+Ucayali,Coronel Portillo,Masisea,Selva,150,11147
+Ucayali,Coronel Portillo,Nueva Requena,Selva,183,5169
+Ucayali,Coronel Portillo,Yarinacocha,Selva,131,103941
+Ucayali,Padre Abad,Alexander Von Humboldt,Selva,237,5137
+Ucayali,Padre Abad,Curimana,Selva,181,7722
+Ucayali,Padre Abad,Irazola,Selva,228,10214
+Ucayali,Padre Abad,Neshuya,Selva,193,7594
+Ucayali,Padre Abad,Padre Abad,Selva,275,29440
+Ucayali,Purus,Purus,Selva,228,2860
+Amazonas,Chachapoyas,Balsas,Selva,859,1136
+Amazonas,Luya,Cocabamba,Sierra,2273,1881
+Ancash,Bolognesi,La Primavera,Sierra,2658,457
+Ancash,Carhuaz,Amashca,Sierra,2905,1431
+Ancash,Carlos Fermin Fitzcarrald,San Nicolas,Sierra,2890,3131
+Ancash,Corongo,Bambas,Sierra,2541,445
+Ancash,Mariscal Luzuriaga,Eleazar Guzman Barron,Sierra,3158,1326
+Ancash,Mariscal Luzuriaga,Fidel Olivas Escudero,Sierra,3136,1908
+Ancash,Ocros,San Cristobal De Rajan,Sierra,3634,438
+Ancash,Pallasca,Llapo,Sierra,3416,597
+Arequipa,La Union,Charcana,Sierra,3432,577
+Arequipa,La Union,Tauria,Sierra,2850,301
+Ayacucho,Sucre,Huacaña,Sierra,3186,374
+Cajamarca,San Miguel,Nanchoc,Costa,402,1290
+Cusco,Canas,Checca,Sierra,3834,4985
+Huancavelica,Tayacaja,Roble,Sierra,2640,1300
+Huanuco,Huanuco,Yacus,Sierra,3243,5296
+Junin,Concepcion,Mariscal Castilla,Sierra,2513,1394
+La Libertad,Bolivar,Uchumarca,Sierra,3043,2246
+Lima,Huarochiri,Carampoma,Sierra,3459,331
+Lima,Huarochiri,Santiago De Tuna,Sierra,2913,411
+Lima,Yauyos,Madean,Sierra,3292,570
+Lima,Yauyos,Quinches,Sierra,2981,609
+Loreto,Requena,Alto Tapiche,Selva,123,1515
+Loreto,Requena,Soplin,Selva,118,569
+Loreto,Requena,Tapiche,Selva,108,881
+Puno,Huancane,Rosaspata,Sierra,3891,4079
+Amazonas,Chachapoyas,Olleros,Sierra,3053,375
+Amazonas,Chachapoyas,Soloco,Sierra,2387,1224
+Ancash,Huarmey,Cochapeti,Sierra,3529,740
+Cajamarca,Contumaza,Guzmango,Sierra,2568,2679
+Cusco,Canas,Quehue,Sierra,3794,2577
+Lima,Huarochiri,San Pedro De Laraos,Sierra,3683,666
+Piura,Huancabamba,Lalaquiz,Costa,972,3871
+Puno,Moho,Huayrapata,Sierra,3912,2613
+Ayacucho,La Mar,Oronccoy,Sierra,3718,1020
+Cajamarca,Cutervo,La Ramada,Sierra,2131,3652
+Huanuco,Huanuco,San Pedro De Chaulan,Sierra,3587,2789
+La Libertad,Otuzco,Paranday,Sierra,3136,523
+Lima,Huarochiri,Mariatana,Sierra,3561,1357
+Lima,Yauyos,Hongos,Sierra,3215,331
+Loreto,Putumayo,Yaguas,Selva,78,1277
+Puno,Yunguyo,Tinicachi,Sierra,3853,949
+San Martin,San Martin,Papaplaya,Selva,149,2073
+Amazonas,Luya,Conila,Sierra,2767,1840
+Huanuco,Huamalies,Singa,Sierra,3649,3129
+Huanuco,Marañon,San Buenaventura,Sierra,3211,2111
+Lima,Yauyos,Azangaro,Sierra,3435,440
+Lima,Yauyos,San Joaquin,Sierra,2960,166
+Amazonas,Luya,Trita,Sierra,2888,1348
+Lima,Yauyos,Huampara,Sierra,2501,149
+Lima,Yauyos,Huañec,Sierra,3222,432
+Huanuco,Yarowilca,Chacabamba,Sierra,3204,1110
+Loreto,Requena,Yaquerana,Selva,90,1929
+Ayacucho,Huamanga,Andres Avelino Caceres Dorrega,Sierra,2775,28472
+Pasco,Pasco,San Francisco De Asis De Yarus,Sierra,4174,4459
+Tacna,Tacna,Coronel Gregorio Albarracin La,Costa,562,110417
+Cajamarca,Chota,Pion,Sierra,1834,1214
+Loreto,Putumayo,Rosa Panduro,Selva,132,520
+Amazonas,Luya,Luya Viejo,Sierra,2924,388
+Lima,Huarochiri,San Juan De Iris,Sierra,3436,699
+Ancash,Santa,Nepeña,Costa,159,14324
+Arequipa,Arequipa,Quequeña,Sierra,2561,4784
+Arequipa,Camana,Ocoña,Costa,16,4171
+Ayacucho,Lucanas,Chaviña,Sierra,3338,2163
+Ayacucho,Lucanas,Ocaña,Sierra,2650,2291
+Cajamarca,Cajamarca,Encañada,Sierra,3087,19175
+Cajamarca,Cajamarca,Los Baños Del Inca,Sierra,2685,46149
+Cusco,Paucartambo,Kosñipata,Selva,544,4403
+Huancavelica,Tayacaja,ÑAHUIMPUQUIO,Sierra,3651,1480
+Huanuco,Huamalies,Puños,Sierra,3749,4062
+Huanuco,Marañon,Huacrachuco,Sierra,2914,14150
+Huanuco,Marañon,La Morada,Selva,559,2790
+Ica,Ica,La Tinguiña,Costa,463,39574
+Junin,Huancayo,Saño,Sierra,3296,5512
+Junin,Jauja,Leonor Ordoñez,Sierra,3319,1553
+Lambayeque,Chiclayo,Saña,Costa,70,11617
+Lambayeque,Ferreñafe,Ferreñafe,Costa,38,34229
+Lambayeque,Ferreñafe,Incahuasi,Sierra,3030,13858
+Lambayeque,Ferreñafe,Manuel Antonio Mesones Muro,Costa,66,3808
+Lambayeque,Ferreñafe,Pitipo,Costa,119,19651
+Lambayeque,Ferreñafe,Pueblo Nuevo,Costa,45,14503
+Lima,Cañete,Asia,Costa,38,9784
+Lima,Cañete,Calango,Costa,323,736
+Lima,Cañete,Cerro Azul,Costa,17,4517
+Lima,Cañete,Chilca,Costa,31,13920
+Lima,Cañete,Imperial,Costa,112,27732
+Lima,Cañete,LUNAHUANÁ,Costa,498,2617
+Lima,Cañete,Mala,Costa,58,22325
+Lima,Cañete,Nuevo Imperial,Costa,169,6319
+Lima,Cañete,QUILMANÁ,Costa,185,10491
+Lima,Cañete,San Antonio,Costa,67,3683
+Lima,Cañete,San Luis,Costa,36,6773
+Lima,Cañete,SAN VICENTE DE CAÑETE,Costa,77,31219
+Lima,Cañete,Santa Cruz De Flores,Costa,110,1921
+Lima,Cañete,ZÚÑIGA,Costa,827,882
+Lima,Lima,Breña,Costa,238,328740
+Loreto,Datem Del Marañon,Andoas,Selva,228,11714
+Loreto,Datem Del Marañon,Barranca,Selva,134,12742
+Loreto,Datem Del Marañon,Manseriche,Selva,155,8421
+Loreto,Datem Del Marañon,Pastaza,Selva,137,5078
+Piura,Talara,Pariñas,Costa,23,98309
+Puno,Melgar,Nuñoa,Sierra,4038,8450
+Puno,Puno,Mañazo,Sierra,3948,5144
+San Martin,Lamas,Cuñumbuqui,Selva,248,3301

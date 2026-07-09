@@ -810,7 +810,11 @@ Cambio latencia 4G: ${d.delta_4g_latency_ms.toFixed(1)} ms`);
 ## Celda 9: Selector geografico en cascada
 
 ```js
-departmentOptions = [...new Set(filteredSummary.map(d => d.department))].sort(d3.ascending)
+selectorSummary = summary
+```
+
+```js
+departmentOptions = [...new Set(selectorSummary.map(d => d.department))].sort(d3.ascending)
 ```
 
 ```js
@@ -822,7 +826,7 @@ viewof selectedDepartment = Inputs.select(departmentOptions, {
 
 ```js
 provinceOptions = [...new Set(
-  filteredSummary
+  selectorSummary
     .filter(d => d.department === selectedDepartment)
     .map(d => d.province)
 )].sort(d3.ascending)
@@ -836,7 +840,7 @@ viewof selectedProvince = Inputs.select(provinceOptions, {
 ```
 
 ```js
-districtOptions = filteredSummary
+districtOptions = selectorSummary
   .filter(d => d.department === selectedDepartment && d.province === selectedProvince)
   .slice()
   .sort((a, b) => d3.ascending(a.district, b.district))
@@ -855,7 +859,7 @@ selectedDistrictLabel = `${selectedDistrict}, ${selectedProvince}, ${selectedDep
 ```
 
 ```js
-selectedSummary = filteredSummary.find(d =>
+selectedSummary = selectorSummary.find(d =>
   d.department === selectedDepartment &&
   d.province === selectedProvince &&
   d.district === selectedDistrict
@@ -897,18 +901,35 @@ md`## Evolucion mensual del distrito seleccionado`
 ```
 
 ```js
+selectedTimeChart = {
+  const months = selectedSeries
+    .map(d => d.relative_month)
+    .filter(Number.isFinite);
+  const [minMonth, maxMonth] = d3.extent(months);
+
+  return {
+    margin: {top: 28, right: 90, bottom: 54, left: 70},
+    W: width,
+    xDomain: [Math.min(minMonth ?? -1, 0), Math.max(maxMonth ?? 1, 0)]
+  };
+}
+```
+
+```js
 d3SelectedDownload = {
-  const margin = {top: 28, right: 28, bottom: 54, left: 70};
-  const W = width;
+  const {margin, W, xDomain} = selectedTimeChart;
   const H = 460;
   const data = selectedSeries;
 
   const x = d3.scaleLinear()
-    .domain(d3.extent(data, d => d.relative_month))
+    .domain(xDomain)
     .nice()
     .range([margin.left, W - margin.right]);
   const y = d3.scaleLinear()
-    .domain([0, d3.max(data, d => d.AVERAGE_THROUGHPUT_DOWNLOAD_4G)])
+    .domain([0, d3.max(data, d => Math.max(
+      d.AVERAGE_THROUGHPUT_DOWNLOAD_4G ?? 0,
+      d.AVERAGE_THROUGHPUT_DOWNLOAD_3G ?? 0
+    ))])
     .nice()
     .range([H - margin.bottom, margin.top]);
 
@@ -938,7 +959,7 @@ d3SelectedDownload = {
       .attr("y", margin.top - 12)
       .attr("fill", "currentColor")
       .attr("text-anchor", "start")
-      .text("Descarga 4G (Mbps)"));
+      .text("Descarga promedio (Mbps)"));
 
   svg.append("line")
     .attr("x1", x(0))
@@ -948,29 +969,64 @@ d3SelectedDownload = {
     .attr("stroke", "#b00020")
     .attr("stroke-width", 2);
 
-  svg.append("path")
-    .datum(data)
-    .attr("fill", "none")
-    .attr("stroke", "#2563eb")
-    .attr("stroke-width", 2.2)
-    .attr("d", d3.line()
-      .x(d => x(d.relative_month))
-      .y(d => y(d.AVERAGE_THROUGHPUT_DOWNLOAD_4G)));
+  const series = [
+    {name: "4G", key: "AVERAGE_THROUGHPUT_DOWNLOAD_4G", color: "#2563eb", width: 2.4},
+    {name: "3G", key: "AVERAGE_THROUGHPUT_DOWNLOAD_3G", color: "#ef4444", width: 2.0}
+  ];
+
+  for (const s of series) {
+    svg.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", s.color)
+      .attr("stroke-width", s.width)
+      .attr("stroke-dasharray", s.name === "3G" ? "5,3" : null)
+      .attr("d", d3.line()
+        .defined(d => Number.isFinite(d[s.key]))
+        .x(d => x(d.relative_month))
+        .y(d => y(d[s.key])));
+
+    svg.append("g")
+      .attr("fill", s.color)
+      .attr("stroke", "#ffffff")
+      .attr("stroke-width", 1)
+      .selectAll("circle")
+      .data(data.filter(d => Number.isFinite(d[s.key])))
+      .join("circle")
+      .attr("cx", d => x(d.relative_month))
+      .attr("cy", d => y(d[s.key]))
+      .attr("r", s.name === "4G" ? 4 : 3.5)
+      .append("title")
+      .text(d => `Red: ${s.name}
+Mes: ${d.YEARMONTH}
+Mes relativo: ${d.relative_month}
+Descarga ${s.name}: ${d[s.key]?.toFixed(2)} Mbps`);
+  }
 
   svg.append("g")
-    .attr("fill", "#2563eb")
-    .attr("stroke", "#ffffff")
-    .attr("stroke-width", 1)
-    .selectAll("circle")
-    .data(data)
-    .join("circle")
-    .attr("cx", d => x(d.relative_month))
-    .attr("cy", d => y(d.AVERAGE_THROUGHPUT_DOWNLOAD_4G))
-    .attr("r", 4)
-    .append("title")
-    .text(d => `Mes: ${d.YEARMONTH}
-Mes relativo: ${d.relative_month}
-Descarga 4G: ${d.AVERAGE_THROUGHPUT_DOWNLOAD_4G?.toFixed(2)} Mbps`);
+    .attr("transform", `translate(${W - margin.right - 78},${margin.top + 4})`)
+    .selectAll("g")
+    .data(series)
+    .join("g")
+    .attr("transform", (d, i) => `translate(0,${i * 20})`)
+    .call(g => {
+      g.append("line")
+        .attr("x1", 0)
+        .attr("x2", 24)
+        .attr("y1", 0)
+        .attr("y2", 0)
+        .attr("stroke", d => d.color)
+        .attr("stroke-width", d => d.width)
+        .attr("stroke-dasharray", d => d.name === "3G" ? "5,3" : null);
+      g.append("text")
+        .attr("x", 30)
+        .attr("y", 0)
+        .attr("dy", "0.35em")
+        .attr("font-size", 12)
+        .attr("font-weight", 700)
+        .attr("fill", d => d.color)
+        .text(d => d.name);
+    });
 
   return svg.node();
 }
@@ -978,13 +1034,12 @@ Descarga 4G: ${d.AVERAGE_THROUGHPUT_DOWNLOAD_4G?.toFixed(2)} Mbps`);
 
 ```js
 d3SelectedNetworkTime = {
-  const margin = {top: 28, right: 90, bottom: 54, left: 70};
-  const W = width;
+  const {margin, W, xDomain} = selectedTimeChart;
   const H = 420;
   const data = selectedSeries;
 
   const x = d3.scaleLinear()
-    .domain(d3.extent(data, d => d.relative_month))
+    .domain(xDomain)
     .nice()
     .range([margin.left, W - margin.right]);
   const y = d3.scaleLinear()

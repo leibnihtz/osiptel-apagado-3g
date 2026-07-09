@@ -15,8 +15,8 @@ def sniff_delimiter(path: Path) -> str:
 
 def read_csv_safely(path: Path) -> pd.DataFrame:
     sep = sniff_delimiter(path)
-    # dtype=str para evitar problemas por columnas mixtas; luego tipificamos.
-    df = pd.read_csv(path, sep=sep, encoding="utf-8", dtype=str, keep_default_na=False)
+    # utf-8-sig maneja BOM (2023-2025) y sin-BOM (2026) correctamente en Windows.
+    df = pd.read_csv(path, sep=sep, encoding="utf-8-sig", dtype=str, keep_default_na=False)
     df["ROW_PRESENT_IN_SOURCE"] = True
     return df
 
