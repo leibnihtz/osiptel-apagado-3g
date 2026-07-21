@@ -1,0 +1,230 @@
+{
+  "tag": "v1.1-outcomes (design unchanged vs v1.0-paper-freeze)",
+  "sanity_download_did_median": 0.6488,
+  "outcomes": {
+    "download": {
+      "column": "AVERAGE_THROUGHPUT_DOWNLOAD_4G",
+      "unit": "Mbps",
+      "improve": "up",
+      "role": "principal (ya congelado)",
+      "raw_median": 1.0032,
+      "did_median": 0.6488,
+      "did_mean": 0.6661,
+      "did_std": 1.0572,
+      "ci95_lo": 0.4218,
+      "ci95_hi": 1.0104,
+      "wilcoxon_p_twosided": 2.06e-06,
+      "n_positive": 52,
+      "n_negative": 15,
+      "n": 67,
+      "wilcoxon_p_onesided": 1.03e-06
+    },
+    "time4g": {
+      "column": "TIME_PERCENTAGE_4G",
+      "unit": "p.p.",
+      "improve": "up",
+      "role": "2º outcome causal (mecanismo)",
+      "raw_median": 1.7304,
+      "did_median": 1.1207,
+      "did_mean": 1.7186,
+      "did_std": 3.8142,
+      "ci95_lo": 0.3007,
+      "ci95_hi": 1.9885,
+      "wilcoxon_p_twosided": 5.17e-05,
+      "n_positive": 48,
+      "n_negative": 19,
+      "n": 67,
+      "wilcoxon_p_onesided": null
+    },
+    "latency": {
+      "column": "AVERAGE_LATENCY_4G",
+      "unit": "ms",
+      "improve": "down",
+      "role": "robustez tecnica",
+      "raw_median": -6.0262,
+      "did_median": -1.2578,
+      "did_mean": 0.2503,
+      "did_std": 4.9788,
+      "ci95_lo": -1.9399,
+      "ci95_hi": -0.5944,
+      "wilcoxon_p_twosided": 0.020819,
+      "n_positive": 45,
+      "n_negative": 22,
+      "n": 67,
+      "wilcoxon_p_onesided": null
+    },
+    "upload": {
+      "column": "AVERAGE_THROUGHPUT_UPLOAD_4G",
+      "unit": "Mbps",
+      "improve": "up",
+      "role": "secundario",
+      "raw_median": -0.0314,
+      "did_median": 0.0596,
+      "did_mean": 0.0249,
+      "did_std": 0.4977,
+      "ci95_lo": -0.0548,
+      "ci95_hi": 0.1893,
+      "wilcoxon_p_twosided": 0.375066,
+      "n_positive": 39,
+      "n_negative": 28,
+      "n": 67,
+      "wilcoxon_p_onesided": null
+    },
+    "packet_loss": {
+      "column": "PACKET_LOSS_4G",
+      "unit": "p.p.",
+      "improve": "down",
+      "role": "secundario",
+      "raw_median": -0.152,
+      "did_median": -0.1011,
+      "did_mean": -0.0972,
+      "did_std": 0.1247,
+      "ci95_lo": -0.1466,
+      "ci95_hi": -0.0656,
+      "wilcoxon_p_twosided": 4.2e-07,
+      "n_positive": 51,
+      "n_negative": 16,
+      "n": 67,
+      "wilcoxon_p_onesided": null
+    }
+  },
+  "robustness": {
+    "meas_change_median": -4358.33,
+    "meas_change_note": "cambio del conteo de mediciones 4G (post6-pre6) en el breakpoint, mediana sobre los 67 tratados",
+    "excl_5g_contaminated": {
+      "note": "n=60, excluye los distritos tratados con mediciones 5G_NSA>0 en su ventana post (ver PASO 4)",
+      "n_excluded": 7,
+      "excluded_districts": [
+        {
+          "department": "Lima",
+          "province": "Cañete",
+          "district": "Asia"
+        },
+        {
+          "department": "Lima",
+          "province": "Cañete",
+          "district": "Mala"
+        },
+        {
+          "department": "Lima",
+          "province": "Lima",
+          "district": "Breña"
+        },
+        {
+          "department": "Lima",
+          "province": "Lima",
+          "district": "Carabayllo"
+        },
+        {
+          "department": "Lima",
+          "province": "Lima",
+          "district": "Los Olivos"
+        },
+        {
+          "department": "Lima",
+          "province": "Lima",
+          "district": "San Juan De Lurigancho"
+        },
+        {
+          "department": "Lima",
+          "province": "Lima",
+          "district": "San Martin De Porres"
+        }
+      ],
+      "outcomes": {
+        "download": {
+          "column": "AVERAGE_THROUGHPUT_DOWNLOAD_4G",
+          "unit": "Mbps",
+          "improve": "up",
+          "role": "principal (ya congelado)",
+          "raw_median": 1.0701,
+          "did_median": 0.8429,
+          "did_mean": 0.7902,
+          "did_std": 1.0236,
+          "ci95_lo": 0.5357,
+          "ci95_hi": 1.1319,
+          "wilcoxon_p_twosided": 1.73e-07,
+          "n_positive": 50,
+          "n_negative": 10,
+          "n": 60,
+          "wilcoxon_p_onesided": 8.63e-08
+        },
+        "time4g": {
+          "column": "TIME_PERCENTAGE_4G",
+          "unit": "p.p.",
+          "improve": "up",
+          "role": "2º outcome causal (mecanismo)",
+          "raw_median": 1.655,
+          "did_median": 1.2292,
+          "did_mean": 1.7962,
+          "did_std": 4.0065,
+          "ci95_lo": 0.2331,
+          "ci95_hi": 2.1716,
+          "wilcoxon_p_twosided": 0.000201,
+          "n_positive": 42,
+          "n_negative": 18,
+          "n": 60,
+          "wilcoxon_p_onesided": null
+        },
+        "latency": {
+          "column": "AVERAGE_LATENCY_4G",
+          "unit": "ms",
+          "improve": "down",
+          "role": "robustez tecnica",
+          "raw_median": -6.9131,
+          "did_median": -1.4591,
+          "did_mean": 0.0783,
+          "did_std": 5.2237,
+          "ci95_lo": -2.125,
+          "ci95_hi": -0.7949,
+          "wilcoxon_p_twosided": 0.003083,
+          "n_positive": 45,
+          "n_negative": 15,
+          "n": 60,
+          "wilcoxon_p_onesided": null
+        },
+        "upload": {
+          "column": "AVERAGE_THROUGHPUT_UPLOAD_4G",
+          "unit": "Mbps",
+          "improve": "up",
+          "role": "secundario",
+          "raw_median": -0.0415,
+          "did_median": 0.0656,
+          "did_mean": 0.0538,
+          "did_std": 0.5071,
+          "ci95_lo": -0.0217,
+          "ci95_hi": 0.2424,
+          "wilcoxon_p_twosided": 0.16863,
+          "n_positive": 36,
+          "n_negative": 24,
+          "n": 60,
+          "wilcoxon_p_onesided": null
+        },
+        "packet_loss": {
+          "column": "PACKET_LOSS_4G",
+          "unit": "p.p.",
+          "improve": "down",
+          "role": "secundario",
+          "raw_median": -0.1785,
+          "did_median": -0.1023,
+          "did_mean": -0.1003,
+          "did_std": 0.1275,
+          "ci95_lo": -0.1598,
+          "ci95_hi": -0.0691,
+          "wilcoxon_p_twosided": 1.53e-06,
+          "n_positive": 46,
+          "n_negative": 14,
+          "n": 60,
+          "wilcoxon_p_onesided": null
+        }
+      }
+    }
+  },
+  "has_5g_columns": true,
+  "n_treated_with_5g_post": 7,
+  "n_treated_total": 67,
+  "bootstrap": {
+    "seed": 42,
+    "n_iterations": 10000
+  }
+}
