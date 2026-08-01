@@ -1,87 +1,87 @@
 ADM_LEVEL_1_NAME,ADM_LEVEL_2_NAME,ADM_LEVEL_3_NAME,NETWORK_CARRIER,BREAKPOINT_YEARMONTH,LAST_YEARMONTH_AVAILABLE
-Ica,Chincha,Sunampe,MOVISTAR,202405,202605
-Ica,Chincha,Alto Laran,MOVISTAR,202406,202605
-Ica,Chincha,Chincha Alta,MOVISTAR,202406,202605
-Ica,Chincha,Chincha Baja,MOVISTAR,202406,202605
-Ica,Chincha,El Carmen,MOVISTAR,202406,202605
-Ica,Chincha,Pueblo Nuevo,MOVISTAR,202406,202605
-Arequipa,Arequipa,Alto Selva Alegre,MOVISTAR,202410,202605
-Arequipa,Arequipa,Jacobo Hunter,MOVISTAR,202410,202605
-Arequipa,Arequipa,Sachaca,MOVISTAR,202410,202605
-Arequipa,Arequipa,Socabaya,MOVISTAR,202410,202605
-Arequipa,Arequipa,Tiabaya,MOVISTAR,202410,202605
-Arequipa,Arequipa,Yanahuara,MOVISTAR,202410,202605
-Arequipa,Arequipa,Cayma,MOVISTAR,202411,202605
-Arequipa,Arequipa,Jose Luis Bustamante Y Rivero,MOVISTAR,202411,202605
-Arequipa,Arequipa,Mariano Melgar,MOVISTAR,202411,202605
-Arequipa,Arequipa,Miraflores,MOVISTAR,202411,202605
-Arequipa,Arequipa,Paucarpata,MOVISTAR,202411,202605
-Piura,Piura,Catacaos,MOVISTAR,202411,202605
-Junin,Huancayo,San Agustin,MOVISTAR,202412,202605
-La Libertad,Trujillo,El Porvenir,MOVISTAR,202412,202605
-La Libertad,Trujillo,La Esperanza,MOVISTAR,202412,202605
-La Libertad,Trujillo,Moche,MOVISTAR,202412,202605
-La Libertad,Trujillo,Trujillo,MOVISTAR,202412,202605
-La Libertad,Trujillo,Victor Larco Herrera,MOVISTAR,202412,202605
-Lambayeque,Chiclayo,Chiclayo,MOVISTAR,202412,202605
-Lambayeque,Chiclayo,Jose Leonardo Ortiz,MOVISTAR,202412,202605
-Lambayeque,Chiclayo,La Victoria,MOVISTAR,202412,202605
-Lambayeque,Chiclayo,Pimentel,MOVISTAR,202412,202605
-Piura,Piura,Castilla,MOVISTAR,202412,202605
-Piura,Piura,Veintiseis De Octubre,MOVISTAR,202412,202605
-Tacna,Candarave,Camilaca,MOVISTAR,202412,202605
-Junin,Huancayo,Chilca,MOVISTAR,202501,202605
-Junin,Huancayo,El Tambo,MOVISTAR,202501,202605
-Junin,Huancayo,Huancayo,MOVISTAR,202501,202605
-Junin,Huancayo,Pilcomayo,MOVISTAR,202501,202605
-Lima,Lima,Punta Negra,MOVISTAR,202504,202605
-Ayacucho,Huamanga,Carmen Alto,MOVISTAR,202505,202605
-Ica,Ica,Subtanjalla,MOVISTAR,202507,202605
-Ica,Ica,La Tinguiña,MOVISTAR,202508,202605
-Cusco,Cusco,Cusco,MOVISTAR,202509,202605
-Cusco,Cusco,San Jeronimo,MOVISTAR,202509,202605
-Cusco,Cusco,San Sebastian,MOVISTAR,202509,202605
-Cusco,Cusco,Santiago,MOVISTAR,202509,202605
-Cusco,Cusco,Wanchaq,MOVISTAR,202509,202605
-Ica,Ica,Ica,MOVISTAR,202510,202605
-Ica,Ica,Parcona,MOVISTAR,202510,202605
-Lima,Cañete,Chilca,MOVISTAR,202510,202605
-Lima,Lima,Barranco,MOVISTAR,202511,202605
-Puno,Puno,Puno,MOVISTAR,202511,202605
-Puno,San Roman,Caracoto,MOVISTAR,202511,202605
-Puno,San Roman,Juliaca,MOVISTAR,202511,202605
-Puno,San Roman,San Miguel,MOVISTAR,202511,202605
-Tumbes,Tumbes,Tumbes,MOVISTAR,202511,202605
-Cusco,Acomayo,Pomacanchi,MOVISTAR,202512,202605
-Lima,Cañete,Asia,MOVISTAR,202512,202605
-Lima,Cañete,Mala,MOVISTAR,202512,202605
-Lima,Lima,Breña,MOVISTAR,202512,202605
-Lima,Lima,Carabayllo,MOVISTAR,202512,202605
-Lima,Lima,Independencia,MOVISTAR,202512,202605
-Lima,Lima,Los Olivos,MOVISTAR,202512,202605
-Lima,Lima,Puente Piedra,MOVISTAR,202512,202605
-Lima,Lima,San Juan De Lurigancho,MOVISTAR,202512,202605
-Lima,Lima,San Martin De Porres,MOVISTAR,202512,202605
-Puno,Chucuito,Desaguadero,MOVISTAR,202601,202605
-Callao,Callao,La Perla,MOVISTAR,202602,202605
-Cusco,Espinar,Espinar,MOVISTAR,202602,202605
-Lima,Huaura,Sayan,MOVISTAR,202602,202605
-Puno,Melgar,Ayaviri,MOVISTAR,202602,202605
-Ancash,Yungay,Ranrahirca,MOVISTAR,202604,202605
-Junin,Jauja,Jauja,MOVISTAR,202604,202605
-La Libertad,Ascope,Casa Grande,MOVISTAR,202604,202605
-Lima,Lima,La Victoria,MOVISTAR,202604,202605
-Lima,Lima,Lince,MOVISTAR,202604,202605
-Lima,Lima,Santa Anita,MOVISTAR,202604,202605
-Ancash,Yungay,Yungay,MOVISTAR,202605,202605
-Callao,Callao,Bellavista,MOVISTAR,202605,202605
-Callao,Callao,Callao,MOVISTAR,202605,202605
-Cusco,Chumbivilcas,Velille,MOVISTAR,202605,202605
-La Libertad,Chepen,Pacanga,MOVISTAR,202605,202605
-La Libertad,Otuzco,Salpo,MOVISTAR,202605,202605
-Lima,Lima,Jesus Maria,MOVISTAR,202605,202605
-Lima,Lima,Lima,MOVISTAR,202605,202605
-Lima,Lima,Magdalena Del Mar,MOVISTAR,202605,202605
-Lima,Lima,Rimac,MOVISTAR,202605,202605
-Lima,Lima,San Isidro,MOVISTAR,202605,202605
-Lima,Lima,San Miguel,MOVISTAR,202605,202605
+Ica,Chincha,Sunampe,MOVISTAR,202405,202606
+Ica,Chincha,Alto Laran,MOVISTAR,202406,202606
+Ica,Chincha,Chincha Alta,MOVISTAR,202406,202606
+Ica,Chincha,Chincha Baja,MOVISTAR,202406,202606
+Ica,Chincha,El Carmen,MOVISTAR,202406,202606
+Ica,Chincha,Pueblo Nuevo,MOVISTAR,202406,202606
+Arequipa,Arequipa,Alto Selva Alegre,MOVISTAR,202410,202606
+Arequipa,Arequipa,Jacobo Hunter,MOVISTAR,202410,202606
+Arequipa,Arequipa,Sachaca,MOVISTAR,202410,202606
+Arequipa,Arequipa,Socabaya,MOVISTAR,202410,202606
+Arequipa,Arequipa,Tiabaya,MOVISTAR,202410,202606
+Arequipa,Arequipa,Yanahuara,MOVISTAR,202410,202606
+Arequipa,Arequipa,Cayma,MOVISTAR,202411,202606
+Arequipa,Arequipa,Jose Luis Bustamante Y Rivero,MOVISTAR,202411,202606
+Arequipa,Arequipa,Mariano Melgar,MOVISTAR,202411,202606
+Arequipa,Arequipa,Miraflores,MOVISTAR,202411,202606
+Arequipa,Arequipa,Paucarpata,MOVISTAR,202411,202606
+Piura,Piura,Catacaos,MOVISTAR,202411,202606
+Junin,Huancayo,San Agustin,MOVISTAR,202412,202606
+La Libertad,Trujillo,El Porvenir,MOVISTAR,202412,202606
+La Libertad,Trujillo,La Esperanza,MOVISTAR,202412,202606
+La Libertad,Trujillo,Moche,MOVISTAR,202412,202606
+La Libertad,Trujillo,Trujillo,MOVISTAR,202412,202606
+La Libertad,Trujillo,Victor Larco Herrera,MOVISTAR,202412,202606
+Lambayeque,Chiclayo,Chiclayo,MOVISTAR,202412,202606
+Lambayeque,Chiclayo,Jose Leonardo Ortiz,MOVISTAR,202412,202606
+Lambayeque,Chiclayo,La Victoria,MOVISTAR,202412,202606
+Lambayeque,Chiclayo,Pimentel,MOVISTAR,202412,202606
+Piura,Piura,Castilla,MOVISTAR,202412,202606
+Piura,Piura,Veintiseis De Octubre,MOVISTAR,202412,202606
+Tacna,Candarave,Camilaca,MOVISTAR,202412,202606
+Junin,Huancayo,Chilca,MOVISTAR,202501,202606
+Junin,Huancayo,El Tambo,MOVISTAR,202501,202606
+Junin,Huancayo,Huancayo,MOVISTAR,202501,202606
+Junin,Huancayo,Pilcomayo,MOVISTAR,202501,202606
+Lima,Lima,Punta Negra,MOVISTAR,202504,202606
+Ayacucho,Huamanga,Carmen Alto,MOVISTAR,202505,202606
+Ica,Ica,Subtanjalla,MOVISTAR,202507,202606
+Ica,Ica,La Tinguiña,MOVISTAR,202508,202606
+Cusco,Cusco,Cusco,MOVISTAR,202509,202606
+Cusco,Cusco,San Jeronimo,MOVISTAR,202509,202606
+Cusco,Cusco,San Sebastian,MOVISTAR,202509,202606
+Cusco,Cusco,Santiago,MOVISTAR,202509,202606
+Cusco,Cusco,Wanchaq,MOVISTAR,202509,202606
+Ica,Ica,Ica,MOVISTAR,202510,202606
+Ica,Ica,Parcona,MOVISTAR,202510,202606
+Lima,Cañete,Chilca,MOVISTAR,202510,202606
+Lima,Lima,Barranco,MOVISTAR,202511,202606
+Puno,Puno,Puno,MOVISTAR,202511,202606
+Puno,San Roman,Caracoto,MOVISTAR,202511,202606
+Puno,San Roman,Juliaca,MOVISTAR,202511,202606
+Puno,San Roman,San Miguel,MOVISTAR,202511,202606
+Tumbes,Tumbes,Tumbes,MOVISTAR,202511,202606
+Cusco,Acomayo,Pomacanchi,MOVISTAR,202512,202606
+Lima,Cañete,Asia,MOVISTAR,202512,202606
+Lima,Cañete,Mala,MOVISTAR,202512,202606
+Lima,Lima,Breña,MOVISTAR,202512,202606
+Lima,Lima,Carabayllo,MOVISTAR,202512,202606
+Lima,Lima,Independencia,MOVISTAR,202512,202606
+Lima,Lima,Los Olivos,MOVISTAR,202512,202606
+Lima,Lima,Puente Piedra,MOVISTAR,202512,202606
+Lima,Lima,San Juan De Lurigancho,MOVISTAR,202512,202606
+Lima,Lima,San Martin De Porres,MOVISTAR,202512,202606
+Puno,Chucuito,Desaguadero,MOVISTAR,202601,202606
+Callao,Callao,La Perla,MOVISTAR,202602,202606
+Cusco,Espinar,Espinar,MOVISTAR,202602,202606
+Lima,Huaura,Sayan,MOVISTAR,202602,202606
+Puno,Melgar,Ayaviri,MOVISTAR,202602,202606
+Ancash,Yungay,Ranrahirca,MOVISTAR,202604,202606
+La Libertad,Ascope,Casa Grande,MOVISTAR,202604,202606
+Lima,Lima,La Victoria,MOVISTAR,202604,202606
+Lima,Lima,Lince,MOVISTAR,202604,202606
+Lima,Lima,Santa Anita,MOVISTAR,202604,202606
+Callao,Callao,Bellavista,MOVISTAR,202605,202606
+Callao,Callao,Callao,MOVISTAR,202605,202606
+La Libertad,Otuzco,Salpo,MOVISTAR,202605,202606
+Lima,Lima,Jesus Maria,MOVISTAR,202605,202606
+Lima,Lima,Lima,MOVISTAR,202605,202606
+Lima,Lima,Magdalena Del Mar,MOVISTAR,202605,202606
+Lima,Lima,Rimac,MOVISTAR,202605,202606
+Lima,Lima,San Isidro,MOVISTAR,202605,202606
+Lima,Lima,San Miguel,MOVISTAR,202605,202606
+Junin,Tarma,Acobamba,MOVISTAR,202606,202606
+La Libertad,Ascope,Paijan,MOVISTAR,202606,202606
+La Libertad,Pacasmayo,San Pedro De Lloc,MOVISTAR,202606,202606
+Lima,Lima,Chaclacayo,MOVISTAR,202606,202606
