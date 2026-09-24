@@ -70,7 +70,7 @@
 | Crudo download principal | 1.0032 (n=67, de `observable_stats.json`) | 1.0032 (n=67) | ✅ |
 | Sensibilidad 5G (v1.1) | 0.8429 (n=60, de `observable_stats_v1_1.json`) | 0.8429 (n=60) | ✅ (referencia; T9.3(a) la reproduce independientemente, ver abajo) |
 | Último YEARMONTH leído | 202605 | 202605 | ✅ |
-| Determinismo (2 corridas → hash SHA-256 de `observable_stats_v1_2.json`) | idéntico | `91dc9674...957075` en ambas corridas | ✅ IDÉNTICO |
+| Determinismo (2 corridas → hash SHA-256 de `observable_stats_v1_2.json`) | idéntico | `60cedc4d...c01bb` en ambas corridas (re-verificado tras la ronda de correcciones de abajo) | ✅ IDÉNTICO |
 
 ---
 
@@ -112,13 +112,15 @@ Pre-tendencias (τ<0) planas y con IC que incluye 0 en casi todos los puntos; sa
 
 ### T3 — Sensibilidad de la detección
 
-| Regla | n confirmados (de 86) | n sobrevivientes (de 67) | DiD mediana |
-|---|---|---|---|
-| confirm_min3 (≥3 meses consecutivos en cero) | 86 | 67 | 0.65 |
-| confirm_min6 (≥6 meses consecutivos en cero) | 86 | 67 | 0.65 |
-| explicit_zero_only | **0** | **0** | — |
+**Corrección aplicada (bug encontrado en la primera versión):** `tail_months` (los meses entre el breakpoint y el último mes disponible) ya está garantizado 100% en cero por la regla original de `detect_shutdown_confirmed()` — por construcción, todos esos meses son cero, así que comprobar "los primeros N meses son cero" era una condición vacía (siempre verdadera). La forma correcta de que "≥N meses consecutivos en cero tras el breakpoint" sea una restricción real es exigir que existan **al menos N meses de evidencia** entre el breakpoint y el último mes disponible (202605): `len(tail_months) >= N`. Con la corrección:
 
-`confirm_min3`/`confirm_min6` no cambian nada porque la regla de v1.0 ya exige ceros **sostenidos hasta el último mes disponible** (más estricto que 3 o 6 meses consecutivos al inicio). `explicit_zero_only` confirma 0 distritos por la razón de T0.1: no existen ceros literales en el raw, solo campos vacíos.
+| Regla | n confirmados (de 86) | n sobrevivientes (de 67) | DiD mediana | IC95 | Wilcoxon p (one-sided) |
+|---|---|---|---|---|---|
+| confirm_min3 (≥3 meses de evidencia tras bp) | **68** | 67 | 0.65 | [0.42, 1.01] | 1.03e-06 |
+| confirm_min6 (≥6 meses de evidencia tras bp) | **63** | **62** | **0.81** | [0.50, 1.03] | 4.21e-07 |
+| explicit_zero_only | 0 | 0 | — | — | — |
+
+`confirm_min3` elimina 18 de los 86 confirmados (los de bp 202604/202605, que solo tienen 1-2 meses de evidencia hasta 202605) pero no toca ninguno de los 67 analizados (todos ya tenían ≥3 meses de evidencia por el filtro `months_post>=3` previo). `confirm_min6` elimina 23 de los 86 y **5 de los 67 analizados** (bp 202601/202602, con solo 4-5 meses de evidencia) — el resultado (n=62, DiD=0.81) coincide exactamente con `strict_post6` de T1, lo cual es una validación cruzada esperada: ambas reglas exigen efectivamente ≥6 meses de evidencia post-breakpoint. `explicit_zero_only` sigue confirmando 0 distritos por la razón de T0.1: no existen ceros literales en el raw, solo campos vacíos.
 
 ### T4 — Diagnósticos del matching
 
@@ -135,26 +137,60 @@ Pre-tendencias (τ<0) planas y con IC que incluye 0 en casi todos los puntos; sa
 
   region3: match exacto = 100%. **max|SMD| post-matching = 0.119** — bien dentro de los umbrales convencionales (<0.1-0.25).
 
+  **Reconciliación 107 vs 211 (pregunta pendiente):** el número correcto de **distritos-control físicamente distintos** es **107** (`matches["control_key"].nunique()`, sin condicionar en nada). El "211" que aparece en T9.2 es el conteo de **instancias (control_key, treated_bp)** — la tabla de timing 5G-vs-breakpoint necesita, para cada control, evaluar su clasificación *relativa al bp del tratado con el que está emparejado*, y como un mismo control físico puede estar emparejado con tratados de **distinto** breakpoint (reúso, ver arriba: mediana 2, máx 13 usos), aparece una fila por cada combinación (control, bp) distinta, no una fila por control. 107 es el número a citar en el texto como "controles únicos usados"; 211 es un artefacto de la tabla de diagnóstico de T9.2, ahora reetiquetado explícitamente en el JSON (`timing_controls_used_n_instances=211` vs `timing_controls_used_n_distinct_districts=107`).
+
   *Nota (regla 8):* la columna "antes" no existía en v1.0; se construyó para v1.2 sobre el pool elegible en la misma región3, misma ventana calendario y misma regla `MIN_VALID`, **sin** restricción de caliper (`cal=1e9`), reutilizando `find_eligible()` tal cual.
 
 ### T5 — Placebo temporal (bp−6)
 
-n=67 (los 67 tienen ≥12 meses pre, ninguno excluido). DiD placebo mediana = **0.26 Mbps**, IC95 = [−0.04, 0.37], Wilcoxon two-sided p=0.027, n+/n−=40/27.
+**T5 original** (matches fijos de v1.0, pre=[bp−12,bp−7], post=[bp−6,bp−1]): n=67 (ninguno excluido). DiD placebo mediana = **0.26 Mbps**, IC95=[−0.04, 0.37], Wilcoxon two-sided p=0.027, n+/n−=40/27. El IC95 casi no incluye 0 y el p es marginal — el placebo con los matches originales no es tan "limpio" como se esperaba.
 
-**Nota importante:** el IC95 casi no incluye 0 (borde inferior −0.04) y el Wilcoxon two-sided da p=0.027 (marginal). El placebo no es tan "limpio" como se esperaba — hay una señal pequeña pero no trivial 6 meses antes del apagado real. Posibles explicaciones: (a) anticipación del apagado (degradación gradual de 3G antes del breakpoint oficial), (b) tendencia común de mejora 4G no relacionada con el apagado. Se recomienda discutirlo explícitamente en el texto como limitación, no ocultarlo — el efecto placebo (0.26) es de todos modos ~40% del efecto principal (0.65), consistente con "hay ruido pero el efecto real domina".
+**T5b — placebo RE-EMPAREJADO** (mismas covariables y calipers que v1.0, K=5 Mahalanobis, pero con baseline de matching = media[bp−12,bp−7] y exigiendo 3G activo en todo [bp−12,bp−1] para los controles): n_matched=67 (0 sin match, 5 con caliper relajado). DiD placebo mediana = **−0.03 Mbps**, IC95=[−0.17, 0.23], Wilcoxon two-sided p=**0.671**, n+/n−=32/35.
+
+**Conclusión:** el placebo re-emparejado da un **nulo limpio** (mediana ≈0, IC amplio y simétrico alrededor de 0, p=0.67), mientras que el placebo con los matches originales (optimizados para el baseline de la ventana real, no para 6 meses antes) mostraba una señal marginal. Esto sugiere que el resultado marginal de T5-original es un artefacto de reutilizar controles emparejados sobre el baseline "equivocado" (el de la ventana real, bp−6..bp−1), no evidencia de anticipación del apagado. **Recomendación para el texto:** reportar el placebo re-emparejado (T5b) como el resultado principal de robustez temporal, y mencionar T5-original solo como nota metodológica (el placebo con matches fijos es sensible al baseline usado para emparejar).
+
+**T5c — diagnóstico de pre-tendencia** (matches originales, gap medio del event-study para τ=−12..−7, más allá del rango de Fig. 3):
+
+| τ | gap medio (Mbps) | n |
+|---|---|---|
+| −12 | −0.14 | 67 |
+| −11 | −0.15 | 67 |
+| −10 | −0.08 | 67 |
+| −9 | −0.11 | 67 |
+| −8 | −0.11 | 67 |
+| −7 | −0.04 | 67 |
+
+Con los matches originales, el gap es **negativo** en todo τ=−12..−7 (tratados por debajo de sus controles) y se acerca a 0 conforme τ crece hacia el breakpoint — consistente con el resultado marginal de T5-original (que compara precisamente el nivel de esta zona negativa contra la zona ligeramente positiva de τ=−6..−1, ver T2). Es una pre-tendencia leve con los matches fijos, que el re-matching de T5b corrige.
 
 ### T6 — Distritos con cambio negativo
 
 **16** distritos analizados tienen `delta_raw<0` o `did<0` (de 67). Detalle completo en `outputs/v1_2/negative_districts_v1_2.csv`, series en `negative_districts_series_v1_2.csv` (τ=−12..+12, con media de sus controles).
+
+**Perfil de los 5 con delta crudo <0:**
+
+| Distrito | Región | bp | meses post | Δ crudo | DiD | Δ mediciones | 5G | Controles |
+|---|---|---|---|---|---|---|---|---|
+| Socabaya (Arequipa) | Sierra | 202410 | 20 | −1.14 | **−0.70** | +16% | No | bajan |
+| San Agustín (Junín) | Sierra | 202412 | 18 | −0.52 | **+0.21** | −18% | No | suben (más que el tratado cae) |
+| El Porvenir (La Libertad) | Costa | 202412 | 18 | −0.18 | **−0.77** | −26% | No | suben |
+| La Victoria (Lambayeque) | Costa | 202412 | 18 | −0.77 | **−0.49** | −4% | No | suben |
+| Sayán (Lima) | Costa | 202602 | 4 | −2.71 | **−3.52** | −9% | No | suben |
+
+Ninguno de los 5 tiene contaminación 5G. San Agustín es el único con DiD positivo a pesar del delta crudo negativo — su caída es menor que la de sus controles, así que en términos relativos "mejora". En los otros 4, los controles suben mientras el tratado cae o se estanca, lo que sostiene un DiD negativo genuino, no solo ruido de la ventana pre/post.
+
+**Patrón entre los 15 distritos con DiD<0** (de los 16 totales; 1 —San Agustín— tiene DiD>0 a pesar de delta crudo<0): fuertemente concentrados en **Costa** (13/15, 87%) vs Sierra (2/15); mediana de meses post = 6 (breakpoints relativamente recientes, con menos tiempo para consolidar la mejora); 5 de 15 (33%) tienen contaminación 5G en su ventana post — una fracción más alta que el promedio general (7/67 ≈ 10%), sugiriendo que la contaminación 5G contribuye a algunos, pero no todos, de los DiD negativos.
 
 ### T7 — DiD por región
 
 | Región | n | DiD mediana | IC95 | Wilcoxon p (one-sided) | n+/n− | Crudo mediana |
 |---|---|---|---|---|---|---|
 | Costa | 38 | 0.33 | [−0.03, 0.55] | 0.059 | 25/13 | 0.77 |
+| **Costa (excl. 7 distritos 5G)** | **31** | **0.35** | **[0.17, 0.63]** | **0.007** | **23/8** | **0.97** |
 | Sierra | 29 | 1.21 | [1.03, 1.57] | 3.5e-08 | 27/2 | 1.41 |
 
-Diferencia Sierra−Costa = **0.88 Mbps**, IC95 bootstrap = [0.61, 1.44]. El efecto es marcadamente más fuerte y más consistente en Sierra (27/29 positivos) que en Costa, donde el Wilcoxon one-sided es solo marginal (p=0.059) y el IC roza 0.
+Diferencia Sierra−Costa = **0.88 Mbps**, IC95 bootstrap = [0.61, 1.44]. El efecto es marcadamente más fuerte y más consistente en Sierra (27/29 positivos) que en Costa, donde el Wilcoxon one-sided con la muestra completa es solo marginal (p=0.059) y el IC roza 0.
+
+**T7b — hallazgo relevante:** al excluir de Costa los 7 distritos con 5G en su ventana post (los mismos de T9.3/T9.4, todos costeros: Lima y Cañete), el resultado de Costa se **limpia notablemente** — mediana casi igual (0.35 vs 0.33) pero el IC95 ya no roza 0 ([0.17, 0.63]) y el Wilcoxon one-sided pasa de marginal (p=0.059) a claramente significativo (p=0.007). Esto sugiere que la contaminación por 5G (que resta mediciones 4G, ver T9.5) es la principal responsable de que el efecto en Costa completo se vea más débil/ruidoso que en Sierra — no es que Costa tenga un efecto menor per se.
 
 ### T9 — Secuencia 3G off → 4G → 5G
 
@@ -174,6 +210,14 @@ Diferencia Sierra−Costa = **0.88 Mbps**, IC95 bootstrap = [0.61, 1.44]. El efe
 - **T9.5**: evidencia de fuga por composición — los 7 distritos 5G tienen una caída mediana en el conteo de mediciones 4G de **−12,756** (post−pre) vs **−3,184** en los otros 60 (Mann-Whitney p=0.0032, significativo). En time% 4G la diferencia no es significativa (mediana +2.0 p.p. vs +1.7 p.p., p=0.46). Esto apoya parcialmente la interpretación de fuga de dispositivos 5G fuera de la muestra 4G (cae el volumen de mediciones 4G mucho más donde aparece 5G) pero no vía time%, que se mantiene similar.
 - **T9.6**: no generada (opcional, prioridad baja per spec).
 
+### Persistencia fuera de muestra (informativo — usa `origin/main`, datos NO congelados)
+
+⚠️ Esta sección **no usa datos congelados**: lee `outputs/tables/shutdown_confirmed.csv` y el raw de `origin/main` (commit `c875c8b5a4`, hasta YEARMONTH **202607**). Es solo un chequeo de robustez fuera-de-muestra; **no reemplaza** los números oficiales de v1.2/el paper.
+
+De los **67** analizados, **66 siguen confirmados** con datos hasta 202607. Solo **1 cae**: **Espinar (Cusco)**, bp=202602, DiD congelado=0.0743 (efecto pequeño, positivo). Razón diagnosticada automáticamente (reactivación de `IS_3G_ACTIVE_MONTH` en los meses extra): **reactivación de 3G en julio 2026** (202607) — 472 mediciones, 4.43 Mbps, tras 5 meses en cero (feb-jun 2026). Es la misma reactivación que se identificó en la verificación read-only previa a v1.2 (ver §1, hallazgo de T0.5).
+
+**DiD principal excluyendo Espinar** (n=66): mediana = **0.72 Mbps**, IC95=[0.44, 1.01] — sube levemente respecto al 0.65 oficial (Espinar tenía un DiD muy por debajo de la mediana, así que quitarlo empuja la mediana hacia arriba). El resultado es robusto: perder 1 de 67 tratados por una reactivación tardía no compromete la conclusión.
+
 ---
 
 ## 4. Discrepancias entre el spec y el código (regla 8)
@@ -184,15 +228,18 @@ Diferencia Sierra−Costa = **0.88 Mbps**, IC95 bootstrap = [0.61, 1.44]. El efe
 4. **`make_figures.py` vivía en `Paper/`, no en `scripts/`**, y su output es `event_study.pdf` (sin prefijo `fig3_`) en `Paper/figs/` (no `figs/` ni `paper/figs/` como en el texto del spec). Por decisión explícita se mantuvo esa convención; el script se copió a `scripts/make_figures.py` para versionarlo en el tag.
 5. El **balance "antes del matching" (T4)** no existía en v1.0; se construyó para v1.2 reutilizando `find_eligible()` con calipers infinitos (`cal=1e9`) sobre el pool elegible en la misma región3.
 6. **T0.1 revela que la distinción `explicit_zero`/`empty_field` es en la práctica vacía**: el raw de OSIPTEL nunca contiene un literal `"0"` en los campos de tráfico 3G — siempre es un campo vacío convertido a 0 por `clean_minimal()`. Esto hace que la variante `explicit_zero_only` de T3 confirme 0 distritos, y vale la pena una frase en la sección de datos del paper.
-7. **Hallazgo fuera de alcance pero relevante**: con datos hasta 202607 (en `origin/main`, no usados en v1.2), el distrito Espinar (parte del n=67) muestra reactivación real de 3G en julio 2026 tras 5 meses en cero. No afecta los números congelados pero es material de discusión/limitaciones (ver T0.5 arriba).
-8. **T5 (placebo)** dio un resultado menos "nulo" de lo esperado (IC95=[−0.04, 0.37], p two-sided=0.027) — no invalida el diseño pero merece discusión explícita en el texto, no debe presentarse como "IC incluye 0 limpiamente" sin matizar.
+7. **Persistencia fuera de muestra (formalizada)**: con datos hasta 202607 (`origin/main`, commit `c875c8b5a4`, no usados en los números oficiales de v1.2), 66 de los 67 analizados siguen confirmados; el único que cae es **Espinar (Cusco)**, por reactivación real de 3G en julio 2026 tras 5 meses en cero. El DiD principal excluyendo Espinar sube levemente a 0.72 (de 0.65). No afecta los números congelados pero es material de discusión/limitaciones (sección `out_of_sample_persistence` del JSON, marcada explícitamente como no-congelada).
+8. **T5 (placebo con matches originales)** dio un resultado menos "nulo" de lo esperado (IC95=[−0.04, 0.37], p two-sided=0.027). **Resuelto con T5b**: al re-emparejar usando el baseline correcto para esa ventana temporal (media de [bp−12,bp−7], no la del emparejamiento real), el placebo da un nulo limpio (mediana=−0.03, IC95=[−0.17,0.23], p=0.67). Recomendación: usar T5b como el placebo principal en el texto.
+9. **Bug corregido en T3**: la primera versión de `confirm_min3`/`confirm_min6` era una condición vacía (ver §3, T3) — no cambiaba nada porque `tail_months` ya estaba garantizado 100% en cero por la regla original. Corregido a exigir `len(tail_months) >= N`; ahora `confirm_min6` sí elimina 5 de los 67 (validación cruzada con `strict_post6` de T1: mismo n=62, mismo DiD=0.81).
+10. **T7b (nuevo)**: excluir de Costa los 7 distritos con 5G limpia notablemente el resultado regional (IC95 deja de rozar 0, p pasa de 0.059 a 0.007) — la contaminación 5G parece ser la principal fuente de ruido en el efecto de Costa, no una debilidad real del efecto costero.
+11. **Reconciliación 107 vs 211 (T4 vs T9.2)**: 107 es el número correcto de distritos-control físicamente distintos; 211 era un artefacto de conteo por (control, breakpoint) en la tabla de timing de T9.2, ahora relabeleado explícitamente en el JSON.
 
 ---
 
 ## 5. Tiempo de ejecución
 
-- Una corrida completa de `scripts/build_camera_ready_v1_2.py`: **~1m40s** (incluye T0.1 recalculado dos veces — una vez standalone y otra dentro de T3 — y ~9 bootstraps de 10,000 iteraciones en T1, más los de T2/T3/T5/T7/T9).
-- Verificación de determinismo (2 corridas + hash): **~3m20s** en total.
+- Una corrida completa de `scripts/build_camera_ready_v1_2.py` (con T5b/T5c y persistencia fuera de muestra agregados): **~2-3 min** (incluye el re-matching K=5 de T5b sobre los 67 tratados, ~12 bootstraps de 10,000 iteraciones, y llamadas `git show` de solo lectura para la sección informativa de persistencia fuera de muestra).
+- Verificación de determinismo (2 corridas + hash): confirmado idéntico tanto en la versión inicial como después de la ronda de correcciones de esta sesión.
 
 ---
 
@@ -211,6 +258,9 @@ outputs/v1_2/negative_districts_v1_2.csv          (T6)
 outputs/v1_2/negative_districts_series_v1_2.csv   (T6)
 outputs/v1_2/fiveg_timing_v1_2.csv                (T9.2)
 outputs/v1_2/fiveg_districts_series_v1_2.csv      (T9.4)
+outputs/v1_2/observable_stats_v1_2.json           (incluye placebo.original/rematched/pretrend,
+                                                    negative_districts_extra, regional_did.costa_excl_5g,
+                                                    out_of_sample_persistence)
 Paper/figs/event_study.pdf                        (T2, nueva version)
 Paper/figs/event_study_v1_1.pdf                   (T2, version anterior preservada)
 REPORT_v1_2.md                                    (este archivo)

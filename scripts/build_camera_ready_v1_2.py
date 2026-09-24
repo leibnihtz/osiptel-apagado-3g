@@ -25,7 +25,9 @@ Output:
 from __future__ import annotations
 
 import hashlib
+import io
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -625,15 +627,12 @@ def _detect_variant(full_pre_clean: pd.DataFrame, carrier: str, rule: str, zero_
         dkey = district_key(dept, prov, dist)
 
         if rule in ("confirm_min3", "confirm_min6"):
+            # tail_months ya esta garantizado 100% en cero (chequeo de la linea 621);
+            # la unica forma de que "min_N consecutivos tras el bp" sea una restriccion
+            # real (no vacua) es exigir que existan al menos N meses de evidencia entre
+            # el breakpoint y el ultimo mes disponible.
             need = 3 if rule == "confirm_min3" else 6
-            consecutive = 0
-            for m in tail_months[:need]:
-                row = g_tail[g_tail["YEARMONTH"] == m]
-                if not row.empty and bool(row["IS_3G_ZERO_MONTH"].iloc[0]):
-                    consecutive += 1
-                else:
-                    break
-            if consecutive < min(need, len(tail_months)):
+            if len(tail_months) < need:
                 continue
         elif rule == "explicit_zero_only":
             ok = True
@@ -893,6 +892,159 @@ def t5_placebo(base: dict) -> dict:
     }
 
 
+def _build_ctrl_pool_and_universe(base: dict):
+    """Pool de control (86 tratados excluidos) + universo con covariables, igual a T4/build_control_and_did.py."""
+    full = base["full"]
+    shutdown = base["shutdown"]
+    treated_keys = set(
+        district_key(r["ADM_LEVEL_1_NAME"], r["ADM_LEVEL_2_NAME"], r["ADM_LEVEL_3_NAME"])
+        for _, r in shutdown.iterrows()
+    )
+    ctrl_full = full[~full["_key"].isin(treated_keys)].copy()
+    ctrl_by_key = {k: g.sort_values("YEARMONTH").reset_index(drop=True) for k, g in ctrl_full.groupby("_key")}
+
+    universe = pd.read_csv(ROOT / "outputs" / "tables" / "movistar_universe_with_region_a_mano.csv", encoding="cp1252")
+    universe["_key"] = universe.apply(lambda r: district_key(r["department"], r["province"], r["district"]), axis=1)
+    universe["altitud_m"] = pd.to_numeric(universe["altitud_m"], errors="coerce")
+    universe["poblacion_distrito"] = pd.to_numeric(universe["poblacion_distrito"], errors="coerce")
+    universe["_norm_key"] = universe["_key"].map(bcd.norm_key)
+    universe = universe.drop_duplicates(subset="_norm_key")
+    uni_norm_lookup = universe.set_index("_norm_key")
+    return ctrl_by_key, uni_norm_lookup
+
+
+def t5b_placebo_rematched(base: dict) -> dict:
+    """T5b — Placebo con re-matching propio (mismas covariables/calipers, baseline=[bp-12,bp-7])."""
+    print("\n=== T5b — Placebo temporal RE-EMPAREJADO ===")
+    by_key = base["by_key"]
+    global_months = base["global_months"]
+    did_summary = base["did_summary"]
+    matches = base["matches"]
+    matched = did_summary[~did_summary["unmatched"]].copy()
+    matched["_key"] = matched.apply(lambda r: district_key(r["department"], r["province"], r["district"]), axis=1)
+    treated_cov = matches.drop_duplicates(["treated_dept", "treated_prov", "treated_dist", "treated_bp"]).copy()
+    treated_cov["_key"] = treated_cov.apply(
+        lambda r: district_key(r["treated_dept"], r["treated_prov"], r["treated_dist"]), axis=1
+    )
+    treated_cov = treated_cov.set_index("_key")
+
+    ctrl_by_key, uni_norm_lookup = _build_ctrl_pool_and_universe(base)
+
+    did_vals, crude_vals = [], []
+    n_unmatched, n_relaxed = 0, 0
+    for _, t in matched.iterrows():
+        bp = int(t["breakpoint_yearmonth"])
+        t_key = t["_key"]
+        pre_m = cal_window(bp, list(range(-12, -6)), global_months)   # [bp-12, bp-7]
+        post_m = cal_window(bp, list(range(-6, 0)), global_months)    # [bp-6, bp-1] (placebo "post")
+        if len(pre_m) < 6 or t_key not in treated_cov.index:
+            continue
+        g_t = by_key.get(t_key)
+        pre6_i = simple_mean(g_t, pre_m, DL_COL)   # baseline de matching = media [bp-12,bp-7]
+        post6_i = simple_mean(g_t, post_m, DL_COL)
+        if np.isnan(pre6_i) or np.isnan(post6_i):
+            continue
+        cov = treated_cov.loc[t_key]
+        region3_i = cov["treated_region3"]
+        log_pop_i = float(cov["treated_log10_pop"])
+        alt_i = float(cov["treated_altitud_m"])
+
+        eligible = bcd.find_eligible(
+            ctrl_by_key, uni_norm_lookup, pre_m, post_m, region3_i, pre6_i, log_pop_i, alt_i,
+            bcd.CAL_4G, bcd.CAL_LOGPOP, bcd.CAL_ALT,
+        )
+        caliper_level = "standard"
+        if len(eligible) < 3:
+            eligible = bcd.find_eligible(
+                ctrl_by_key, uni_norm_lookup, pre_m, post_m, region3_i, pre6_i, log_pop_i, alt_i,
+                bcd.CAL_4G_R, bcd.CAL_LOGPOP_R, bcd.CAL_ALT_R,
+            )
+            caliper_level = "relaxed"
+        if len(eligible) < 3:
+            n_unmatched += 1
+            continue
+        if caliper_level == "relaxed":
+            n_relaxed += 1
+
+        el_df = pd.DataFrame(eligible)
+        cov_cols = ["pre6_j", "log10_pop", "altitud_m"]
+        el_mat = el_df[cov_cols].copy()
+        col_means = el_mat.mean()
+        el_mat_filled = el_mat.fillna(col_means)
+        t_vec = np.array([
+            pre6_i,
+            log_pop_i if not np.isnan(log_pop_i) else float(col_means["log10_pop"]),
+            alt_i if not np.isnan(alt_i) else float(col_means["altitud_m"]),
+        ])
+        dists = bcd.mahal_or_euclidean(t_vec, el_mat_filled.values)
+        el_df["mahal_dist"] = dists
+        selected = el_df.nsmallest(5, "mahal_dist")
+
+        delta_t = post6_i - pre6_i
+        delta_ctrl_mean = float((selected["post6_j"] - selected["pre6_j"]).mean())
+        did_vals.append(delta_t - delta_ctrl_mean)
+        crude_vals.append(delta_t)
+
+    did_arr = np.array(did_vals)
+    ci_lo, ci_hi = bootstrap_median_ci(did_arr)
+    _, p_two = wilcoxon_pair(did_arr)
+    npos, nneg = npos_nneg(did_arr)
+    print(f"  n_matched={len(did_arr)} unmatched={n_unmatched} relaxed={n_relaxed} "
+          f"did_median={np.median(did_arr):.4f} IC95=[{ci_lo:.4f},{ci_hi:.4f}] p2s={p_two:.3g}")
+    return {
+        "n_matched": len(did_arr), "n_unmatched": n_unmatched, "n_relaxed_caliper": n_relaxed,
+        "did_median": r4(np.median(did_arr)), "ci95_lo": r4(ci_lo), "ci95_hi": r4(ci_hi),
+        "wilcoxon_p_twosided": round_p(p_two) if not np.isnan(p_two) else None,
+        "n_positive": npos, "n_negative": nneg,
+        "outcome": "download 4G", "pseudo_breakpoint": "bp-6",
+        "note": "re-emparejado con las mismas covariables/calipers que v1.0 (K=5, Mahalanobis); "
+                "baseline de matching = media[bp-12,bp-7]; controles exigidos con 3G activo en [bp-12,bp-1]",
+    }
+
+
+def t5c_pretrend_diagnostic(base: dict) -> dict:
+    """Diagnostico con los matches ORIGINALES: gap medio del event-study para tau=-12..-7."""
+    print("\n=== T5c — Diagnostico pre-tendencia (tau=-12..-7, matches originales) ===")
+    matches = base["matches"]
+    did_summary = base["did_summary"]
+    by_key = base["by_key"]
+    treated_series = base["treated_series"]
+    matched = did_summary[~did_summary["unmatched"]].copy()
+    treated_groups = matches.groupby(["treated_dept", "treated_prov", "treated_dist", "treated_bp"])
+
+    rows = []
+    for (dept, prov, dist, bp), grp in treated_groups:
+        bp = int(bp)
+        t_key = district_key(dept, prov, dist)
+        t_ser = treated_series[treated_series["_key"] == t_key]
+        for tau in range(-12, -6):
+            cal_ym = idx_to_ym(ym_to_idx(bp) + tau)
+            t_row = t_ser[t_ser["YEARMONTH"] == cal_ym]
+            if not t_row.empty and MEAS_COL in t_row.columns and float(t_row[MEAS_COL].iloc[0]) > 0:
+                t_dl = float(t_row[DL_COL].iloc[0])
+            else:
+                t_dl = float("nan")
+            c_dls = []
+            for c_key in grp["control_key"]:
+                g_c = by_key.get(c_key)
+                if g_c is None:
+                    continue
+                c_r = g_c[g_c["YEARMONTH"] == cal_ym]
+                if not c_r.empty and MEAS_COL in c_r.columns and float(c_r[MEAS_COL].iloc[0]) > 0:
+                    c_dls.append(float(c_r[DL_COL].iloc[0]))
+            c_dl = float(np.mean(c_dls)) if c_dls else float("nan")
+            gap = t_dl - c_dl if not (np.isnan(t_dl) or np.isnan(c_dl)) else float("nan")
+            rows.append({"tau": tau, "gap": gap})
+
+    event_df = pd.DataFrame(rows)
+    out = {}
+    for tau in range(-12, -6):
+        vals = event_df[event_df["tau"] == tau]["gap"].dropna().values
+        out[str(tau)] = {"gap_mean": r4(np.mean(vals)) if len(vals) else None, "n": int(len(vals))}
+        print(f"  tau={tau:+d}: gap_mean={out[str(tau)]['gap_mean']} n={out[str(tau)]['n']}")
+    return out
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # T6 — Distritos con cambio negativo
 # ─────────────────────────────────────────────────────────────────────────────
@@ -982,6 +1134,43 @@ def t6_negative_districts(base: dict) -> tuple[pd.DataFrame, pd.DataFrame]:
     return neg_df, series_df
 
 
+def t6_summary(neg_df: pd.DataFrame, series_df: pd.DataFrame) -> dict:
+    """Perfil de los distritos con delta crudo<0 y patron comun entre los que tienen did<0."""
+    print("\n=== T6 (resumen) — perfil delta_raw<0 y patron did<0 ===")
+    neg_raw = neg_df[neg_df["delta_raw"] < 0].copy()
+    profiles = []
+    for _, row in neg_raw.iterrows():
+        ser = series_df[series_df["district"] == row["district"]]
+        pre_ctrl = ser[ser["tau"] < 0]["control_mean_4g_dl"].mean()
+        post_ctrl = ser[ser["tau"] >= 0]["control_mean_4g_dl"].mean()
+        ctrl_trend = "sube" if (pd.notna(pre_ctrl) and pd.notna(post_ctrl) and post_ctrl > pre_ctrl) else \
+                     ("baja" if pd.notna(pre_ctrl) and pd.notna(post_ctrl) else "sin datos")
+        profiles.append({
+            "district": row["district"], "department": row["department"], "region3": row["region3"],
+            "breakpoint": int(row["breakpoint"]), "months_post": row["months_post"],
+            "delta_raw": row["delta_raw"], "did": row["did"],
+            "pct_change_meas": row["pct_change_meas"], "has_5g_post": row["has_5g_post"],
+            "control_pre_mean_4g_dl": r4(pre_ctrl), "control_post_mean_4g_dl": r4(post_ctrl),
+            "control_trend": ctrl_trend,
+        })
+        print(f"  {row['district']} ({row['department']}, {row['region3']}, bp={int(row['breakpoint'])}): "
+              f"months_post={row['months_post']} delta_raw={row['delta_raw']} did={row['did']} "
+              f"pct_meas={row['pct_change_meas']} 5G={row['has_5g_post']} controles={ctrl_trend}")
+
+    neg_all = neg_df.copy()
+    did_neg = neg_all[neg_all["did"] < 0]
+    pattern = {
+        "n_did_negative": int(len(did_neg)),
+        "region3_counts": did_neg["region3"].value_counts().to_dict(),
+        "median_months_post": r4(did_neg["months_post"].median()) if len(did_neg) else None,
+        "n_with_5g_post": int(did_neg["has_5g_post"].sum()) if "has_5g_post" in did_neg.columns else None,
+        "note": "distribucion de region3/months_post/5G entre los distritos con did<0, para ver si hay un patron comun",
+    }
+    print(f"  Patron entre did<0 (n={pattern['n_did_negative']}): region3={pattern['region3_counts']} "
+          f"months_post_mediana={pattern['median_months_post']} con_5G={pattern['n_with_5g_post']}")
+    return {"delta_raw_negative_profiles": profiles, "did_negative_pattern": pattern}
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # T7 — DiD por region
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1023,7 +1212,50 @@ def t7_regional_did(base: dict) -> dict:
             "ci95_lo": r4(np.percentile(diffs, 2.5)), "ci95_hi": r4(np.percentile(diffs, 97.5)),
         }
         print(f"  Sierra-Costa: {out['sierra_minus_costa']}")
+
+    # --- T7b: Costa excluyendo los 7 distritos con 5G en su ventana post ---
+    matched2 = matched.copy()
+    matched2["_key"] = matched2.apply(lambda r: district_key(r["department"], r["province"], r["district"]), axis=1)
+    treated_5g_keys = get_treated_5g_keys(base)
+    costa_excl = matched2[(matched2["region3"] == "Costa") & (~matched2["_key"].isin(treated_5g_keys))]
+    did_arr = costa_excl["did"].dropna().values
+    crude_arr = costa_excl["delta_treated"].dropna().values
+    ci_lo, ci_hi = bootstrap_median_ci(did_arr)
+    p1, _ = wilcoxon_pair(did_arr)
+    npos, nneg = npos_nneg(did_arr)
+    out["costa_excl_5g"] = {
+        "n": len(did_arr), "did_median": r4(np.median(did_arr)) if len(did_arr) else None,
+        "ci95_lo": r4(ci_lo), "ci95_hi": r4(ci_hi),
+        "wilcoxon_p_onesided": round_p(p1) if not np.isnan(p1) else None,
+        "n_positive": npos, "n_negative": nneg,
+        "crude_median": r4(np.median(crude_arr)) if len(crude_arr) else None,
+        "note": "Costa excluyendo los distritos con mediciones 5G_NSA>0 en su ventana post "
+                "(mismos 7 de T9.3/T9.4)",
+    }
+    print(f"  Costa (excl. 5G): n={out['costa_excl_5g']['n']} did_median={out['costa_excl_5g']['did_median']} "
+          f"IC95=[{out['costa_excl_5g']['ci95_lo']},{out['costa_excl_5g']['ci95_hi']}]")
     return out
+
+
+def get_treated_5g_keys(base: dict) -> set[str]:
+    """Claves de los tratados (de los 67) con mediciones 5G_NSA>0 en su ventana post."""
+    did_summary = base["did_summary"]
+    by_key = base["by_key"]
+    global_months = base["global_months"]
+    meas5g = "THROUGHPUT_DOWNLOAD_5G_NSA_MEASUREMENTS"
+    matched = did_summary[~did_summary["unmatched"]].copy()
+    matched["_key"] = matched.apply(lambda r: district_key(r["department"], r["province"], r["district"]), axis=1)
+
+    keys = set()
+    for _, t in matched.iterrows():
+        bp = int(t["breakpoint_yearmonth"])
+        post_m_avail = cal_window(bp, list(range(0, 6)), global_months)
+        g_t = by_key.get(t["_key"])
+        if g_t is not None and meas5g in g_t.columns:
+            rows = g_t[g_t["YEARMONTH"].isin(post_m_avail)]
+            if bool((rows[meas5g].fillna(0) > 0).any()):
+                keys.add(t["_key"])
+    return keys
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1089,7 +1321,14 @@ def t9_5g_sequence(base: dict) -> dict:
             "first_5g_yearmonth": fm, "relative_month": (ym_to_idx(fm) - ym_to_idx(bp)) if fm else None,
             "class": classify(fm, bp, post_m_avail),
         })
+    # NOTA (reconciliacion T4 vs T9.2): se deduplica por (control_key, treated_bp), no solo
+    # por control_key, porque el mismo distrito-control puede estar emparejado a tratados con
+    # distinto breakpoint, y su clase "timing vs bp" depende de CUAL bp se use. Por eso esta
+    # tabla tiene mas filas (por control) que el total de controles fisicos distintos (107,
+    # ver matching_diagnostics.total_unique_controls) — son "instancias control x bp", no
+    # distritos-control unicos.
     control_keys_bp = matches[["control_key", "treated_bp"]].drop_duplicates()
+    n_distinct_control_districts = matches["control_key"].nunique()
     for _, c in control_keys_bp.iterrows():
         bp = int(c["treated_bp"])
         post_m_avail = cal_window(bp, list(range(0, 6)), global_months)
@@ -1102,19 +1341,13 @@ def t9_5g_sequence(base: dict) -> dict:
     timing_df = pd.DataFrame(timing_rows)
     timing_df.to_csv(OUT_DIR / "fiveg_timing_v1_2.csv", index=False, encoding="utf-8")
     class_counts = timing_df.groupby("group")["class"].value_counts().unstack(fill_value=0).to_dict(orient="index")
-    print(f"  Clasificacion timing 5G por grupo: {class_counts}")
+    print(f"  Clasificacion timing 5G por grupo (controls_used = instancias control x bp, "
+          f"n={len(control_keys_bp)}; distritos-control fisicos distintos={n_distinct_control_districts}): "
+          f"{class_counts}")
 
     # T9.3 — contaminacion de controles
-    has5g_by_treated = {}
-    for _, t in matched.iterrows():
-        bp = int(t["breakpoint_yearmonth"])
-        post_m_avail = cal_window(bp, list(range(0, 6)), global_months)
-        g_t = by_key.get(t["_key"])
-        has_5g = False
-        if g_t is not None and meas5g in g_t.columns:
-            rows = g_t[g_t["YEARMONTH"].isin(post_m_avail)]
-            has_5g = bool((rows[meas5g].fillna(0) > 0).any())
-        has5g_by_treated[t["_key"]] = has_5g
+    treated_5g_keys = get_treated_5g_keys(base)
+    has5g_by_treated = {k: (k in treated_5g_keys) for k in matched["_key"]}
 
     treated_groups = matches.groupby(["treated_dept", "treated_prov", "treated_dist", "treated_bp"])
     excl_a_did, excl_b_did, n_lt3 = [], [], 0
@@ -1235,10 +1468,111 @@ def t9_5g_sequence(base: dict) -> dict:
         "inventory": {"columns_5g": cols_5g, "first_national_5g_yearmonth": first_5g_ym,
                       "districts_with_5g_by_month": {str(k): int(v) for k, v in districts_with_5g_by_month.items()}},
         "timing_class_counts": {str(k): v for k, v in class_counts.items()},
+        "timing_controls_used_note": "agrupado por (control_key, treated_bp), no por distrito-control unico "
+                                      "(un mismo control puede tener bps distintos segun a que tratado esta "
+                                      "emparejado); ver matching_diagnostics.total_unique_controls (107) para "
+                                      "el conteo de distritos-control fisicos distintos",
+        "timing_controls_used_n_instances": len(control_keys_bp),
+        "timing_controls_used_n_distinct_districts": int(n_distinct_control_districts),
         "contamination": contamination,
         "lima_5g_districts_bp202512": lima_5g_keys,
         "composition_leakage": composition,
     }
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Persistencia fuera de muestra (informativo — usa origin/main, NO congelado)
+# ─────────────────────────────────────────────────────────────────────────────
+def _read_git_ref_csv(ref_path: str) -> str:
+    return subprocess.run(
+        ["git", "show", ref_path], cwd=ROOT, capture_output=True, text=True, check=True, encoding="utf-8",
+    ).stdout
+
+
+def out_of_sample_persistence(base: dict) -> dict:
+    print("\n=== Persistencia fuera de muestra (origin/main, datos NO congelados) ===")
+    origin_hash = subprocess.run(
+        ["git", "rev-parse", "origin/main"], cwd=ROOT, capture_output=True, text=True, check=True,
+    ).stdout.strip()
+
+    shutdown_text = _read_git_ref_csv("origin/main:outputs/tables/shutdown_confirmed.csv")
+    origin_confirmed = pd.read_csv(io.StringIO(shutdown_text))
+    origin_confirmed["_key"] = origin_confirmed.apply(
+        lambda r: district_key(r["ADM_LEVEL_1_NAME"], r["ADM_LEVEL_2_NAME"], r["ADM_LEVEL_3_NAME"]), axis=1
+    )
+    origin_keys = set(origin_confirmed["_key"])
+    origin_last_ym = int(origin_confirmed["LAST_YEARMONTH_AVAILABLE"].max())
+
+    did_summary = base["did_summary"]
+    matched = did_summary[~did_summary["unmatched"]].copy()
+    matched["_key"] = matched.apply(lambda r: district_key(r["department"], r["province"], r["district"]), axis=1)
+
+    still_confirmed = matched[matched["_key"].isin(origin_keys)]
+    dropped = matched[~matched["_key"].isin(origin_keys)]
+
+    # raw de origin/main para los anios de los tratados caidos, para diagnosticar el "por que"
+    dropped_years = sorted({int(str(bp)[:4]) for bp in dropped["breakpoint_yearmonth"]} | {origin_last_ym // 100})
+    raw_frames = {}
+    for y in dropped_years:
+        try:
+            txt = _read_git_ref_csv(f"origin/main:data/raw/dataset_{y}.csv")
+        except subprocess.CalledProcessError:
+            continue
+        df = pd.read_csv(io.StringIO(txt), sep=";", dtype=str, keep_default_na=False)
+        df = clean_minimal(df)
+        df = add_yearmonth(df)
+        df = add_3g_flags(df)
+        df = df[df["NETWORK_CARRIER"] == "MOVISTAR"].copy()
+        raw_frames[y] = df
+
+    dropped_detail = []
+    for _, row in dropped.iterrows():
+        bp = int(row["breakpoint_yearmonth"])
+        extra_months = [m for m in range(bp, origin_last_ym + 1) if m > 202605]
+        reactivated_months = []
+        for y in {m // 100 for m in extra_months} | {origin_last_ym // 100}:
+            df_y = raw_frames.get(y)
+            if df_y is None:
+                continue
+            sub = df_y[
+                (df_y["ADM_LEVEL_1_NAME"] == row["department"]) &
+                (df_y["ADM_LEVEL_2_NAME"] == row["province"]) &
+                (df_y["ADM_LEVEL_3_NAME"] == row["district"])
+            ]
+            for m in extra_months:
+                r = sub[sub["YEARMONTH"] == m]
+                if not r.empty and bool(r["IS_3G_ACTIVE_MONTH"].iloc[0]):
+                    reactivated_months.append(int(m))
+        reason = f"reactivacion_3G_en_{sorted(set(reactivated_months))}" if reactivated_months else "otro_no_diagnosticado"
+        dropped_detail.append({
+            "district_key": row["_key"], "breakpoint": bp, "did_frozen": r4(row["did"]),
+            "reason": reason,
+        })
+
+    did_excl = matched[matched["_key"].isin(origin_keys)]["did"].dropna().values
+    ci_lo, ci_hi = bootstrap_median_ci(did_excl)
+
+    result = {
+        "warning": "USA DATOS NO CONGELADOS (origin/main, hasta YEARMONTH " + str(origin_last_ym) + "). "
+                   "Solo informativo/robustez fuera-de-muestra; NO reemplaza los numeros oficiales de v1.2 "
+                   "(que usan exclusivamente datos <=202605, tag v1.1-outcomes).",
+        "origin_main_commit": origin_hash,
+        "origin_main_last_yearmonth": origin_last_ym,
+        "n_67_still_confirmed": int(len(still_confirmed)),
+        "n_67_dropped": int(len(dropped)),
+        "dropped_districts": dropped_detail,
+        "did_principal_excluding_dropped": {
+            "n": int(len(did_excl)), "did_median": r4(np.median(did_excl)) if len(did_excl) else None,
+            "ci95_lo": r4(ci_lo), "ci95_hi": r4(ci_hi),
+        },
+    }
+    print(f"  origin/main={origin_hash[:10]} (hasta {origin_last_ym}) "
+          f"n_still_confirmed={result['n_67_still_confirmed']} n_dropped={result['n_67_dropped']}")
+    for d in dropped_detail:
+        print(f"    caido: {d['district_key']} bp={d['breakpoint']} did_frozen={d['did_frozen']} razon={d['reason']}")
+    print(f"  DiD principal excluyendo caidos: n={result['did_principal_excluding_dropped']['n']} "
+          f"median={result['did_principal_excluding_dropped']['did_median']}")
+    return result
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1253,10 +1587,14 @@ def run_all() -> dict:
     _, t2_meta = t2_event_study(base)
     _, t3 = t3_detection_sensitivity(base)
     _, t4 = t4_matching_diagnostics(base)
-    t5 = t5_placebo(base)
-    t6_negative_districts(base)
+    t5_original = t5_placebo(base)
+    t5_rematched = t5b_placebo_rematched(base)
+    t5_pretrend = t5c_pretrend_diagnostic(base)
+    neg_df, series_df = t6_negative_districts(base)
+    t6_extra = t6_summary(neg_df, series_df)
     t7 = t7_regional_did(base)
     t9 = t9_5g_sequence(base)
+    oos = out_of_sample_persistence(base)
 
     stats = {
         "tag_base": "v1.1-outcomes (worktree paper/v1.2)",
@@ -1266,9 +1604,15 @@ def run_all() -> dict:
         "event_study_meta": t2_meta,
         "detection_sensitivity": t3,
         "matching_diagnostics": t4,
-        "placebo": t5,
+        "placebo": {
+            "original": t5_original,
+            "rematched": t5_rematched,
+            "pretrend_tau_neg12_to_neg7_original_matches": t5_pretrend,
+        },
+        "negative_districts_extra": t6_extra,
         "regional_did": t7,
         "fiveg_sequence": t9,
+        "out_of_sample_persistence": oos,
         "bootstrap": {"seed": BOOT_SEED, "n_iterations": BOOT_N},
     }
     out_path = OUT_DIR / "observable_stats_v1_2.json"

@@ -11,22 +11,22 @@
         "did_ci95_lo": 0.4218,
         "did_median": 0.6488,
         "n_analyzed_surviving_67": 67,
-        "n_confirmed": 86,
+        "n_confirmed": 68,
         "n_negative": 15,
         "n_positive": 52,
         "rule": "confirm_min3",
         "wilcoxon_p_onesided": 1.03e-06
       },
       {
-        "did_ci95_hi": 1.0104,
-        "did_ci95_lo": 0.4218,
-        "did_median": 0.6488,
-        "n_analyzed_surviving_67": 67,
-        "n_confirmed": 86,
-        "n_negative": 15,
-        "n_positive": 52,
+        "did_ci95_hi": 1.0261,
+        "did_ci95_lo": 0.5007,
+        "did_median": 0.8095,
+        "n_analyzed_surviving_67": 62,
+        "n_confirmed": 63,
+        "n_negative": 13,
+        "n_positive": 49,
         "rule": "confirm_min6",
-        "wilcoxon_p_onesided": 1.03e-06
+        "wilcoxon_p_onesided": 4.21e-07
       },
       {
         "did_ci95_hi": null,
@@ -153,7 +153,10 @@
         "5g_in_post_window": 6,
         "never": 189
       }
-    }
+    },
+    "timing_controls_used_n_distinct_districts": 107,
+    "timing_controls_used_n_instances": 211,
+    "timing_controls_used_note": "agrupado por (control_key, treated_bp), no por distrito-control unico (un mismo control puede tener bps distintos segun a que tratado esta emparejado); ver matching_diagnostics.total_unique_controls (107) para el conteo de distritos-control fisicos distintos"
   },
   "matching_diagnostics": {
     "balance": [
@@ -227,18 +230,165 @@
     ],
     "total_unique_controls": 107
   },
+  "negative_districts_extra": {
+    "delta_raw_negative_profiles": [
+      {
+        "breakpoint": 202410,
+        "control_post_mean_4g_dl": 10.5704,
+        "control_pre_mean_4g_dl": 10.6611,
+        "control_trend": "baja",
+        "delta_raw": -1.1406,
+        "department": "Arequipa",
+        "did": -0.7021,
+        "district": "Socabaya",
+        "has_5g_post": false,
+        "months_post": 20,
+        "pct_change_meas": 0.1609,
+        "region3": "Sierra"
+      },
+      {
+        "breakpoint": 202412,
+        "control_post_mean_4g_dl": 9.0707,
+        "control_pre_mean_4g_dl": 8.9346,
+        "control_trend": "sube",
+        "delta_raw": -0.5183,
+        "department": "Junin",
+        "did": 0.2115,
+        "district": "San Agustin",
+        "has_5g_post": false,
+        "months_post": 18,
+        "pct_change_meas": -0.1761,
+        "region3": "Sierra"
+      },
+      {
+        "breakpoint": 202412,
+        "control_post_mean_4g_dl": 10.9299,
+        "control_pre_mean_4g_dl": 9.8701,
+        "control_trend": "sube",
+        "delta_raw": -0.1819,
+        "department": "La Libertad",
+        "did": -0.7713,
+        "district": "El Porvenir",
+        "has_5g_post": false,
+        "months_post": 18,
+        "pct_change_meas": -0.2553,
+        "region3": "Costa"
+      },
+      {
+        "breakpoint": 202412,
+        "control_post_mean_4g_dl": 10.5184,
+        "control_pre_mean_4g_dl": 10.3056,
+        "control_trend": "sube",
+        "delta_raw": -0.7666,
+        "department": "Lambayeque",
+        "did": -0.4906,
+        "district": "La Victoria",
+        "has_5g_post": false,
+        "months_post": 18,
+        "pct_change_meas": -0.0373,
+        "region3": "Costa"
+      },
+      {
+        "breakpoint": 202602,
+        "control_post_mean_4g_dl": 10.177,
+        "control_pre_mean_4g_dl": 9.2091,
+        "control_trend": "sube",
+        "delta_raw": -2.7142,
+        "department": "Lima",
+        "did": -3.5172,
+        "district": "Sayan",
+        "has_5g_post": false,
+        "months_post": 4,
+        "pct_change_meas": -0.0863,
+        "region3": "Costa"
+      }
+    ],
+    "did_negative_pattern": {
+      "median_months_post": 6.0,
+      "n_did_negative": 15,
+      "n_with_5g_post": 5,
+      "note": "distribucion de region3/months_post/5G entre los distritos con did<0, para ver si hay un patron comun",
+      "region3_counts": {
+        "Costa": 13,
+        "Sierra": 2
+      }
+    }
+  },
+  "out_of_sample_persistence": {
+    "did_principal_excluding_dropped": {
+      "ci95_hi": 1.0104,
+      "ci95_lo": 0.438,
+      "did_median": 0.7194,
+      "n": 66
+    },
+    "dropped_districts": [
+      {
+        "breakpoint": 202602,
+        "did_frozen": 0.0743,
+        "district_key": "CUSCO|ESPINAR|ESPINAR",
+        "reason": "reactivacion_3G_en_[202607]"
+      }
+    ],
+    "n_67_dropped": 1,
+    "n_67_still_confirmed": 66,
+    "origin_main_commit": "c875c8b5a472dbe3394349b91b426e2f5324c925",
+    "origin_main_last_yearmonth": 202607,
+    "warning": "USA DATOS NO CONGELADOS (origin/main, hasta YEARMONTH 202607). Solo informativo/robustez fuera-de-muestra; NO reemplaza los numeros oficiales de v1.2 (que usan exclusivamente datos <=202605, tag v1.1-outcomes)."
+  },
   "placebo": {
-    "ci95_hi": 0.3654,
-    "ci95_lo": -0.0375,
-    "did_median": 0.2614,
-    "excluded_keys": [],
-    "n": 67,
-    "n_excluded": 0,
-    "n_negative": 27,
-    "n_positive": 40,
-    "outcome": "download 4G",
-    "pseudo_breakpoint": "bp-6",
-    "wilcoxon_p_twosided": 0.027014
+    "original": {
+      "ci95_hi": 0.3654,
+      "ci95_lo": -0.0375,
+      "did_median": 0.2614,
+      "excluded_keys": [],
+      "n": 67,
+      "n_excluded": 0,
+      "n_negative": 27,
+      "n_positive": 40,
+      "outcome": "download 4G",
+      "pseudo_breakpoint": "bp-6",
+      "wilcoxon_p_twosided": 0.027014
+    },
+    "pretrend_tau_neg12_to_neg7_original_matches": {
+      "-10": {
+        "gap_mean": -0.0755,
+        "n": 67
+      },
+      "-11": {
+        "gap_mean": -0.1528,
+        "n": 67
+      },
+      "-12": {
+        "gap_mean": -0.1413,
+        "n": 67
+      },
+      "-7": {
+        "gap_mean": -0.0428,
+        "n": 67
+      },
+      "-8": {
+        "gap_mean": -0.1092,
+        "n": 67
+      },
+      "-9": {
+        "gap_mean": -0.1094,
+        "n": 67
+      }
+    },
+    "rematched": {
+      "ci95_hi": 0.2342,
+      "ci95_lo": -0.1691,
+      "did_median": -0.0297,
+      "n_matched": 67,
+      "n_negative": 35,
+      "n_positive": 32,
+      "n_relaxed_caliper": 5,
+      "n_unmatched": 0,
+      "note": "re-emparejado con las mismas covariables/calipers que v1.0 (K=5, Mahalanobis); baseline de matching = media[bp-12,bp-7]; controles exigidos con 3G activo en [bp-12,bp-1]",
+      "outcome": "download 4G",
+      "pseudo_breakpoint": "bp-6",
+      "wilcoxon_p_twosided": 0.671003
+    }
   },
   "regional_did": {
     "costa": {
@@ -250,6 +400,17 @@
       "n_negative": 13,
       "n_positive": 25,
       "wilcoxon_p_onesided": 0.059056
+    },
+    "costa_excl_5g": {
+      "ci95_hi": 0.6294,
+      "ci95_lo": 0.1674,
+      "crude_median": 0.9653,
+      "did_median": 0.3506,
+      "n": 31,
+      "n_negative": 8,
+      "n_positive": 23,
+      "note": "Costa excluyendo los distritos con mediciones 5G_NSA>0 en su ventana post (mismos 7 de T9.3/T9.4)",
+      "wilcoxon_p_onesided": 0.007426
     },
     "sierra": {
       "ci95_hi": 1.5714,
