@@ -1,0 +1,9 @@
+variant,n,did_median,did_ci95_lo,did_ci95_hi,wilcoxon_p_onesided,wilcoxon_p_twosided,n_positive,n_negative,crude_median,note,n_treated_dropped_lt3_controls
+principal,67,0.6488,0.4218,1.0104,1.03e-06,2.06e-06,52,15,1.0032,,
+weighted,67,0.7526,0.3941,0.9832,2.07e-06,4.15e-06,51,16,0.9799,,
+strict_post6,62,0.8095,0.5007,1.0261,4.21e-07,8.42e-07,49,13,1.0051,,
+excl_low_meas_a,50,0.5619,0.3113,0.9355,4.32e-05,8.63e-05,37,13,0.8706,solo tratados excluidos por avg_meas_per_month<1000 (formula v1.0); controles intactos,
+excl_low_meas_b,50,0.5619,0.3113,0.9335,4.32e-05,8.63e-05,37,13,0.8706,tratados y controles excluidos por avg_meas_per_month<1000 (control: analogo sobre ventana calendario del tratado); tratado se descarta si quedan <3 controles,0.0
+excl_5G,60,0.8429,0.5357,1.1319,8.63e-08,1.73e-07,50,10,1.0701,reutiliza observable_stats_v1_1.json tal cual,
+window_3,67,0.6584,0.4192,0.9386,8.82e-07,1.76e-06,50,17,0.7258,,
+window_4,67,0.6787,0.3564,0.9261,6.87e-07,1.37e-06,51,16,0.7907,,

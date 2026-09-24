@@ -1,0 +1,4 @@
+variable,treated_mean,control_mean_before,control_mean_after,smd_before,smd_after,variance_ratio_before,variance_ratio_after
+pre6_4g_download_mbps,10.3451,10.1707,10.2097,0.1942,0.0888,1.0728,0.9145
+log10_poblacion,4.7804,4.5275,4.7216,0.4643,0.119,1.0852,0.8165
+altitud_m,1479.0149,1208.1074,1381.1139,-0.0835,0.0643,1.0622,0.9059

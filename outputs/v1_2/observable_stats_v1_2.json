@@ -1,0 +1,393 @@
+{
+  "bootstrap": {
+    "n_iterations": 10000,
+    "seed": 42
+  },
+  "detection_sensitivity": {
+    "note": "no se re-empareja: sobrevivientes conservan sus K controles de v1.0",
+    "variants": [
+      {
+        "did_ci95_hi": 1.0104,
+        "did_ci95_lo": 0.4218,
+        "did_median": 0.6488,
+        "n_analyzed_surviving_67": 67,
+        "n_confirmed": 86,
+        "n_negative": 15,
+        "n_positive": 52,
+        "rule": "confirm_min3",
+        "wilcoxon_p_onesided": 1.03e-06
+      },
+      {
+        "did_ci95_hi": 1.0104,
+        "did_ci95_lo": 0.4218,
+        "did_median": 0.6488,
+        "n_analyzed_surviving_67": 67,
+        "n_confirmed": 86,
+        "n_negative": 15,
+        "n_positive": 52,
+        "rule": "confirm_min6",
+        "wilcoxon_p_onesided": 1.03e-06
+      },
+      {
+        "did_ci95_hi": null,
+        "did_ci95_lo": null,
+        "did_median": null,
+        "n_analyzed_surviving_67": 0,
+        "n_confirmed": 0,
+        "n_negative": 0,
+        "n_positive": 0,
+        "rule": "explicit_zero_only",
+        "wilcoxon_p_onesided": null
+      }
+    ]
+  },
+  "event_study_meta": {
+    "aggregation": "media entre distritos tratados del gap (tratado - media de sus K controles) por mes calendario, tau=-6..+5 (misma agregacion que event_study.csv de v1.0, T0.4)",
+    "bootstrap": {
+      "n_iterations": 10000,
+      "resample_unit": "distrito tratado",
+      "seed": 42,
+      "statistic": "media (no mediana, para ser consistente con event_study.csv v1.0)"
+    }
+  },
+  "fiveg_sequence": {
+    "composition_leakage": {
+      "mannwhitney_p_meas": 0.003172,
+      "mannwhitney_p_time4g": 0.462569,
+      "median_delta_meas_4g_5g": -12755.8333,
+      "median_delta_meas_4g_other": -3183.5833,
+      "median_delta_time4g_5g": 1.9959,
+      "median_delta_time4g_other": 1.655,
+      "n_5g_districts": 7,
+      "n_other_districts": 60
+    },
+    "contamination": {
+      "excl_treated_and_controls_with_5g": {
+        "ci95_hi": 1.1658,
+        "ci95_lo": 0.617,
+        "did_median": 0.8613,
+        "n": 56,
+        "wilcoxon_p_onesided": 8.17e-08
+      },
+      "excl_treated_with_5g": {
+        "ci95_hi": 1.1319,
+        "ci95_lo": 0.5357,
+        "did_median": 0.8429,
+        "n": 60,
+        "wilcoxon_p_onesided": 8.63e-08
+      },
+      "n_treated_dropped_lt3_controls": 4
+    },
+    "inventory": {
+      "columns_5g": [
+        "AVERAGE_THROUGHPUT_DOWNLOAD_5G_NSA",
+        "THROUGHPUT_DOWNLOAD_5G_NSA_MEASUREMENTS",
+        "AVERAGE_THROUGHPUT_UPLOAD_5G_NSA",
+        "THROUGHPUT_UPLOAD_5G_NSA_MEASUREMENTS",
+        "AVERAGE_LATENCY_5G_NSA",
+        "LATENCY_5G_NSA_MEASUREMENTS",
+        "TIME_PERCENTAGE_5G_NSA",
+        "TIME_PERCENTAGE_5G_NSA_SECONDS",
+        "TIME_PERCENTAGE_5G_NSA_MEASUREMENTS",
+        "PACKET_LOSS_5G_NSA",
+        "LOST_PACKET_5G_NSA",
+        "PACKET_TRANSMITTED_5G_NSA",
+        "PACKET_LOSS_5G_NSA_MEASUREMENTS"
+      ],
+      "districts_with_5g_by_month": {
+        "202403": 4,
+        "202404": 4,
+        "202405": 4,
+        "202406": 2,
+        "202407": 3,
+        "202408": 3,
+        "202409": 2,
+        "202410": 4,
+        "202411": 3,
+        "202412": 3,
+        "202501": 3,
+        "202502": 3,
+        "202503": 4,
+        "202504": 5,
+        "202505": 4,
+        "202506": 4,
+        "202507": 4,
+        "202508": 2,
+        "202509": 3,
+        "202510": 7,
+        "202511": 7,
+        "202512": 9,
+        "202601": 8,
+        "202602": 12,
+        "202603": 18,
+        "202604": 24,
+        "202605": 29
+      },
+      "first_national_5g_yearmonth": 202403
+    },
+    "lima_5g_districts_bp202512": [
+      "LIMA|LIMA|BREÑA",
+      "LIMA|LIMA|CARABAYLLO",
+      "LIMA|LIMA|LOS OLIVOS",
+      "LIMA|LIMA|SAN JUAN DE LURIGANCHO",
+      "LIMA|LIMA|SAN MARTIN DE PORRES",
+      "LIMA|CAÑETE|ASIA",
+      "LIMA|CAÑETE|MALA"
+    ],
+    "timing_class_counts": {
+      "analyzed_67": {
+        "5g_after_window": 2,
+        "5g_before_bp": 2,
+        "5g_in_post_window": 5,
+        "never": 58
+      },
+      "confirmed_86": {
+        "5g_after_window": 2,
+        "5g_before_bp": 10,
+        "5g_in_post_window": 7,
+        "never": 67
+      },
+      "controls_used": {
+        "5g_after_window": 6,
+        "5g_before_bp": 10,
+        "5g_in_post_window": 6,
+        "never": 189
+      }
+    }
+  },
+  "matching_diagnostics": {
+    "balance": [
+      {
+        "control_mean_after": 10.2097,
+        "control_mean_before": 10.1707,
+        "smd_after": 0.0888,
+        "smd_before": 0.1942,
+        "treated_mean": 10.3451,
+        "variable": "pre6_4g_download_mbps",
+        "variance_ratio_after": 0.9145,
+        "variance_ratio_before": 1.0728
+      },
+      {
+        "control_mean_after": 4.7216,
+        "control_mean_before": 4.5275,
+        "smd_after": 0.119,
+        "smd_before": 0.4643,
+        "treated_mean": 4.7804,
+        "variable": "log10_poblacion",
+        "variance_ratio_after": 0.8165,
+        "variance_ratio_before": 1.0852
+      },
+      {
+        "control_mean_after": 1381.1139,
+        "control_mean_before": 1208.1074,
+        "smd_after": 0.0643,
+        "smd_before": -0.0835,
+        "treated_mean": 1479.0149,
+        "variable": "altitud_m",
+        "variance_ratio_after": 0.9059,
+        "variance_ratio_before": 1.0622
+      }
+    ],
+    "distinct_controls_per_treated": {
+      "max": 5,
+      "median": 5.0,
+      "min": 3,
+      "n_lt_5": 12
+    },
+    "max_abs_smd_after": 0.119,
+    "note_before_baseline": "SMD 'antes' calculado sobre el pool elegible en la misma region3, misma ventana calendario y misma regla MIN_VALID, SIN restriccion de caliper (cal=1e9) — construccion nueva de v1.2 (no existia en v1.0), declarada por regla 8",
+    "region3_exact_match_fraction": 1.0,
+    "reuse_frequency": {
+      "max": 13,
+      "median": 2.0,
+      "min": 1,
+      "p90": 6.400000000000006
+    },
+    "top5_most_reused": [
+      {
+        "control_key": "HUANCAVELICA|HUANCAVELICA|HUANCAVELICA",
+        "n_uses": 13
+      },
+      {
+        "control_key": "CUSCO|CANCHIS|SICUANI",
+        "n_uses": 10
+      },
+      {
+        "control_key": "LA LIBERTAD|SANCHEZ CARRION|HUAMACHUCO",
+        "n_uses": 8
+      },
+      {
+        "control_key": "LIMA|LIMA|CHORRILLOS",
+        "n_uses": 8
+      },
+      {
+        "control_key": "JUNIN|TARMA|TARMA",
+        "n_uses": 7
+      }
+    ],
+    "total_unique_controls": 107
+  },
+  "placebo": {
+    "ci95_hi": 0.3654,
+    "ci95_lo": -0.0375,
+    "did_median": 0.2614,
+    "excluded_keys": [],
+    "n": 67,
+    "n_excluded": 0,
+    "n_negative": 27,
+    "n_positive": 40,
+    "outcome": "download 4G",
+    "pseudo_breakpoint": "bp-6",
+    "wilcoxon_p_twosided": 0.027014
+  },
+  "regional_did": {
+    "costa": {
+      "ci95_hi": 0.5526,
+      "ci95_lo": -0.0306,
+      "crude_median": 0.7739,
+      "did_median": 0.3286,
+      "n": 38,
+      "n_negative": 13,
+      "n_positive": 25,
+      "wilcoxon_p_onesided": 0.059056
+    },
+    "sierra": {
+      "ci95_hi": 1.5714,
+      "ci95_lo": 1.0261,
+      "crude_median": 1.4061,
+      "did_median": 1.2073,
+      "n": 29,
+      "n_negative": 2,
+      "n_positive": 27,
+      "wilcoxon_p_onesided": 3.54e-08
+    },
+    "sierra_minus_costa": {
+      "ci95_hi": 1.4426,
+      "ci95_lo": 0.6137,
+      "estimate": 0.8786
+    }
+  },
+  "robustness_matched": {
+    "note_matches": "window_3/window_4 reutilizan los mismos K=5 controles de v1.0 (matching hizo baseline pre6); no se re-empareja",
+    "variants": [
+      {
+        "crude_median": 1.0032,
+        "did_ci95_hi": 1.0104,
+        "did_ci95_lo": 0.4218,
+        "did_median": 0.6488,
+        "n": 67,
+        "n_negative": 15,
+        "n_positive": 52,
+        "variant": "principal",
+        "wilcoxon_p_onesided": 1.03e-06,
+        "wilcoxon_p_twosided": 2.06e-06
+      },
+      {
+        "crude_median": 0.9799,
+        "did_ci95_hi": 0.9832,
+        "did_ci95_lo": 0.3941,
+        "did_median": 0.7526,
+        "n": 67,
+        "n_negative": 16,
+        "n_positive": 51,
+        "variant": "weighted",
+        "wilcoxon_p_onesided": 2.07e-06,
+        "wilcoxon_p_twosided": 4.15e-06
+      },
+      {
+        "crude_median": 1.0051,
+        "did_ci95_hi": 1.0261,
+        "did_ci95_lo": 0.5007,
+        "did_median": 0.8095,
+        "n": 62,
+        "n_negative": 13,
+        "n_positive": 49,
+        "variant": "strict_post6",
+        "wilcoxon_p_onesided": 4.21e-07,
+        "wilcoxon_p_twosided": 8.42e-07
+      },
+      {
+        "crude_median": 0.8706,
+        "did_ci95_hi": 0.9355,
+        "did_ci95_lo": 0.3113,
+        "did_median": 0.5619,
+        "n": 50,
+        "n_negative": 13,
+        "n_positive": 37,
+        "note": "solo tratados excluidos por avg_meas_per_month<1000 (formula v1.0); controles intactos",
+        "variant": "excl_low_meas_a",
+        "wilcoxon_p_onesided": 4.32e-05,
+        "wilcoxon_p_twosided": 8.63e-05
+      },
+      {
+        "crude_median": 0.8706,
+        "did_ci95_hi": 0.9335,
+        "did_ci95_lo": 0.3113,
+        "did_median": 0.5619,
+        "n": 50,
+        "n_negative": 13,
+        "n_positive": 37,
+        "n_treated_dropped_lt3_controls": 0,
+        "note": "tratados y controles excluidos por avg_meas_per_month<1000 (control: analogo sobre ventana calendario del tratado); tratado se descarta si quedan <3 controles",
+        "variant": "excl_low_meas_b",
+        "wilcoxon_p_onesided": 4.32e-05,
+        "wilcoxon_p_twosided": 8.63e-05
+      },
+      {
+        "crude_median": 1.0701,
+        "did_ci95_hi": 1.1319,
+        "did_ci95_lo": 0.5357,
+        "did_median": 0.8429,
+        "n": 60,
+        "n_negative": 10,
+        "n_positive": 50,
+        "note": "reutiliza observable_stats_v1_1.json tal cual",
+        "variant": "excl_5G",
+        "wilcoxon_p_onesided": 8.63e-08,
+        "wilcoxon_p_twosided": 1.73e-07
+      },
+      {
+        "crude_median": 0.7258,
+        "did_ci95_hi": 0.9386,
+        "did_ci95_lo": 0.4192,
+        "did_median": 0.6584,
+        "n": 67,
+        "n_negative": 17,
+        "n_positive": 50,
+        "variant": "window_3",
+        "wilcoxon_p_onesided": 8.82e-07,
+        "wilcoxon_p_twosided": 1.76e-06
+      },
+      {
+        "crude_median": 0.7907,
+        "did_ci95_hi": 0.9261,
+        "did_ci95_lo": 0.3564,
+        "did_median": 0.6787,
+        "n": 67,
+        "n_negative": 16,
+        "n_positive": 51,
+        "variant": "window_4",
+        "wilcoxon_p_onesided": 6.87e-07,
+        "wilcoxon_p_twosided": 1.37e-06
+      }
+    ]
+  },
+  "sanity": {
+    "all_ok": true,
+    "crude_principal_median": 1.0032,
+    "crude_principal_n": 67,
+    "did_principal_median": 0.6488,
+    "did_principal_n": 67,
+    "last_yearmonth_read": 202605,
+    "sensitivity_5g_v11_did_median": 0.8429,
+    "sensitivity_5g_v11_n": 60
+  },
+  "t0_1_zero_types": {
+    "counts": {
+      "empty_field": 945
+    },
+    "n_67_only_explicit_zero": 0,
+    "n_86_only_explicit_zero": 0
+  },
+  "tag_base": "v1.1-outcomes (worktree paper/v1.2)"
+}

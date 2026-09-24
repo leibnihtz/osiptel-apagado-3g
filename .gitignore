@@ -16,6 +16,7 @@ build/
 *.docx
 *.xlsx
 *.pdf
+!Paper/figs/*.pdf
 
 # Outputs locales que no van al repo
 outputs/logs/

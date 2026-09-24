@@ -1,0 +1,4 @@
+rule,n_confirmed,n_analyzed_surviving_67,did_median,did_ci95_lo,did_ci95_hi,wilcoxon_p_onesided,n_positive,n_negative
+confirm_min3,86,67,0.6488,0.4218,1.0104,1.03e-06,52,15
+confirm_min6,86,67,0.6488,0.4218,1.0104,1.03e-06,52,15
+explicit_zero_only,0,0,,,,,0,0
