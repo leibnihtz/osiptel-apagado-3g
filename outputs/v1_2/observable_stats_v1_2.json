@@ -399,7 +399,8 @@
       "n": 38,
       "n_negative": 13,
       "n_positive": 25,
-      "wilcoxon_p_onesided": 0.059056
+      "wilcoxon_p_onesided": 0.059056,
+      "wilcoxon_p_twosided": 0.118111
     },
     "costa_excl_5g": {
       "ci95_hi": 0.6294,
@@ -410,7 +411,8 @@
       "n_negative": 8,
       "n_positive": 23,
       "note": "Costa excluyendo los distritos con mediciones 5G_NSA>0 en su ventana post (mismos 7 de T9.3/T9.4)",
-      "wilcoxon_p_onesided": 0.007426
+      "wilcoxon_p_onesided": 0.007426,
+      "wilcoxon_p_twosided": 0.014852
     },
     "sierra": {
       "ci95_hi": 1.5714,
@@ -420,7 +422,8 @@
       "n": 29,
       "n_negative": 2,
       "n_positive": 27,
-      "wilcoxon_p_onesided": 3.54e-08
+      "wilcoxon_p_onesided": 3.54e-08,
+      "wilcoxon_p_twosided": 7.08e-08
     },
     "sierra_minus_costa": {
       "ci95_hi": 1.4426,

@@ -1187,12 +1187,13 @@ def t7_regional_did(base: dict) -> dict:
         crude_arr = sub["delta_treated"].dropna().values
         region_arrs[region] = did_arr
         ci_lo, ci_hi = bootstrap_median_ci(did_arr)
-        p1, _ = wilcoxon_pair(did_arr)
+        p1, p2 = wilcoxon_pair(did_arr)
         npos, nneg = npos_nneg(did_arr)
         out[region.lower()] = {
             "n": len(did_arr), "did_median": r4(np.median(did_arr)) if len(did_arr) else None,
             "ci95_lo": r4(ci_lo), "ci95_hi": r4(ci_hi),
             "wilcoxon_p_onesided": round_p(p1) if not np.isnan(p1) else None,
+            "wilcoxon_p_twosided": round_p(p2) if not np.isnan(p2) else None,
             "n_positive": npos, "n_negative": nneg,
             "crude_median": r4(np.median(crude_arr)) if len(crude_arr) else None,
         }
@@ -1221,12 +1222,13 @@ def t7_regional_did(base: dict) -> dict:
     did_arr = costa_excl["did"].dropna().values
     crude_arr = costa_excl["delta_treated"].dropna().values
     ci_lo, ci_hi = bootstrap_median_ci(did_arr)
-    p1, _ = wilcoxon_pair(did_arr)
+    p1, p2 = wilcoxon_pair(did_arr)
     npos, nneg = npos_nneg(did_arr)
     out["costa_excl_5g"] = {
         "n": len(did_arr), "did_median": r4(np.median(did_arr)) if len(did_arr) else None,
         "ci95_lo": r4(ci_lo), "ci95_hi": r4(ci_hi),
         "wilcoxon_p_onesided": round_p(p1) if not np.isnan(p1) else None,
+        "wilcoxon_p_twosided": round_p(p2) if not np.isnan(p2) else None,
         "n_positive": npos, "n_negative": nneg,
         "crude_median": r4(np.median(crude_arr)) if len(crude_arr) else None,
         "note": "Costa excluyendo los distritos con mediciones 5G_NSA>0 en su ventana post "
