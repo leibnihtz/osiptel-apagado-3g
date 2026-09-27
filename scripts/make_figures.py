@@ -21,7 +21,7 @@ Design goals
 
 Usage
 -----
-    python Paper/make_figures.py --outdir Paper/figs
+    python scripts/make_figures.py --outdir Paper/figs
 
 All paths have defaults matching the repo layout; override only what differs.
 Column names are auto-detected from a list of candidates (see COL_* below); if
@@ -81,10 +81,13 @@ COL_EFFECT = ["gap_mean", "effect", "coef", "mean_diff", "did", "adj_diff",
               "mean_effect", "estimate"]
 COL_CILO   = ["ci_lo", "ci95_lo", "lo", "lower", "ci_low", "conf_lo"]
 COL_CIHI   = ["ci_hi", "ci95_hi", "hi", "upper", "ci_high", "conf_hi"]
-# event_study_v1_2.csv uses "n_treated" for the per-tau contributing count
-COL_N      = ["n_treated", "n", "n_contributing"]
 # GeoJSON feature property holding the district's 4G delta:
 PROP_DELTA = COL_DELTA
+
+# Figs. 1-2 show only the ANALYZED districts (>= 3 valid post-shutdown months),
+# not all 86 confirmed shutdowns. Expected values (paper, v1.2):
+MIN_POST_MONTHS = 3
+EXPECT_N, EXPECT_MEDIAN, EXPECT_IMPROVED, EXPECT_DEPTS = 67, 1.0032, 62, 13
 
 # Region palette (colorblind-friendly)
 REGION_COLORS = {
@@ -113,6 +116,20 @@ def load_csv(path):
     if not os.path.exists(path):
         sys.exit(f"[make_figures] File not found: {path}")
     return pd.read_csv(path)
+
+
+def analyzed_subset(summary):
+    """Keep districts with >= MIN_POST_MONTHS post months; check paper values."""
+    a = summary[summary["months_post"] >= MIN_POST_MONTHS]
+    delta = a[pick_col(a, COL_DELTA, "download delta")]
+    n, med = len(a), round(float(delta.median()), 4)
+    improved, depts = int((delta > 0).sum()), a["department"].nunique()
+    assert (n, med, improved, depts) == (
+        EXPECT_N, EXPECT_MEDIAN, EXPECT_IMPROVED, EXPECT_DEPTS), (
+        f"analyzed subset n={n} median={med} improved={improved} depts={depts}")
+    print(f"[make_figures] analyzed subset: n={n} median={med} "
+          f"improved={improved} departments={depts}")
+    return a
 
 
 def region_key(v):
@@ -172,11 +189,9 @@ def fig_event_study(event, outdir, out_name="event_study.pdf"):
     e = pick_col(event, COL_EFFECT, "effect / control-adjusted difference")
     lo = next((c for c in COL_CILO if c in event.columns), None)
     hi = next((c for c in COL_CIHI if c in event.columns), None)
-    n_col = next((c for c in COL_N if c in event.columns), None)
 
     event = event.sort_values(m)
-    has_n = n_col is not None
-    fig, ax = plt.subplots(figsize=(COLW, COLW * (0.82 if has_n else 0.72)))
+    fig, ax = plt.subplots(figsize=(COLW, COLW * 0.72))
 
     ax.axhline(0, color="0.4", lw=0.8, ls="-")
     ax.axvline(0, color="0.4", lw=0.8, ls="--")  # breakpoint
@@ -191,17 +206,7 @@ def fig_event_study(event, outdir, out_name="event_study.pdf"):
     ax.set_ylabel("Control-adjusted\n4G download diff. (Mbps)")
     ax.grid(True, color="0.9")
     ax.set_axisbelow(True)
-
-    if has_n:
-        y_lo, y_hi = ax.get_ylim()
-        pad = (y_hi - y_lo) * 0.16
-        ax.set_ylim(y_lo - pad, y_hi)
-        y_n = y_lo - pad * 0.6
-        for i, (_, row) in enumerate(event.iterrows()):
-            label = f"n={int(row[n_col])}" if i == 0 else f"{int(row[n_col])}"
-            ax.text(row[m], y_n, label, ha="center", va="center",
-                    fontsize=5.5, color="0.35")
-
+    # Per-month n is reported in the caption, not drawn (illegible at column width).
     save(fig, outdir, out_name)
 
 
@@ -274,6 +279,8 @@ def fig_map(districts_path, departments_path, outdir):
     # district bubbles: centroid, size ~ |delta|, color ~ delta
     lons, lats, vals = [], [], []
     for feat in gj.get("features", []):
+        if (feat.get("properties", {}).get("months_post") or 0) < MIN_POST_MONTHS:
+            continue
         d = _feature_prop(feat.get("properties", {}), PROP_DELTA)
         if d is None:
             continue
@@ -289,6 +296,7 @@ def fig_map(districts_path, departments_path, outdir):
         sys.exit("[make_figures] map: no district features had a delta "
                  f"property {PROP_DELTA}. Check the GeoJSON.")
 
+    assert len(vals) == EXPECT_N, f"map: {len(vals)} districts, expected {EXPECT_N}"
     vals = np.asarray(vals)
     vmax = float(np.nanmax(np.abs(vals))) or 1.0
     norm = TwoSlopeNorm(vmin=-vmax, vcenter=0.0, vmax=vmax)
@@ -317,7 +325,7 @@ def main():
     ap.add_argument("--summary",
                     default="outputs/observable/data/observable_4g_upgrade_summary_with_ubigeo.csv")
     ap.add_argument("--event",
-                    default="outputs/tables/event_study.csv")
+                    default="outputs/v1_2/event_study_v1_2.csv")
     ap.add_argument("--districts",
                     default="outputs/observable/data/observable_4g_upgrade_districts.geojson")
     ap.add_argument("--departments",
@@ -330,7 +338,7 @@ def main():
     args = ap.parse_args()
 
     if args.only in (None, "scatter"):
-        fig_scatter(load_csv(args.summary), args.outdir)
+        fig_scatter(analyzed_subset(load_csv(args.summary)), args.outdir)
     if args.only in (None, "event"):
         fig_event_study(load_csv(args.event), args.outdir, out_name=args.out_name)
     if args.only in (None, "map"):
